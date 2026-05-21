@@ -88,6 +88,7 @@ void main() {
   setUp(() {
     SharedPreferences.setMockInitialValues(<String, Object>{
       'interface_language': 'ko',
+      'onboarding_complete': true,
     });
   });
 
@@ -239,14 +240,14 @@ void main() {
     addTearDown(() => tester.binding.setSurfaceSize(null));
 
     await tester.pumpWidget(const ThaiKoreanWordApp(initialData: sampleData));
-    await pumpUntilFound(tester, find.text('난이도'));
+    await pumpUntilFound(tester, find.text('현재 코스'));
 
     expect(find.text('KorThai Words'), findsWidgets);
-    expect(find.text('난이도'), findsOneWidget);
-    expect(find.text('초급'), findsOneWidget);
+    expect(find.text('현재 코스'), findsOneWidget);
+    expect(find.text('초급 첫걸음'), findsWidgets);
     expect(find.text('학습률 0%'), findsWidgets);
     expect(find.text('3 words'), findsOneWidget);
-    expect(find.text('고급'), findsOneWidget);
+    expect(find.text('학습 로드맵'), findsOneWidget);
     expect(find.textContaining('다음 업데이트에서 열릴 예정'), findsNothing);
   });
 
@@ -255,18 +256,39 @@ void main() {
     SharedPreferences.setMockInitialValues(<String, Object>{});
 
     await tester.pumpWidget(const ThaiKoreanWordApp(initialData: sampleData));
-    await pumpUntilFound(tester, find.text('ระดับ'));
+    await pumpUntilFound(tester, find.text('เริ่มจากระดับที่เหมาะกับคุณ'));
 
-    expect(find.text('ระดับ'), findsOneWidget);
-    expect(find.text('ระดับต้น'), findsOneWidget);
+    expect(find.text('เริ่มจากระดับที่เหมาะกับคุณ'), findsOneWidget);
+    expect(find.text('ข้ามและเริ่มระดับต้น'), findsOneWidget);
+  });
+
+  testWidgets('skips placement test and opens beginner course',
+      (WidgetTester tester) async {
+    SharedPreferences.setMockInitialValues(<String, Object>{
+      'interface_language': 'ko',
+    });
+
+    await tester.pumpWidget(const ThaiKoreanWordApp(initialData: sampleData));
+    await pumpUntilFound(tester, find.text('나에게 맞는 단계부터 시작'));
+
+    await tester.tap(find.text('건너뛰고 초급부터'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+
+    expect(find.text('현재 코스'), findsOneWidget);
+    expect(find.text('초급 첫걸음'), findsWidgets);
+
+    final preferences = await SharedPreferences.getInstance();
+    expect(preferences.getBool('onboarding_complete'), isTrue);
+    expect(preferences.getString('course_stage_id'), 'beginner_foundation');
   });
 
   testWidgets('opens word list from difficulty deck',
       (WidgetTester tester) async {
     await tester.pumpWidget(const ThaiKoreanWordApp(initialData: sampleData));
-    await pumpUntilFound(tester, find.text('초급'));
+    await pumpUntilFound(tester, find.text('초급 첫걸음'));
 
-    await tester.tap(find.text('초급'));
+    await tester.tap(find.text('초급 첫걸음').first);
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
 
@@ -277,6 +299,7 @@ void main() {
   testWidgets('opens today review words', (WidgetTester tester) async {
     SharedPreferences.setMockInitialValues(<String, Object>{
       'interface_language': 'ko',
+      'onboarding_complete': true,
       'wrong_word_ids': <String>['krdict_31670'],
       'memory_ratings': <String>['krdict_73276:unsure'],
     });
@@ -284,7 +307,7 @@ void main() {
     await tester.pumpWidget(const ThaiKoreanWordApp(initialData: sampleData));
     await pumpUntilFound(tester, find.text('오늘의 복습'));
 
-    expect(find.text('오답과 애매한 단어 우선 · 3개'), findsOneWidget);
+    expect(find.text('오답과 애매한 단어 우선 · 2개'), findsOneWidget);
 
     await tester.tap(find.text('오늘의 복습'));
     await tester.pump();
@@ -298,9 +321,9 @@ void main() {
 
   testWidgets('answers a quiz question', (WidgetTester tester) async {
     await tester.pumpWidget(const ThaiKoreanWordApp(initialData: sampleData));
-    await pumpUntilFound(tester, find.text('초급'));
+    await pumpUntilFound(tester, find.text('초급 첫걸음'));
 
-    await tester.tap(find.text('초급'));
+    await tester.tap(find.text('초급 첫걸음').first);
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
 
@@ -322,9 +345,9 @@ void main() {
     addTearDown(() => tester.binding.setSurfaceSize(null));
 
     await tester.pumpWidget(const ThaiKoreanWordApp(initialData: sampleData));
-    await pumpUntilFound(tester, find.text('초급'));
+    await pumpUntilFound(tester, find.text('초급 첫걸음'));
 
-    await tester.tap(find.text('초급'));
+    await tester.tap(find.text('초급 첫걸음').first);
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
 
@@ -350,9 +373,9 @@ void main() {
     addTearDown(() => tester.binding.setSurfaceSize(null));
 
     await tester.pumpWidget(const ThaiKoreanWordApp(initialData: sampleData));
-    await pumpUntilFound(tester, find.text('초급'));
+    await pumpUntilFound(tester, find.text('초급 첫걸음'));
 
-    await tester.tap(find.text('초급'));
+    await tester.tap(find.text('초급 첫걸음').first);
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
 
@@ -379,9 +402,9 @@ void main() {
 
   testWidgets('adds a favorite word', (WidgetTester tester) async {
     await tester.pumpWidget(const ThaiKoreanWordApp(initialData: sampleData));
-    await pumpUntilFound(tester, find.text('초급'));
+    await pumpUntilFound(tester, find.text('초급 첫걸음'));
 
-    await tester.tap(find.text('초급'));
+    await tester.tap(find.text('초급 첫걸음').first);
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
 
@@ -397,9 +420,9 @@ void main() {
 
   testWidgets('adds wrong answer to wrong note', (WidgetTester tester) async {
     await tester.pumpWidget(const ThaiKoreanWordApp(initialData: sampleData));
-    await pumpUntilFound(tester, find.text('초급'));
+    await pumpUntilFound(tester, find.text('초급 첫걸음'));
 
-    await tester.tap(find.text('초급'));
+    await tester.tap(find.text('초급 첫걸음').first);
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
 
@@ -422,11 +445,12 @@ void main() {
       (WidgetTester tester) async {
     SharedPreferences.setMockInitialValues(<String, Object>{
       'interface_language': 'ko',
+      'onboarding_complete': true,
       'wrong_word_ids': <String>['krdict_31670'],
     });
 
     await tester.pumpWidget(const ThaiKoreanWordApp(initialData: sampleData));
-    await pumpUntilFound(tester, find.text('난이도'));
+    await pumpUntilFound(tester, find.text('현재 코스'));
 
     await tester.tap(find.text('오답노트'));
     await tester.pump();
@@ -444,12 +468,13 @@ void main() {
   testWidgets('restores saved study state', (WidgetTester tester) async {
     SharedPreferences.setMockInitialValues(<String, Object>{
       'interface_language': 'ko',
+      'onboarding_complete': true,
       'favorite_word_ids': <String>['krdict_73276'],
       'wrong_word_ids': <String>['krdict_31670'],
     });
 
     await tester.pumpWidget(const ThaiKoreanWordApp(initialData: sampleData));
-    await pumpUntilFound(tester, find.text('난이도'));
+    await pumpUntilFound(tester, find.text('현재 코스'));
 
     expect(find.text('즐겨찾기'), findsOneWidget);
     expect(find.text('오답노트'), findsOneWidget);
@@ -460,20 +485,21 @@ void main() {
       (WidgetTester tester) async {
     SharedPreferences.setMockInitialValues(<String, Object>{
       'interface_language': 'ko',
+      'onboarding_complete': true,
       'seen_word_ids': <String>['krdict_73276'],
       'correct_word_ids': <String>['krdict_73276'],
     });
 
     await tester.pumpWidget(const ThaiKoreanWordApp(initialData: sampleData));
-    await pumpUntilFound(tester, find.text('난이도'));
+    await pumpUntilFound(tester, find.text('현재 코스'));
 
-    expect(find.textContaining('학습 1/2 · 정답 1'), findsOneWidget);
+    expect(find.textContaining('학습률 50% · 숙련도 50%'), findsWidgets);
   });
 
   testWidgets('opens quiz tab with multiple quiz types',
       (WidgetTester tester) async {
     await tester.pumpWidget(const ThaiKoreanWordApp(initialData: quizData));
-    await pumpUntilFound(tester, find.text('난이도'));
+    await pumpUntilFound(tester, find.text('현재 코스'));
 
     await tapQuizTab(tester);
 
@@ -486,7 +512,7 @@ void main() {
   testWidgets('starts Thai to Korean quiz from quiz tab',
       (WidgetTester tester) async {
     await tester.pumpWidget(const ThaiKoreanWordApp(initialData: quizData));
-    await pumpUntilFound(tester, find.text('난이도'));
+    await pumpUntilFound(tester, find.text('현재 코스'));
 
     await tapQuizTab(tester);
     await tester.tap(find.text('태국어 뜻 → 한국어').first);
@@ -499,7 +525,7 @@ void main() {
 
   testWidgets('opens data attribution screen', (WidgetTester tester) async {
     await tester.pumpWidget(const ThaiKoreanWordApp(initialData: sampleData));
-    await pumpUntilFound(tester, find.text('난이도'));
+    await pumpUntilFound(tester, find.text('현재 코스'));
 
     await tapSettingsTab(tester);
     await tester.scrollUntilVisible(
@@ -520,7 +546,7 @@ void main() {
   testWidgets('does not show standalone level quiz on the study tab',
       (WidgetTester tester) async {
     await tester.pumpWidget(const ThaiKoreanWordApp(initialData: quizData));
-    await pumpUntilFound(tester, find.text('난이도'));
+    await pumpUntilFound(tester, find.text('현재 코스'));
 
     expect(find.text('난이도별 퀴즈'), findsNothing);
     expect(find.text('초급 퀴즈'), findsNothing);
@@ -531,9 +557,9 @@ void main() {
     addTearDown(() => tester.binding.setSurfaceSize(null));
 
     await tester.pumpWidget(const ThaiKoreanWordApp(initialData: quizData));
-    await pumpUntilFound(tester, find.text('초급'));
+    await pumpUntilFound(tester, find.text('초급 첫걸음'));
 
-    await tester.tap(find.text('초급'));
+    await tester.tap(find.text('초급 첫걸음').first);
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
 
@@ -558,9 +584,9 @@ void main() {
     addTearDown(() => tester.binding.setSurfaceSize(null));
 
     await tester.pumpWidget(const ThaiKoreanWordApp(initialData: sampleData));
-    await pumpUntilFound(tester, find.text('초급'));
+    await pumpUntilFound(tester, find.text('초급 첫걸음'));
 
-    await tester.tap(find.text('초급'));
+    await tester.tap(find.text('초급 첫걸음').first);
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
 
@@ -576,9 +602,9 @@ void main() {
     addTearDown(() => tester.binding.setSurfaceSize(null));
 
     await tester.pumpWidget(const ThaiKoreanWordApp(initialData: sampleData));
-    await pumpUntilFound(tester, find.text('초급'));
+    await pumpUntilFound(tester, find.text('초급 첫걸음'));
 
-    await tester.tap(find.text('초급'));
+    await tester.tap(find.text('초급 첫걸음').first);
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
 
@@ -621,7 +647,7 @@ void main() {
   testWidgets('changes interface language to Thai',
       (WidgetTester tester) async {
     await tester.pumpWidget(const ThaiKoreanWordApp(initialData: sampleData));
-    await pumpUntilFound(tester, find.text('난이도'));
+    await pumpUntilFound(tester, find.text('현재 코스'));
 
     await tapSettingsTab(tester);
     await tester.tap(find.byKey(const ValueKey('language_th_option')));
@@ -634,14 +660,15 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('study_tab')));
     await tester.pump(const Duration(milliseconds: 300));
 
-    expect(find.text('ระดับ'), findsOneWidget);
-    expect(find.text('ระดับต้น'), findsOneWidget);
+    expect(find.text('คอร์สปัจจุบัน'), findsOneWidget);
+    expect(find.text('ต้น · ก้าวแรก'), findsWidgets);
   });
 
   testWidgets('opens settings and resets study state',
       (WidgetTester tester) async {
     SharedPreferences.setMockInitialValues(<String, Object>{
       'interface_language': 'ko',
+      'onboarding_complete': true,
       'favorite_word_ids': <String>['krdict_73276'],
       'wrong_word_ids': <String>['krdict_31670'],
       'seen_word_ids': <String>['krdict_73276'],
@@ -649,7 +676,7 @@ void main() {
     });
 
     await tester.pumpWidget(const ThaiKoreanWordApp(initialData: sampleData));
-    await pumpUntilFound(tester, find.text('난이도'));
+    await pumpUntilFound(tester, find.text('현재 코스'));
 
     await tapSettingsTab(tester);
 

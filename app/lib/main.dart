@@ -20,6 +20,163 @@ enum MemoryRating {
   known,
 }
 
+class CourseStage {
+  const CourseStage({
+    required this.id,
+    required this.levelKo,
+    required this.step,
+    required this.koTitle,
+    required this.thTitle,
+    required this.koDescription,
+    required this.thDescription,
+  });
+
+  final String id;
+  final String levelKo;
+  final int step;
+  final String koTitle;
+  final String thTitle;
+  final String koDescription;
+  final String thDescription;
+
+  String title(AppText t) => t.isThai ? thTitle : koTitle;
+  String description(AppText t) => t.isThai ? thDescription : koDescription;
+}
+
+class CourseCatalog {
+  CourseCatalog._();
+
+  static const List<CourseStage> stages = [
+    CourseStage(
+      id: 'beginner_foundation',
+      levelKo: '초급',
+      step: 1,
+      koTitle: '초급 첫걸음',
+      thTitle: 'ต้น · ก้าวแรก',
+      koDescription: '처음 시작하는 생활 핵심 단어',
+      thDescription: 'คำพื้นฐานสำหรับเริ่มต้นชีวิตประจำวัน',
+    ),
+    CourseStage(
+      id: 'beginner_daily',
+      levelKo: '초급',
+      step: 2,
+      koTitle: '초급 생활',
+      thTitle: 'ต้น · ชีวิตประจำวัน',
+      koDescription: '일상 대화와 주변 사물 단어',
+      thDescription: 'คำที่ใช้ในบทสนทนาและสิ่งรอบตัว',
+    ),
+    CourseStage(
+      id: 'beginner_bridge',
+      levelKo: '초급',
+      step: 3,
+      koTitle: '초급 확장',
+      thTitle: 'ต้น · ขยายคำ',
+      koDescription: '중급으로 넘어가기 전 확장 단어',
+      thDescription: 'คำเสริมก่อนเข้าสู่ระดับกลาง',
+    ),
+    CourseStage(
+      id: 'intermediate_foundation',
+      levelKo: '중급',
+      step: 1,
+      koTitle: '중급 입문',
+      thTitle: 'กลาง · เริ่มต้น',
+      koDescription: '문장 이해에 필요한 중급 기본 단어',
+      thDescription: 'คำพื้นฐานระดับกลางสำหรับอ่านประโยค',
+    ),
+    CourseStage(
+      id: 'intermediate_core',
+      levelKo: '중급',
+      step: 2,
+      koTitle: '중급 핵심',
+      thTitle: 'กลาง · แกนหลัก',
+      koDescription: '생활, 업무, 학습 맥락의 핵심 단어',
+      thDescription: 'คำหลักในชีวิต งาน และการเรียน',
+    ),
+    CourseStage(
+      id: 'intermediate_reading',
+      levelKo: '중급',
+      step: 3,
+      koTitle: '중급 실전',
+      thTitle: 'กลาง · ใช้งานจริง',
+      koDescription: '읽기와 실전 상황에 쓰는 단어',
+      thDescription: 'คำสำหรับการอ่านและสถานการณ์จริง',
+    ),
+    CourseStage(
+      id: 'advanced_foundation',
+      levelKo: '고급',
+      step: 1,
+      koTitle: '고급 입문',
+      thTitle: 'สูง · เริ่มต้น',
+      koDescription: '고급 읽기를 시작하는 추상 단어',
+      thDescription: 'คำเชิงนามธรรมสำหรับเริ่มอ่านระดับสูง',
+    ),
+    CourseStage(
+      id: 'advanced_deep',
+      levelKo: '고급',
+      step: 2,
+      koTitle: '고급 심화',
+      thTitle: 'สูง · เจาะลึก',
+      koDescription: '사회, 기술, 학술 맥락의 심화 단어',
+      thDescription: 'คำลึกในสังคม เทคโนโลยี และวิชาการ',
+    ),
+    CourseStage(
+      id: 'advanced_master',
+      levelKo: '고급',
+      step: 3,
+      koTitle: '고급 완성',
+      thTitle: 'สูง · สมบูรณ์',
+      koDescription: '긴 글과 시험 대비를 위한 완성 단어',
+      thDescription: 'คำสำหรับบทอ่านยาวและการสอบ',
+    ),
+  ];
+
+  static CourseStage get defaultStage => stages.first;
+
+  static CourseStage byId(String? id) {
+    return stages.firstWhere(
+      (stage) => stage.id == id,
+      orElse: () => defaultStage,
+    );
+  }
+
+  static int indexOf(CourseStage stage) {
+    return stages.indexWhere((candidate) => candidate.id == stage.id);
+  }
+
+  static List<WordEntry> wordsForStage(
+    CourseStage stage,
+    List<WordEntry> words,
+  ) {
+    final levelWords = words
+        .where((word) => stage.levelKo == '초급'
+            ? word.levelKo.isEmpty || word.levelKo == '초급'
+            : word.levelKo == stage.levelKo)
+        .toList()
+      ..sort((a, b) {
+        final koreanCompare = a.korean.compareTo(b.korean);
+        if (koreanCompare != 0) {
+          return koreanCompare;
+        }
+        return a.id.compareTo(b.id);
+      });
+
+    if (levelWords.isEmpty) {
+      return const [];
+    }
+    if (levelWords.length < 9) {
+      return levelWords;
+    }
+
+    final chunkSize = (levelWords.length / 3).ceil();
+    final start = (stage.step - 1) * chunkSize;
+    if (start >= levelWords.length) {
+      return const [];
+    }
+    final end = (start + chunkSize).clamp(0, levelWords.length);
+    return levelWords.sublist(start, end);
+  }
+}
+
 class AppSettings extends ChangeNotifier {
   AppSettings({this.persistenceEnabled = true});
 
@@ -107,6 +264,24 @@ class AppText {
   String get difficulty => isThai ? 'ระดับ' : '난이도';
   String get studyIntro =>
       isThai ? 'ฝึกคำศัพท์เกาหลีจากระดับพื้นฐาน' : '초급부터 차근차근 쌓는 한국어 단어 연습';
+  String get currentCourse => isThai ? 'คอร์สปัจจุบัน' : '현재 코스';
+  String get courseMap => isThai ? 'เส้นทางการเรียน' : '학습 로드맵';
+  String get courseSettings => isThai ? 'คอร์สการเรียน' : '학습 코스';
+  String get courseSettingsDescription =>
+      isThai ? 'เปลี่ยนคอร์สได้โดยไม่ลบประวัติ' : '학습 기록은 유지하고 코스만 변경';
+  String get placementTitle =>
+      isThai ? 'เริ่มจากระดับที่เหมาะกับคุณ' : '나에게 맞는 단계부터 시작';
+  String get placementIntro =>
+      isThai ? 'ตอบไม่กี่ข้อเพื่อเลือกคอร์สเริ่มต้น' : '짧은 테스트로 시작 코스를 정합니다';
+  String get placementSkip => isThai ? 'ข้ามและเริ่มระดับต้น' : '건너뛰고 초급부터';
+  String get placementQuestion => isThai ? 'เลือกความหมาย' : '뜻을 골라주세요';
+  String get placementResult => isThai ? 'คอร์สเริ่มต้น' : '추천 시작 코스';
+  String get placementStart => isThai ? 'เริ่มเรียน' : '학습 시작';
+  String get lockedStage =>
+      isThai ? 'เรียนคอร์สก่อนหน้าให้ถึงเป้าหมาย' : '이전 단계 목표 달성 후 열림';
+  String courseProgress(int percent, int mastery) => isThai
+      ? 'ความคืบหน้า $percent% · ความแม่นยำ $mastery%'
+      : '학습률 $percent% · 숙련도 $mastery%';
   String get beginner => isThai ? 'ระดับต้น' : '초급';
   String get intermediate => isThai ? 'ระดับกลาง' : '중급';
   String get advanced => isThai ? 'ระดับสูง' : '고급';
@@ -317,6 +492,8 @@ class StudyState extends ChangeNotifier {
   static const String _seenKey = 'seen_word_ids';
   static const String _correctKey = 'correct_word_ids';
   static const String _memoryRatingKey = 'memory_ratings';
+  static const String _courseStageKey = 'course_stage_id';
+  static const String _onboardingCompleteKey = 'onboarding_complete';
 
   final bool persistenceEnabled;
   final Set<String> _favoriteIds = <String>{};
@@ -324,6 +501,8 @@ class StudyState extends ChangeNotifier {
   final Set<String> _seenIds = <String>{};
   final Set<String> _correctIds = <String>{};
   final Map<String, MemoryRating> _memoryRatings = <String, MemoryRating>{};
+  CourseStage _courseStage = CourseCatalog.defaultStage;
+  bool _onboardingComplete = false;
   bool _loaded = false;
 
   Set<String> get favoriteIds => Set.unmodifiable(_favoriteIds);
@@ -332,6 +511,8 @@ class StudyState extends ChangeNotifier {
   Set<String> get correctIds => Set.unmodifiable(_correctIds);
   Map<String, MemoryRating> get memoryRatings =>
       Map.unmodifiable(_memoryRatings);
+  CourseStage get courseStage => _courseStage;
+  bool get onboardingComplete => _onboardingComplete;
   bool get loaded => _loaded;
 
   Future<void> load() async {
@@ -358,6 +539,8 @@ class StudyState extends ChangeNotifier {
       ..clear()
       ..addAll(_parseMemoryRatings(
           preferences.getStringList(_memoryRatingKey) ?? const []));
+    _courseStage = CourseCatalog.byId(preferences.getString(_courseStageKey));
+    _onboardingComplete = preferences.getBool(_onboardingCompleteKey) ?? false;
     _loaded = true;
     notifyListeners();
   }
@@ -419,6 +602,18 @@ class StudyState extends ChangeNotifier {
 
     notifyListeners();
     await _saveProgress();
+  }
+
+  Future<void> setCourseStage(
+    CourseStage stage, {
+    bool completeOnboarding = false,
+  }) async {
+    _courseStage = stage;
+    if (completeOnboarding) {
+      _onboardingComplete = true;
+    }
+    notifyListeners();
+    await _saveCourse();
   }
 
   Future<void> clearWrong(String wordId) async {
@@ -504,6 +699,17 @@ class StudyState extends ChangeNotifier {
         .map((entry) => '${entry.key}:${entry.value.name}')
         .toList()
       ..sort();
+  }
+
+  Future<void> _saveCourse() async {
+    if (!persistenceEnabled) {
+      return;
+    }
+    final preferences = await SharedPreferences.getInstance();
+    await Future.wait([
+      preferences.setString(_courseStageKey, _courseStage.id),
+      preferences.setBool(_onboardingCompleteKey, _onboardingComplete),
+    ]);
   }
 }
 
@@ -675,11 +881,304 @@ class _HomeScreenState extends State<HomeScreen> {
           );
         }
 
-        return HomeShell(
-          data: snapshot.data!,
-          studyState: _studyState,
+        return AnimatedBuilder(
+          animation: _studyState,
+          builder: (context, _) {
+            if (!_studyState.onboardingComplete) {
+              return PlacementScreen(
+                data: snapshot.data!,
+                studyState: _studyState,
+              );
+            }
+
+            return HomeShell(
+              data: snapshot.data!,
+              studyState: _studyState,
+            );
+          },
         );
       },
+    );
+  }
+}
+
+class PlacementScreen extends StatefulWidget {
+  const PlacementScreen({
+    required this.data,
+    required this.studyState,
+    super.key,
+  });
+
+  final VocabularyData data;
+  final StudyState studyState;
+
+  @override
+  State<PlacementScreen> createState() => _PlacementScreenState();
+}
+
+class _PlacementScreenState extends State<PlacementScreen> {
+  late final List<WordEntry> _questions = _buildQuestions();
+  int _index = 0;
+  int _score = 0;
+  String? _selectedAnswer;
+  CourseStage? _recommendedStage;
+
+  WordEntry get _word => _questions[_index];
+  bool get _answered => _selectedAnswer != null;
+
+  List<WordEntry> _buildQuestions() {
+    final selected = <WordEntry>[];
+    for (final stage in [
+      CourseCatalog.stages[0],
+      CourseCatalog.stages[1],
+      CourseCatalog.stages[3],
+      CourseCatalog.stages[4],
+      CourseCatalog.stages[6],
+      CourseCatalog.stages[7],
+    ]) {
+      final words = CourseCatalog.wordsForStage(stage, widget.data.words);
+      if (words.isNotEmpty) {
+        selected.add(words[(words.length / 2).floor()]);
+      }
+    }
+    if (selected.length >= 2) {
+      return selected;
+    }
+    return widget.data.words.take(6).toList();
+  }
+
+  List<String> get _choices {
+    final correct = _word.thaiShort;
+    final choices = <String>[correct];
+    for (final word in widget.data.words) {
+      if (word.id == _word.id || word.thaiShort == correct) {
+        continue;
+      }
+      choices.add(word.thaiShort);
+      if (choices.length == 4) {
+        break;
+      }
+    }
+    return _stableShuffle(choices);
+  }
+
+  List<String> _stableShuffle(List<String> values) {
+    final seed = _hashText(_word.id);
+    final result = [...values]
+      ..sort((a, b) => _hashText('$seed:$a').compareTo(_hashText('$seed:$b')));
+    return result;
+  }
+
+  int _hashText(String text) {
+    var hash = 0x811c9dc5;
+    for (final unit in text.codeUnits) {
+      hash ^= unit;
+      hash = (hash * 0x01000193) & 0x7fffffff;
+    }
+    return hash;
+  }
+
+  void _choose(String answer) {
+    if (_answered) {
+      return;
+    }
+    setState(() {
+      _selectedAnswer = answer;
+      if (answer == _word.thaiShort) {
+        _score += 1;
+      }
+    });
+  }
+
+  void _next() {
+    if (_index < _questions.length - 1) {
+      setState(() {
+        _index += 1;
+        _selectedAnswer = null;
+      });
+      return;
+    }
+    setState(() {
+      _recommendedStage = _stageForScore();
+    });
+  }
+
+  CourseStage _stageForScore() {
+    final ratio = _questions.isEmpty ? 0.0 : _score / _questions.length;
+    if (ratio >= 0.84) {
+      return CourseCatalog.stages[6];
+    }
+    if (ratio >= 0.67) {
+      return CourseCatalog.stages[4];
+    }
+    if (ratio >= 0.50) {
+      return CourseCatalog.stages[3];
+    }
+    if (ratio >= 0.34) {
+      return CourseCatalog.stages[1];
+    }
+    return CourseCatalog.defaultStage;
+  }
+
+  Future<void> _start(CourseStage stage) {
+    return widget.studyState.setCourseStage(stage, completeOnboarding: true);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.t;
+    final recommended = _recommendedStage;
+
+    if (_questions.isEmpty) {
+      return Scaffold(
+        appBar: AppBar(title: Text(t.appTitle)),
+        body: Center(
+          child: FilledButton(
+            onPressed: () => _start(CourseCatalog.defaultStage),
+            child: Text(t.placementSkip),
+          ),
+        ),
+      );
+    }
+
+    if (recommended != null) {
+      return Scaffold(
+        appBar: AppBar(title: Text(t.placementResult)),
+        body: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 8, 16, 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Expanded(
+                  child: Card(
+                    child: Padding(
+                      padding: const EdgeInsets.all(24),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(
+                            Icons.auto_awesome,
+                            size: 64,
+                            color: Color(0xFF236860),
+                          ),
+                          const SizedBox(height: 16),
+                          Text(
+                            recommended.title(t),
+                            textAlign: TextAlign.center,
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineMedium
+                                ?.copyWith(fontWeight: FontWeight.w900),
+                          ),
+                          const SizedBox(height: 8),
+                          Text(
+                            recommended.description(t),
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(color: Color(0xFF59615F)),
+                          ),
+                          const SizedBox(height: 16),
+                          Text(
+                            '$_score/${_questions.length}',
+                            style: const TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.w900,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 12),
+                FilledButton.icon(
+                  onPressed: () => _start(recommended),
+                  icon: const Icon(Icons.school_outlined),
+                  label: Text(t.placementStart),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(t.placementTitle),
+        actions: [
+          TextButton(
+            onPressed: () => _start(CourseCatalog.defaultStage),
+            child: Text(t.placementSkip),
+          ),
+        ],
+      ),
+      body: SafeArea(
+        child: ListView(
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 20),
+          children: [
+            Text(
+              t.placementIntro,
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: const Color(0xFF59615F),
+                  ),
+            ),
+            const SizedBox(height: 16),
+            LinearProgressIndicator(value: (_index + 1) / _questions.length),
+            const SizedBox(height: 16),
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(24),
+                child: Column(
+                  children: [
+                    Text(
+                      t.placementQuestion,
+                      style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                            color: const Color(0xFF59615F),
+                          ),
+                    ),
+                    const SizedBox(height: 16),
+                    Text(
+                      _word.korean,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 48,
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    IconButton.filledTonal(
+                      tooltip: t.speakKorean,
+                      onPressed: () => KoreanSpeech.speak(_word.korean),
+                      icon: const Icon(Icons.volume_up_outlined),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+            for (final choice in _choices)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: QuizChoiceButton(
+                  text: choice,
+                  isSelected: _selectedAnswer == choice,
+                  isCorrect: choice == _word.thaiShort,
+                  showResult: _answered,
+                  onPressed: () => _choose(choice),
+                ),
+              ),
+            const SizedBox(height: 12),
+            FilledButton.icon(
+              onPressed: _answered ? _next : null,
+              icon: const Icon(Icons.arrow_forward),
+              label: Text(_index == _questions.length - 1
+                  ? t.showResult
+                  : t.nextQuestion),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -767,52 +1266,21 @@ class StudyTab extends StatelessWidget {
 
   final VocabularyData data;
   final StudyState studyState;
-  static const int _minimumIntermediateWords = 80;
-  static const int _minimumAdvancedWords = 100;
 
   @override
   Widget build(BuildContext context) {
     final t = context.t;
-    final beginnerWords = data.words
-        .where((word) => word.levelKo.isEmpty || word.levelKo == '초급')
+    final decks = CourseCatalog.stages
+        .map((stage) => _deckForStage(t, stage, data.words))
         .toList();
-    final intermediateWords =
-        data.words.where((word) => word.levelKo == '중급').toList();
-    final advancedWords =
-        data.words.where((word) => word.levelKo == '고급').toList();
-    final decks = [
-      WordDeck(
-        id: 'beginner',
-        title: t.beginner,
-        subtitle: t.beginnerSubtitle,
-        description: t.beginnerDescription,
-        words: beginnerWords,
-      ),
-      WordDeck(
-        id: 'intermediate',
-        title: t.intermediate,
-        subtitle:
-            _deckSubtitle(t, intermediateWords, _minimumIntermediateWords),
-        description: t.intermediateDescription,
-        words: intermediateWords,
-        enabled: intermediateWords.length >= _minimumIntermediateWords,
-      ),
-      WordDeck(
-        id: 'advanced',
-        title: t.advanced,
-        subtitle: _deckSubtitle(t, advancedWords, _minimumAdvancedWords),
-        description: t.advancedDescription,
-        words: advancedWords,
-        enabled: advancedWords.length >= _minimumAdvancedWords,
-      ),
-    ];
+    final unlockedIndex = _unlockedStageIndex(data.words, studyState);
 
     return SafeArea(
       child: ListView(
         padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
         children: [
           Text(
-            t.difficulty,
+            t.currentCourse,
             style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                   fontWeight: FontWeight.w800,
                 ),
@@ -834,10 +1302,34 @@ class StudyTab extends StatelessWidget {
               final wrongWords = data.words
                   .where((word) => studyState.wrongIds.contains(word.id))
                   .toList();
-              final todayWords = _todayReviewWords(data.words, studyState);
+              final currentWords = CourseCatalog.wordsForStage(
+                  studyState.courseStage, data.words);
+              final todayWords = _todayReviewWords(currentWords, studyState);
 
               return Column(
                 children: [
+                  _CurrentCourseCard(
+                    stage: studyState.courseStage,
+                    words: currentWords,
+                    seenCount: _seenCount(currentWords, studyState),
+                    correctCount: _correctCount(currentWords, studyState),
+                    onTap: currentWords.isEmpty
+                        ? null
+                        : () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute<void>(
+                                builder: (_) => WordListScreen(
+                                  deck: _deckForStage(
+                                      t, studyState.courseStage, data.words),
+                                  words: currentWords,
+                                  allWords: data.words,
+                                  studyState: studyState,
+                                ),
+                              ),
+                            );
+                          },
+                  ),
+                  const SizedBox(height: 6),
                   QuickPracticeTile(
                     title: t.todayReview,
                     subtitle: todayWords.isEmpty
@@ -925,23 +1417,28 @@ class StudyTab extends StatelessWidget {
               );
             },
           ),
+          Text(
+            t.courseMap,
+            style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                  fontWeight: FontWeight.w900,
+                ),
+          ),
+          const SizedBox(height: 8),
           for (final deck in decks)
             AnimatedBuilder(
               animation: studyState,
               builder: (context, _) {
-                final seenCount = deck.words
-                    .where((word) => studyState.seenIds.contains(word.id))
-                    .length;
-                final correctCount = deck.words
-                    .where((word) => studyState.correctIds.contains(word.id))
-                    .length;
+                final stageIndex = decks.indexOf(deck);
+                final enabled = stageIndex <= unlockedIndex && deck.enabled;
+                final seenCount = _seenCount(deck.words, studyState);
+                final correctCount = _correctCount(deck.words, studyState);
 
                 return WordDeckTile(
                   deck: deck,
                   count: deck.words.length,
                   seenCount: seenCount,
                   correctCount: correctCount,
-                  onTap: !deck.enabled
+                  onTap: !enabled
                       ? null
                       : () {
                           Navigator.of(context).push(
@@ -963,14 +1460,60 @@ class StudyTab extends StatelessWidget {
     );
   }
 
-  String _deckSubtitle(AppText t, List<WordEntry> words, int minimumWords) {
+  WordDeck _deckForStage(
+    AppText t,
+    CourseStage stage,
+    List<WordEntry> allWords,
+  ) {
+    final words = CourseCatalog.wordsForStage(stage, allWords);
+    return WordDeck(
+      id: stage.id,
+      title: stage.title(t),
+      subtitle: _deckSubtitle(t, words),
+      description: stage.description(t),
+      words: words,
+      enabled: words.isNotEmpty,
+    );
+  }
+
+  String _deckSubtitle(AppText t, List<WordEntry> words) {
     if (words.isEmpty) {
       return t.preparingData;
     }
-    if (words.length < minimumWords) {
-      return t.collected(words.length);
-    }
     return t.learnable(words.length);
+  }
+
+  int _seenCount(List<WordEntry> words, StudyState studyState) {
+    return words.where((word) => studyState.seenIds.contains(word.id)).length;
+  }
+
+  int _correctCount(List<WordEntry> words, StudyState studyState) {
+    return words
+        .where((word) => studyState.correctIds.contains(word.id))
+        .length;
+  }
+
+  int _unlockedStageIndex(List<WordEntry> words, StudyState studyState) {
+    var unlocked = CourseCatalog.indexOf(studyState.courseStage);
+    for (var index = 0; index < CourseCatalog.stages.length; index += 1) {
+      final stageWords = CourseCatalog.wordsForStage(
+        CourseCatalog.stages[index],
+        words,
+      );
+      if (stageWords.isEmpty) {
+        continue;
+      }
+      final seenPercent =
+          (_seenCount(stageWords, studyState) / stageWords.length * 100)
+              .round();
+      final masteryPercent =
+          (_correctCount(stageWords, studyState) / stageWords.length * 100)
+              .round();
+      if (seenPercent >= 80 && masteryPercent >= 70) {
+        unlocked = unlocked < index + 1 ? index + 1 : unlocked;
+      }
+    }
+    return unlocked.clamp(0, CourseCatalog.stages.length - 1);
   }
 
   List<WordEntry> _todayReviewWords(
@@ -1031,6 +1574,45 @@ class StudyTab extends StatelessWidget {
       hash = (hash * 0x01000193) & 0x7fffffff;
     }
     return hash;
+  }
+}
+
+class _CurrentCourseCard extends StatelessWidget {
+  const _CurrentCourseCard({
+    required this.stage,
+    required this.words,
+    required this.seenCount,
+    required this.correctCount,
+    required this.onTap,
+  });
+
+  final CourseStage stage;
+  final List<WordEntry> words;
+  final int seenCount;
+  final int correctCount;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.t;
+    final progress =
+        words.isEmpty ? 0 : ((seenCount / words.length) * 100).round();
+    final mastery =
+        words.isEmpty ? 0 : ((correctCount / words.length) * 100).round();
+    return Card(
+      child: ListTile(
+        onTap: onTap,
+        leading: const Icon(Icons.flag_outlined),
+        title: Text(
+          stage.title(t),
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
+        ),
+        subtitle: Text(
+          '${stage.description(t)}\n${t.courseProgress(progress, mastery)}',
+        ),
+        trailing: const Icon(Icons.chevron_right),
+      ),
+    );
   }
 }
 
@@ -1107,6 +1689,11 @@ class SettingsScreen extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           _LanguageSettingsCard(text: t),
+          const SizedBox(height: 12),
+          _CourseSettingsCard(
+            text: t,
+            studyState: studyState,
+          ),
           const SizedBox(height: 12),
           AnimatedBuilder(
             animation: studyState,
@@ -1234,6 +1821,71 @@ class _LanguageSettingsCard extends StatelessWidget {
   }
 }
 
+class _CourseSettingsCard extends StatelessWidget {
+  const _CourseSettingsCard({
+    required this.text,
+    required this.studyState,
+  });
+
+  final AppText text;
+  final StudyState studyState;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                const Icon(Icons.route_outlined),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        text.courseSettings,
+                        style: const TextStyle(fontWeight: FontWeight.w800),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        text.courseSettingsDescription,
+                        style: const TextStyle(color: Color(0xFF59615F)),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 12),
+            AnimatedBuilder(
+              animation: studyState,
+              builder: (context, _) {
+                return Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: [
+                    for (final stage in CourseCatalog.stages)
+                      ChoiceChip(
+                        key: ValueKey('course_${stage.id}'),
+                        label: Text(stage.title(text)),
+                        selected: studyState.courseStage.id == stage.id,
+                        onSelected: (_) => studyState.setCourseStage(stage),
+                      ),
+                  ],
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class QuizTab extends StatelessWidget {
   const QuizTab({
     required this.data,
@@ -1244,45 +1896,17 @@ class QuizTab extends StatelessWidget {
   final VocabularyData data;
   final StudyState studyState;
 
-  static const int _minimumIntermediateWords = 80;
-  static const int _minimumAdvancedWords = 100;
   static const int _questionCount = 10;
 
   @override
   Widget build(BuildContext context) {
     final t = context.t;
-    final beginnerWords = data.words
-        .where((word) => word.levelKo.isEmpty || word.levelKo == '초급')
-        .toList();
-    final intermediateWords =
-        data.words.where((word) => word.levelKo == '중급').toList();
-    final advancedWords =
-        data.words.where((word) => word.levelKo == '고급').toList();
+    final currentStage = studyState.courseStage;
     final decks = [
-      WordDeck(
-        id: 'quiz_beginner',
-        title: t.beginner,
-        subtitle: t.beginnerSubtitle,
-        description: t.beginnerDescription,
-        words: beginnerWords,
-      ),
-      WordDeck(
-        id: 'quiz_intermediate',
-        title: t.intermediate,
-        subtitle:
-            _deckSubtitle(t, intermediateWords, _minimumIntermediateWords),
-        description: t.intermediateDescription,
-        words: intermediateWords,
-        enabled: intermediateWords.length >= _minimumIntermediateWords,
-      ),
-      WordDeck(
-        id: 'quiz_advanced',
-        title: t.advanced,
-        subtitle: _deckSubtitle(t, advancedWords, _minimumAdvancedWords),
-        description: t.advancedDescription,
-        words: advancedWords,
-        enabled: advancedWords.length >= _minimumAdvancedWords,
-      ),
+      _deckForStage(t, currentStage),
+      ...CourseCatalog.stages
+          .where((stage) => stage.id != currentStage.id)
+          .map((stage) => _deckForStage(t, stage)),
     ];
 
     return SafeArea(
@@ -1339,12 +1963,21 @@ class QuizTab extends StatelessWidget {
     );
   }
 
-  String _deckSubtitle(AppText t, List<WordEntry> words, int minimumWords) {
+  WordDeck _deckForStage(AppText t, CourseStage stage) {
+    final words = CourseCatalog.wordsForStage(stage, data.words);
+    return WordDeck(
+      id: 'quiz_${stage.id}',
+      title: stage.title(t),
+      subtitle: _deckSubtitle(t, words),
+      description: stage.description(t),
+      words: words,
+      enabled: words.isNotEmpty,
+    );
+  }
+
+  String _deckSubtitle(AppText t, List<WordEntry> words) {
     if (words.isEmpty) {
       return t.preparingData;
-    }
-    if (words.length < minimumWords) {
-      return t.collected(words.length);
     }
     return t.learnable(words.length);
   }
