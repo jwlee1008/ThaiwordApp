@@ -1,0 +1,2528 @@
+import 'dart:convert';
+
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_tts/flutter_tts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+void main() {
+  runApp(const ThaiKoreanWordApp());
+}
+
+enum InterfaceLanguage {
+  ko,
+  th,
+}
+
+enum MemoryRating {
+  hard,
+  unsure,
+  known,
+}
+
+class AppSettings extends ChangeNotifier {
+  AppSettings({this.persistenceEnabled = true});
+
+  static const String _languageKey = 'interface_language';
+
+  final bool persistenceEnabled;
+  InterfaceLanguage _language = InterfaceLanguage.th;
+  bool _loaded = false;
+
+  InterfaceLanguage get language => _language;
+  bool get loaded => _loaded;
+
+  Future<void> load() async {
+    if (!persistenceEnabled) {
+      _loaded = true;
+      notifyListeners();
+      return;
+    }
+
+    final preferences = await SharedPreferences.getInstance();
+    final savedLanguage = preferences.getString(_languageKey);
+    _language = savedLanguage == InterfaceLanguage.ko.name
+        ? InterfaceLanguage.ko
+        : InterfaceLanguage.th;
+    _loaded = true;
+    notifyListeners();
+  }
+
+  Future<void> setLanguage(InterfaceLanguage language) async {
+    if (_language == language) {
+      return;
+    }
+
+    _language = language;
+    notifyListeners();
+
+    if (!persistenceEnabled) {
+      return;
+    }
+
+    final preferences = await SharedPreferences.getInstance();
+    await preferences.setString(_languageKey, language.name);
+  }
+}
+
+class AppTextScope extends InheritedWidget {
+  const AppTextScope({
+    required this.settings,
+    required super.child,
+    super.key,
+  });
+
+  final AppSettings settings;
+
+  static AppSettings settingsOf(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<AppTextScope>()!.settings;
+  }
+
+  static AppText textOf(BuildContext context) {
+    return AppText(settingsOf(context).language);
+  }
+
+  @override
+  bool updateShouldNotify(AppTextScope oldWidget) {
+    return true;
+  }
+}
+
+extension AppTextExtension on BuildContext {
+  AppText get t => AppTextScope.textOf(this);
+  AppSettings get appSettings => AppTextScope.settingsOf(this);
+}
+
+class AppText {
+  const AppText(this.interfaceLanguageValue);
+
+  final InterfaceLanguage interfaceLanguageValue;
+
+  bool get isThai => interfaceLanguageValue == InterfaceLanguage.th;
+
+  String get appTitle => 'KorThai Words';
+  String get study => isThai ? 'เรียน' : '학습';
+  String get quizTab => isThai ? 'แบบทดสอบ' : '퀴즈';
+  String get settings => isThai ? 'ตั้งค่า' : '설정';
+  String get difficulty => isThai ? 'ระดับ' : '난이도';
+  String get studyIntro =>
+      isThai ? 'ฝึกคำศัพท์เกาหลีจากระดับพื้นฐาน' : '초급부터 차근차근 쌓는 한국어 단어 연습';
+  String get beginner => isThai ? 'ระดับต้น' : '초급';
+  String get intermediate => isThai ? 'ระดับกลาง' : '중급';
+  String get advanced => isThai ? 'ระดับสูง' : '고급';
+  String get beginnerSubtitle => isThai ? 'เริ่มจากคำพื้นฐาน' : '기초 단어부터 시작';
+  String get beginnerDescription => isThai
+      ? 'คำแรกที่ควรรู้ เช่น ทักทาย โรงเรียน ชีวิตประจำวัน และการเดินทาง'
+      : '인사, 학교, 생활, 이동처럼 가장 먼저 익힐 단어';
+  String get intermediateDescription => isThai
+      ? 'ขยายคำศัพท์สำหรับชีวิตประจำวันและการอ่าน'
+      : '일상 표현과 읽기 어휘를 넓히는 중급 단어';
+  String get advancedDescription =>
+      isThai ? 'คำศัพท์ระดับสูงสำหรับการอ่านและการสอบ' : '읽기와 시험 대비에 필요한 고급 단어';
+  String get favorites => isThai ? 'รายการโปรด' : '즐겨찾기';
+  String get favoritesSubtitle =>
+      isThai ? 'คำที่อยากทบทวนอีกครั้ง' : '다시 보고 싶은 단어';
+  String get todayReview => isThai ? 'ทบทวนวันนี้' : '오늘의 복습';
+  String get todayReviewDescription =>
+      isThai ? 'คำที่ควรฝึกก่อนในวันนี้' : '오늘 먼저 볼 단어';
+  String todayReviewSubtitle(int count) => isThai
+      ? 'คำผิดและคำที่ยังไม่มั่นใจ · $count คำ'
+      : '오답과 애매한 단어 우선 · $count개';
+  String get todayReviewEmpty =>
+      isThai ? 'ยังไม่มีคำให้ทบทวนวันนี้' : '오늘 복습할 단어가 없습니다';
+  String get wrongNote => isThai ? 'สมุดคำผิด' : '오답노트';
+  String get wrongNoteSubtitle =>
+      isThai ? 'คำที่ตอบผิดในแบบทดสอบ' : '퀴즈에서 틀린 단어';
+  String get levelQuiz => isThai ? 'แบบทดสอบตามระดับ' : '난이도별 퀴즈';
+  String get levelQuizSubtitle =>
+      isThai ? 'เลือกคำถามแบบปรนัย 10 ข้อ' : '각 난이도에서 10문제 객관식으로 풀기';
+  String get cardPractice => isThai ? 'ฝึกการ์ด' : '카드 연습';
+  String get quiz => isThai ? 'แบบทดสอบ' : '퀴즈';
+  String get quizKoTitle => isThai ? 'เลือกความหมายภาษาไทย' : '한국어 뜻 고르기';
+  String get quizIntro =>
+      isThai ? 'เลือกระดับและรูปแบบการฝึก' : '난이도와 문제 유형을 골라 연습';
+  String get koreanToThaiQuiz =>
+      isThai ? 'เกาหลี → ความหมายไทย' : '한국어 → 태국어 뜻';
+  String get thaiToKoreanQuiz =>
+      isThai ? 'ความหมายไทย → เกาหลี' : '태국어 뜻 → 한국어';
+  String get listeningQuiz => isThai ? 'ฟังเสียง → ความหมายไทย' : '듣고 뜻 고르기';
+  String get listeningPrompt =>
+      isThai ? 'ฟังเสียงแล้วเลือกความหมาย' : '소리를 듣고 뜻 고르기';
+  String get thaiToKoreanPrompt => isThai ? 'เลือกคำภาษาเกาหลี' : '한국어 단어 고르기';
+  String get startQuiz => isThai ? 'เริ่ม' : '시작';
+  String get correct => isThai ? 'ถูกต้อง' : '정답입니다';
+  String answerPrefix(String answer) =>
+      isThai ? 'คำตอบ: $answer' : '정답: $answer';
+  String get nextQuestion => isThai ? 'ข้อถัดไป' : '다음 문제';
+  String get showResult => isThai ? 'ดูผลลัพธ์' : '결과 보기';
+  String get quizComplete => isThai ? 'ทำแบบทดสอบเสร็จแล้ว' : '퀴즈 완료';
+  String get noWrongWords => isThai ? 'ไม่มีคำที่ตอบผิด' : '틀린 단어가 없습니다';
+  String wrongSaved(int count) =>
+      isThai ? 'บันทึกคำผิด $count คำแล้ว' : '오답노트에 $count개가 저장되었습니다';
+  String get retry => isThai ? 'ทำอีกครั้ง' : '다시 풀기';
+  String get wordList => isThai ? 'รายการคำศัพท์' : '단어 목록으로';
+  String get searchHint =>
+      isThai ? 'ค้นหาภาษาเกาหลี ไทย หรือความหมาย' : '한국어, 태국어, 뜻 검색';
+  String get clearSearch => isThai ? 'ล้างคำค้นหา' : '검색어 지우기';
+  String get noSearchResults => isThai ? 'ไม่พบผลการค้นหา' : '검색 결과가 없습니다';
+  String get studyStatus => isThai ? 'สถานะการเรียน' : '학습 상태';
+  String get totalWords => isThai ? 'คำทั้งหมด' : '전체 단어';
+  String get seenWords => isThai ? 'เรียนแล้ว' : '학습한 단어';
+  String get correctWords => isThai ? 'ตอบถูก' : '정답 단어';
+  String get resetProgress => isThai ? 'รีเซ็ตประวัติการเรียน' : '학습 기록 초기화';
+  String get resetDescription =>
+      isThai ? 'ลบรายการโปรด สมุดคำผิด และความคืบหน้า' : '즐겨찾기, 오답노트, 진행률 삭제';
+  String get resetDialogDescription => isThai
+      ? 'ลบรายการโปรด สมุดคำผิด และความคืบหน้าทั้งหมด'
+      : '즐겨찾기, 오답노트, 진행률을 모두 지웁니다.';
+  String get cancel => isThai ? 'ยกเลิก' : '취소';
+  String get reset => isThai ? 'รีเซ็ต' : '초기화';
+  String get resetDone =>
+      isThai ? 'รีเซ็ตประวัติการเรียนแล้ว' : '학습 기록을 초기화했습니다';
+  String get dataAttribution => isThai ? 'ที่มาและลิขสิทธิ์' : '출처 및 라이선스';
+  String get krdict => isThai
+      ? 'พจนานุกรมพื้นฐานภาษาเกาหลี สถาบันภาษาเกาหลีแห่งชาติ'
+      : '국립국어원 한국어기초사전';
+  String get interfaceLanguage => isThai ? 'ภาษาอินเทอร์เฟซ' : '인터페이스 언어';
+  String get languageDescription => isThai ? 'เกาหลี / ไทย' : '한국어 / 태국어';
+  String get korean => isThai ? 'เกาหลี' : '한국어';
+  String get thai => isThai ? 'ไทย' : '태국어';
+  String get source => isThai ? 'ที่มา' : '출처';
+  String get data => isThai ? 'ข้อมูล' : '데이터';
+  String get language => isThai ? 'ภาษา' : '언어';
+  String get license => isThai ? 'ลิขสิทธิ์' : '라이선스';
+  String get officialLinks => isThai ? 'ลิงก์ทางการ' : '공식 링크';
+  String get previous => isThai ? 'ก่อนหน้า' : '이전';
+  String get next => isThai ? 'ถัดไป' : '다음';
+  String get speakKorean => isThai ? 'ฟังเสียงเกาหลี' : '한국어 발음 듣기';
+  String get showMeaning => isThai ? 'ดูความหมาย' : '뜻 보기';
+  String get hideMeaning => isThai ? 'ซ่อน' : '가리기';
+  String get memoryQuestion => isThai ? 'จำคำนี้ได้แค่ไหน?' : '이 단어, 얼마나 기억나요?';
+  String get memoryHard => isThai ? 'ยังไม่รู้' : '몰라요';
+  String get memoryUnsure => isThai ? 'ยังไม่แน่ใจ' : '애매해요';
+  String get memoryKnown => isThai ? 'จำได้' : '알아요';
+  String get removeWrong => isThai ? 'ลบจากคำผิด' : '오답 제거';
+  String get readySoon => isThai ? 'กำลังเตรียม' : '준비 중';
+  String get preparingData => isThai ? 'กำลังเตรียมชุดคำศัพท์' : '데이터팩 준비 중';
+
+  String wordsLabel(int count) => isThai ? '$count คำ' : '$count개';
+  String collected(int count) =>
+      isThai ? 'กำลังตรวจ · รวบรวม $count คำ' : '검수 중 · $count개 수집';
+  String learnable(int count) =>
+      isThai ? 'พร้อมเรียน · $count คำ' : '학습 가능 · $count개';
+  String progress(int seen, int count, int correct) {
+    return isThai
+        ? 'เรียน $seen/$count · ถูก $correct'
+        : '학습 $seen/$count · 정답 $correct';
+  }
+
+  String progressRate(int percent) =>
+      isThai ? 'เรียนแล้ว $percent%' : '학습률 $percent%';
+
+  String dataLoadFailed(Object error) =>
+      isThai ? 'โหลดข้อมูลไม่สำเร็จ\n$error' : '데이터를 불러오지 못했습니다.\n$error';
+
+  String quizTitle(String deckTitle) {
+    return isThai ? 'แบบทดสอบ $deckTitle' : '$deckTitle 퀴즈';
+  }
+}
+
+class KoreanSpeech {
+  KoreanSpeech._();
+
+  static final FlutterTts _tts = FlutterTts();
+  static bool _configured = false;
+
+  static Future<void> speak(String text) async {
+    final trimmed = text.trim();
+    if (trimmed.isEmpty) {
+      return;
+    }
+
+    if (!_configured) {
+      await _tts.setLanguage('ko-KR');
+      await _tts.setSpeechRate(0.38);
+      await _tts.setPitch(1.0);
+      _configured = true;
+    }
+
+    await _tts.stop();
+    await _tts.speak(trimmed);
+  }
+
+  static Future<void> stop() => _tts.stop();
+}
+
+class ThaiKoreanWordApp extends StatefulWidget {
+  const ThaiKoreanWordApp({super.key, this.initialData});
+
+  final VocabularyData? initialData;
+
+  @override
+  State<ThaiKoreanWordApp> createState() => _ThaiKoreanWordAppState();
+}
+
+class _ThaiKoreanWordAppState extends State<ThaiKoreanWordApp> {
+  late final AppSettings _settings = AppSettings();
+  late final Future<void> _settingsLoad = _settings.load();
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+      animation: _settings,
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'KorThai Words',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color(0xFF236860),
+            brightness: Brightness.light,
+          ),
+          useMaterial3: true,
+          scaffoldBackgroundColor: const Color(0xFFF5F7F8),
+          appBarTheme: const AppBarTheme(
+            centerTitle: false,
+            backgroundColor: Color(0xFFF5F7F8),
+            surfaceTintColor: Colors.transparent,
+          ),
+          cardTheme: CardThemeData(
+            elevation: 0,
+            color: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+              side: const BorderSide(color: Color(0xFFDDE4E1)),
+            ),
+          ),
+        ),
+        home: HomeScreen(
+          initialData: widget.initialData,
+          settingsLoad: _settingsLoad,
+        ),
+      ),
+      builder: (context, child) {
+        return AppTextScope(
+          settings: _settings,
+          child: child!,
+        );
+      },
+    );
+  }
+}
+
+class StudyState extends ChangeNotifier {
+  StudyState({this.persistenceEnabled = true});
+
+  static const String _favoriteKey = 'favorite_word_ids';
+  static const String _wrongKey = 'wrong_word_ids';
+  static const String _seenKey = 'seen_word_ids';
+  static const String _correctKey = 'correct_word_ids';
+  static const String _memoryRatingKey = 'memory_ratings';
+
+  final bool persistenceEnabled;
+  final Set<String> _favoriteIds = <String>{};
+  final Set<String> _wrongIds = <String>{};
+  final Set<String> _seenIds = <String>{};
+  final Set<String> _correctIds = <String>{};
+  final Map<String, MemoryRating> _memoryRatings = <String, MemoryRating>{};
+  bool _loaded = false;
+
+  Set<String> get favoriteIds => Set.unmodifiable(_favoriteIds);
+  Set<String> get wrongIds => Set.unmodifiable(_wrongIds);
+  Set<String> get seenIds => Set.unmodifiable(_seenIds);
+  Set<String> get correctIds => Set.unmodifiable(_correctIds);
+  Map<String, MemoryRating> get memoryRatings =>
+      Map.unmodifiable(_memoryRatings);
+  bool get loaded => _loaded;
+
+  Future<void> load() async {
+    if (!persistenceEnabled) {
+      _loaded = true;
+      notifyListeners();
+      return;
+    }
+
+    final preferences = await SharedPreferences.getInstance();
+    _favoriteIds
+      ..clear()
+      ..addAll(preferences.getStringList(_favoriteKey) ?? const []);
+    _wrongIds
+      ..clear()
+      ..addAll(preferences.getStringList(_wrongKey) ?? const []);
+    _seenIds
+      ..clear()
+      ..addAll(preferences.getStringList(_seenKey) ?? const []);
+    _correctIds
+      ..clear()
+      ..addAll(preferences.getStringList(_correctKey) ?? const []);
+    _memoryRatings
+      ..clear()
+      ..addAll(_parseMemoryRatings(
+          preferences.getStringList(_memoryRatingKey) ?? const []));
+    _loaded = true;
+    notifyListeners();
+  }
+
+  bool isFavorite(String wordId) => _favoriteIds.contains(wordId);
+
+  Future<void> toggleFavorite(String wordId) async {
+    if (_favoriteIds.contains(wordId)) {
+      _favoriteIds.remove(wordId);
+    } else {
+      _favoriteIds.add(wordId);
+    }
+    notifyListeners();
+    await _saveFavorites();
+  }
+
+  Future<void> markWrong(String wordId) async {
+    final changed = _seenIds.add(wordId) | _wrongIds.add(wordId);
+    if (!changed) {
+      return;
+    }
+    notifyListeners();
+    await _saveProgress();
+  }
+
+  Future<void> markCorrect(String wordId) async {
+    final changed = _seenIds.add(wordId) | _correctIds.add(wordId);
+    if (!changed) {
+      return;
+    }
+    notifyListeners();
+    await _saveProgress();
+  }
+
+  Future<void> markSeen(String wordId) async {
+    if (!_seenIds.add(wordId)) {
+      return;
+    }
+    notifyListeners();
+    await _saveProgress();
+  }
+
+  MemoryRating? memoryRating(String wordId) => _memoryRatings[wordId];
+
+  Future<void> setMemoryRating(String wordId, MemoryRating rating) async {
+    _memoryRatings[wordId] = rating;
+    _seenIds.add(wordId);
+
+    if (rating == MemoryRating.hard) {
+      _wrongIds.add(wordId);
+      _correctIds.remove(wordId);
+    } else if (rating == MemoryRating.unsure) {
+      _wrongIds.remove(wordId);
+      _correctIds.remove(wordId);
+    } else {
+      _wrongIds.remove(wordId);
+      _correctIds.add(wordId);
+    }
+
+    notifyListeners();
+    await _saveProgress();
+  }
+
+  Future<void> clearWrong(String wordId) async {
+    if (_wrongIds.remove(wordId)) {
+      notifyListeners();
+      await _saveWrong();
+    }
+  }
+
+  Future<void> resetProgress() async {
+    _favoriteIds.clear();
+    _wrongIds.clear();
+    _seenIds.clear();
+    _correctIds.clear();
+    _memoryRatings.clear();
+    notifyListeners();
+
+    if (!persistenceEnabled) {
+      return;
+    }
+
+    final preferences = await SharedPreferences.getInstance();
+    await Future.wait([
+      preferences.remove(_favoriteKey),
+      preferences.remove(_wrongKey),
+      preferences.remove(_seenKey),
+      preferences.remove(_correctKey),
+      preferences.remove(_memoryRatingKey),
+    ]);
+  }
+
+  Future<void> _saveFavorites() async {
+    if (!persistenceEnabled) {
+      return;
+    }
+    final preferences = await SharedPreferences.getInstance();
+    await preferences.setStringList(
+        _favoriteKey, _favoriteIds.toList()..sort());
+  }
+
+  Future<void> _saveWrong() async {
+    if (!persistenceEnabled) {
+      return;
+    }
+    final preferences = await SharedPreferences.getInstance();
+    await preferences.setStringList(_wrongKey, _wrongIds.toList()..sort());
+  }
+
+  Future<void> _saveProgress() async {
+    if (!persistenceEnabled) {
+      return;
+    }
+    final preferences = await SharedPreferences.getInstance();
+    await Future.wait([
+      preferences.setStringList(_wrongKey, _wrongIds.toList()..sort()),
+      preferences.setStringList(_seenKey, _seenIds.toList()..sort()),
+      preferences.setStringList(_correctKey, _correctIds.toList()..sort()),
+      preferences.setStringList(_memoryRatingKey, _serializeMemoryRatings()),
+    ]);
+  }
+
+  Map<String, MemoryRating> _parseMemoryRatings(List<String> values) {
+    final ratings = <String, MemoryRating>{};
+    for (final value in values) {
+      final separator = value.indexOf(':');
+      if (separator <= 0 || separator == value.length - 1) {
+        continue;
+      }
+      final wordId = value.substring(0, separator);
+      final ratingName = value.substring(separator + 1);
+      for (final rating in MemoryRating.values) {
+        if (rating.name == ratingName) {
+          ratings[wordId] = rating;
+          break;
+        }
+      }
+    }
+    return ratings;
+  }
+
+  List<String> _serializeMemoryRatings() {
+    return _memoryRatings.entries
+        .map((entry) => '${entry.key}:${entry.value.name}')
+        .toList()
+      ..sort();
+  }
+}
+
+class Category {
+  const Category({
+    required this.id,
+    required this.ko,
+    required this.th,
+    required this.description,
+  });
+
+  factory Category.fromJson(Map<String, dynamic> json) {
+    return Category(
+      id: json['id'] as String,
+      ko: json['ko'] as String,
+      th: json['th'] as String,
+      description: json['description'] as String,
+    );
+  }
+
+  final String id;
+  final String ko;
+  final String th;
+  final String description;
+}
+
+class WordEntry {
+  const WordEntry({
+    required this.id,
+    required this.korean,
+    required this.thai,
+    required this.thaiShort,
+    required this.pronunciation,
+    required this.partOfSpeechKo,
+    required this.levelKo,
+    required this.definitionKo,
+    required this.thaiDefinition,
+    required this.categories,
+    required this.tags,
+  });
+
+  factory WordEntry.fromJson(Map<String, dynamic> json) {
+    return WordEntry(
+      id: json['id'] as String,
+      korean: json['korean'] as String,
+      thai: json['thai'] as String,
+      thaiShort: json['thaiShort'] as String? ?? json['thai'] as String,
+      pronunciation: json['pronunciation'] as String? ?? '',
+      partOfSpeechKo: json['partOfSpeechKo'] as String? ?? '',
+      levelKo: json['levelKo'] as String? ?? '',
+      definitionKo: json['definitionKo'] as String? ?? '',
+      thaiDefinition: json['thaiDefinition'] as String? ?? '',
+      categories: List<String>.from(json['categories'] as List<dynamic>? ?? []),
+      tags: List<String>.from(json['tags'] as List<dynamic>? ?? []),
+    );
+  }
+
+  final String id;
+  final String korean;
+  final String thai;
+  final String thaiShort;
+  final String pronunciation;
+  final String partOfSpeechKo;
+  final String levelKo;
+  final String definitionKo;
+  final String thaiDefinition;
+  final List<String> categories;
+  final List<String> tags;
+}
+
+class VocabularyData {
+  const VocabularyData({
+    required this.categories,
+    required this.words,
+  });
+
+  final List<Category> categories;
+  final List<WordEntry> words;
+}
+
+class WordDeck {
+  const WordDeck({
+    required this.id,
+    required this.title,
+    required this.subtitle,
+    required this.description,
+    required this.words,
+    this.enabled = true,
+  });
+
+  final String id;
+  final String title;
+  final String subtitle;
+  final String description;
+  final List<WordEntry> words;
+  final bool enabled;
+}
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({
+    required this.settingsLoad,
+    super.key,
+    this.initialData,
+  });
+
+  final VocabularyData? initialData;
+  final Future<void> settingsLoad;
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  late final StudyState _studyState = StudyState();
+  late final Future<void> _studyStateLoad = _studyState.load();
+  late final Future<VocabularyData> _data = widget.initialData != null
+      ? Future.value(widget.initialData)
+      : _loadData();
+
+  Future<VocabularyData> get _readyData async {
+    final data = await _data;
+    await Future.wait([_studyStateLoad, widget.settingsLoad]);
+    return data;
+  }
+
+  Future<VocabularyData> _loadData() async {
+    final categoriesText =
+        await rootBundle.loadString('assets/data/categories.json');
+    final categoriesJson = jsonDecode(categoriesText) as List<dynamic>;
+    final wordsJson = [
+      ...await _loadWordAsset('assets/data/words_beginner.json'),
+      ...await _loadWordAsset('assets/data/words_intermediate.json'),
+      ...await _loadWordAsset('assets/data/words_advanced.json'),
+    ];
+
+    return VocabularyData(
+      categories: categoriesJson
+          .map((item) => Category.fromJson(item as Map<String, dynamic>))
+          .toList(),
+      words: wordsJson
+          .map((item) => WordEntry.fromJson(item as Map<String, dynamic>))
+          .toList(),
+    );
+  }
+
+  Future<List<dynamic>> _loadWordAsset(String path) async {
+    final text = await rootBundle.loadString(path);
+    final data = jsonDecode(text) as List<dynamic>;
+    return data;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<VocabularyData>(
+      future: _readyData,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState != ConnectionState.done) {
+          return const Scaffold(
+            body: Center(child: CircularProgressIndicator()),
+          );
+        }
+
+        if (snapshot.hasError || !snapshot.hasData) {
+          return Scaffold(
+            appBar: AppBar(title: Text(context.t.appTitle)),
+            body: Center(
+              child: Text(context.t.dataLoadFailed(snapshot.error ?? '')),
+            ),
+          );
+        }
+
+        return HomeShell(
+          data: snapshot.data!,
+          studyState: _studyState,
+        );
+      },
+    );
+  }
+}
+
+class HomeShell extends StatefulWidget {
+  const HomeShell({
+    required this.data,
+    required this.studyState,
+    super.key,
+  });
+
+  final VocabularyData data;
+  final StudyState studyState;
+
+  @override
+  State<HomeShell> createState() => _HomeShellState();
+}
+
+class _HomeShellState extends State<HomeShell> {
+  int _selectedIndex = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    final pages = [
+      StudyTab(data: widget.data, studyState: widget.studyState),
+      QuizTab(data: widget.data, studyState: widget.studyState),
+      SettingsScreen(
+        studyState: widget.studyState,
+        wordCount: widget.data.words.length,
+      ),
+    ];
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(context.t.appTitle),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: Center(
+              child: Text(
+                '${widget.data.words.length} words',
+                style: Theme.of(context).textTheme.labelLarge,
+              ),
+            ),
+          ),
+        ],
+      ),
+      body: pages[_selectedIndex],
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: _selectedIndex,
+        onDestinationSelected: (index) {
+          setState(() => _selectedIndex = index);
+        },
+        destinations: [
+          NavigationDestination(
+            key: const ValueKey('study_tab'),
+            icon: const Icon(Icons.school_outlined),
+            selectedIcon: const Icon(Icons.school),
+            label: context.t.study,
+          ),
+          NavigationDestination(
+            key: const ValueKey('quiz_tab'),
+            icon: const Icon(Icons.quiz_outlined),
+            selectedIcon: const Icon(Icons.quiz),
+            label: context.t.quizTab,
+          ),
+          NavigationDestination(
+            key: const ValueKey('settings_tab'),
+            icon: const Icon(Icons.settings_outlined),
+            selectedIcon: const Icon(Icons.settings),
+            label: context.t.settings,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class StudyTab extends StatelessWidget {
+  const StudyTab({
+    required this.data,
+    required this.studyState,
+    super.key,
+  });
+
+  final VocabularyData data;
+  final StudyState studyState;
+  static const int _minimumIntermediateWords = 80;
+  static const int _minimumAdvancedWords = 100;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.t;
+    final beginnerWords = data.words
+        .where((word) => word.levelKo.isEmpty || word.levelKo == '초급')
+        .toList();
+    final intermediateWords =
+        data.words.where((word) => word.levelKo == '중급').toList();
+    final advancedWords =
+        data.words.where((word) => word.levelKo == '고급').toList();
+    final decks = [
+      WordDeck(
+        id: 'beginner',
+        title: t.beginner,
+        subtitle: t.beginnerSubtitle,
+        description: t.beginnerDescription,
+        words: beginnerWords,
+      ),
+      WordDeck(
+        id: 'intermediate',
+        title: t.intermediate,
+        subtitle:
+            _deckSubtitle(t, intermediateWords, _minimumIntermediateWords),
+        description: t.intermediateDescription,
+        words: intermediateWords,
+        enabled: intermediateWords.length >= _minimumIntermediateWords,
+      ),
+      WordDeck(
+        id: 'advanced',
+        title: t.advanced,
+        subtitle: _deckSubtitle(t, advancedWords, _minimumAdvancedWords),
+        description: t.advancedDescription,
+        words: advancedWords,
+        enabled: advancedWords.length >= _minimumAdvancedWords,
+      ),
+    ];
+
+    return SafeArea(
+      child: ListView(
+        padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+        children: [
+          Text(
+            t.difficulty,
+            style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                  fontWeight: FontWeight.w800,
+                ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            t.studyIntro,
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: const Color(0xFF59615F),
+                ),
+          ),
+          const SizedBox(height: 16),
+          AnimatedBuilder(
+            animation: studyState,
+            builder: (context, _) {
+              final favoriteWords = data.words
+                  .where((word) => studyState.favoriteIds.contains(word.id))
+                  .toList();
+              final wrongWords = data.words
+                  .where((word) => studyState.wrongIds.contains(word.id))
+                  .toList();
+              final todayWords = _todayReviewWords(data.words, studyState);
+
+              return Column(
+                children: [
+                  QuickPracticeTile(
+                    title: t.todayReview,
+                    subtitle: todayWords.isEmpty
+                        ? t.todayReviewEmpty
+                        : t.todayReviewSubtitle(todayWords.length),
+                    count: todayWords.length,
+                    icon: Icons.today_outlined,
+                    onTap: todayWords.isEmpty
+                        ? null
+                        : () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute<void>(
+                                builder: (_) => WordListScreen(
+                                  deck: WordDeck(
+                                    id: 'today_review',
+                                    title: t.todayReview,
+                                    subtitle: t
+                                        .todayReviewSubtitle(todayWords.length),
+                                    description: t.todayReviewDescription,
+                                    words: const [],
+                                  ),
+                                  words: todayWords,
+                                  allWords: data.words,
+                                  studyState: studyState,
+                                ),
+                              ),
+                            );
+                          },
+                  ),
+                  QuickPracticeTile(
+                    title: t.favorites,
+                    subtitle: t.favoritesSubtitle,
+                    count: favoriteWords.length,
+                    icon: Icons.star_outline,
+                    onTap: favoriteWords.isEmpty
+                        ? null
+                        : () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute<void>(
+                                builder: (_) => WordListScreen(
+                                  deck: WordDeck(
+                                    id: 'favorites',
+                                    title: t.favorites,
+                                    subtitle: t.favoritesSubtitle,
+                                    description: t.favoritesSubtitle,
+                                    words: const [],
+                                  ),
+                                  words: favoriteWords,
+                                  allWords: data.words,
+                                  studyState: studyState,
+                                ),
+                              ),
+                            );
+                          },
+                  ),
+                  QuickPracticeTile(
+                    title: t.wrongNote,
+                    subtitle: t.wrongNoteSubtitle,
+                    count: wrongWords.length,
+                    icon: Icons.report_gmailerrorred_outlined,
+                    onTap: wrongWords.isEmpty
+                        ? null
+                        : () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute<void>(
+                                builder: (_) => WordListScreen(
+                                  deck: WordDeck(
+                                    id: 'wrong_note',
+                                    title: t.wrongNote,
+                                    subtitle: t.wrongNoteSubtitle,
+                                    description: t.wrongNoteSubtitle,
+                                    words: const [],
+                                  ),
+                                  words: wrongWords,
+                                  allWords: data.words,
+                                  studyState: studyState,
+                                  showClearWrong: true,
+                                ),
+                              ),
+                            );
+                          },
+                  ),
+                  const SizedBox(height: 6),
+                ],
+              );
+            },
+          ),
+          for (final deck in decks)
+            AnimatedBuilder(
+              animation: studyState,
+              builder: (context, _) {
+                final seenCount = deck.words
+                    .where((word) => studyState.seenIds.contains(word.id))
+                    .length;
+                final correctCount = deck.words
+                    .where((word) => studyState.correctIds.contains(word.id))
+                    .length;
+
+                return WordDeckTile(
+                  deck: deck,
+                  count: deck.words.length,
+                  seenCount: seenCount,
+                  correctCount: correctCount,
+                  onTap: !deck.enabled
+                      ? null
+                      : () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute<void>(
+                              builder: (_) => WordListScreen(
+                                deck: deck,
+                                words: deck.words,
+                                allWords: data.words,
+                                studyState: studyState,
+                              ),
+                            ),
+                          );
+                        },
+                );
+              },
+            ),
+        ],
+      ),
+    );
+  }
+
+  String _deckSubtitle(AppText t, List<WordEntry> words, int minimumWords) {
+    if (words.isEmpty) {
+      return t.preparingData;
+    }
+    if (words.length < minimumWords) {
+      return t.collected(words.length);
+    }
+    return t.learnable(words.length);
+  }
+
+  List<WordEntry> _todayReviewWords(
+    List<WordEntry> words,
+    StudyState studyState,
+  ) {
+    const limit = 18;
+    final todaySeed = _todaySeed();
+
+    final candidates = words
+        .where((word) => word.korean.trim().isNotEmpty)
+        .map((word) => _ReviewCandidate(
+              word: word,
+              priority: _reviewPriority(word, studyState),
+              tieBreaker: _stableHash('$todaySeed:${word.id}'),
+            ))
+        .toList()
+      ..sort((a, b) {
+        final priorityCompare = a.priority.compareTo(b.priority);
+        if (priorityCompare != 0) {
+          return priorityCompare;
+        }
+        return a.tieBreaker.compareTo(b.tieBreaker);
+      });
+
+    return candidates.take(limit).map((candidate) => candidate.word).toList();
+  }
+
+  int _reviewPriority(WordEntry word, StudyState studyState) {
+    final rating = studyState.memoryRating(word.id);
+    if (studyState.wrongIds.contains(word.id) || rating == MemoryRating.hard) {
+      return 0;
+    }
+    if (rating == MemoryRating.unsure) {
+      return 1;
+    }
+    if (!studyState.seenIds.contains(word.id)) {
+      return 2;
+    }
+    if (!studyState.correctIds.contains(word.id)) {
+      return 3;
+    }
+    if (rating == MemoryRating.known) {
+      return 5;
+    }
+    return 4;
+  }
+
+  String _todaySeed() {
+    final now = DateTime.now();
+    return '${now.year}-${now.month}-${now.day}';
+  }
+
+  int _stableHash(String text) {
+    var hash = 0x811c9dc5;
+    for (final unit in text.codeUnits) {
+      hash ^= unit;
+      hash = (hash * 0x01000193) & 0x7fffffff;
+    }
+    return hash;
+  }
+}
+
+class _ReviewCandidate {
+  const _ReviewCandidate({
+    required this.word,
+    required this.priority,
+    required this.tieBreaker,
+  });
+
+  final WordEntry word;
+  final int priority;
+  final int tieBreaker;
+}
+
+class SettingsScreen extends StatelessWidget {
+  const SettingsScreen({
+    required this.studyState,
+    required this.wordCount,
+    super.key,
+  });
+
+  final StudyState studyState;
+  final int wordCount;
+
+  Future<void> _confirmReset(BuildContext context) async {
+    final t = context.t;
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text(t.resetProgress),
+          content: Text(t.resetDialogDescription),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(false),
+              child: Text(t.cancel),
+            ),
+            FilledButton(
+              onPressed: () => Navigator.of(context).pop(true),
+              child: Text(t.reset),
+            ),
+          ],
+        );
+      },
+    );
+
+    if (confirmed != true || !context.mounted) {
+      return;
+    }
+
+    await studyState.resetProgress();
+    if (!context.mounted) {
+      return;
+    }
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(t.resetDone)),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.t;
+    return SafeArea(
+      child: ListView(
+        padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+        children: [
+          Text(
+            t.settings,
+            style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                  fontWeight: FontWeight.w800,
+                ),
+          ),
+          const SizedBox(height: 16),
+          _LanguageSettingsCard(text: t),
+          const SizedBox(height: 12),
+          AnimatedBuilder(
+            animation: studyState,
+            builder: (context, _) {
+              return InfoSection(
+                title: t.studyStatus,
+                children: [
+                  InfoRow(label: t.totalWords, value: t.wordsLabel(wordCount)),
+                  InfoRow(
+                      label: t.seenWords,
+                      value: t.wordsLabel(studyState.seenIds.length)),
+                  InfoRow(
+                      label: t.correctWords,
+                      value: t.wordsLabel(studyState.correctIds.length)),
+                  InfoRow(
+                      label: t.favorites,
+                      value: t.wordsLabel(studyState.favoriteIds.length)),
+                  InfoRow(
+                      label: t.wrongNote,
+                      value: t.wordsLabel(studyState.wrongIds.length)),
+                ],
+              );
+            },
+          ),
+          const SizedBox(height: 12),
+          Card(
+            child: ListTile(
+              leading: const Icon(Icons.restart_alt),
+              title: Text(
+                t.resetProgress,
+                style: const TextStyle(fontWeight: FontWeight.w800),
+              ),
+              subtitle: Text(t.resetDescription),
+              onTap: () => _confirmReset(context),
+            ),
+          ),
+          const SizedBox(height: 12),
+          Card(
+            child: ListTile(
+              leading: const Icon(Icons.info_outline),
+              title: Text(
+                t.dataAttribution,
+                style: const TextStyle(fontWeight: FontWeight.w800),
+              ),
+              subtitle: Text(t.krdict),
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (_) => DataAttributionScreen(wordCount: wordCount),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _LanguageSettingsCard extends StatelessWidget {
+  const _LanguageSettingsCard({required this.text});
+
+  final AppText text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 12, 16, 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                const Icon(Icons.translate),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        text.interfaceLanguage,
+                        style: const TextStyle(fontWeight: FontWeight.w800),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        text.languageDescription,
+                        style: const TextStyle(color: Color(0xFF59615F)),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 12),
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: [
+                ChoiceChip(
+                  key: const ValueKey('language_ko_option'),
+                  label: Text(text.korean),
+                  selected:
+                      context.appSettings.language == InterfaceLanguage.ko,
+                  onSelected: (_) {
+                    context.appSettings.setLanguage(InterfaceLanguage.ko);
+                  },
+                ),
+                ChoiceChip(
+                  key: const ValueKey('language_th_option'),
+                  label: Text(text.thai),
+                  selected:
+                      context.appSettings.language == InterfaceLanguage.th,
+                  onSelected: (_) {
+                    context.appSettings.setLanguage(InterfaceLanguage.th);
+                  },
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class QuizTab extends StatelessWidget {
+  const QuizTab({
+    required this.data,
+    required this.studyState,
+    super.key,
+  });
+
+  final VocabularyData data;
+  final StudyState studyState;
+
+  static const int _minimumIntermediateWords = 80;
+  static const int _minimumAdvancedWords = 100;
+  static const int _questionCount = 10;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.t;
+    final beginnerWords = data.words
+        .where((word) => word.levelKo.isEmpty || word.levelKo == '초급')
+        .toList();
+    final intermediateWords =
+        data.words.where((word) => word.levelKo == '중급').toList();
+    final advancedWords =
+        data.words.where((word) => word.levelKo == '고급').toList();
+    final decks = [
+      WordDeck(
+        id: 'quiz_beginner',
+        title: t.beginner,
+        subtitle: t.beginnerSubtitle,
+        description: t.beginnerDescription,
+        words: beginnerWords,
+      ),
+      WordDeck(
+        id: 'quiz_intermediate',
+        title: t.intermediate,
+        subtitle:
+            _deckSubtitle(t, intermediateWords, _minimumIntermediateWords),
+        description: t.intermediateDescription,
+        words: intermediateWords,
+        enabled: intermediateWords.length >= _minimumIntermediateWords,
+      ),
+      WordDeck(
+        id: 'quiz_advanced',
+        title: t.advanced,
+        subtitle: _deckSubtitle(t, advancedWords, _minimumAdvancedWords),
+        description: t.advancedDescription,
+        words: advancedWords,
+        enabled: advancedWords.length >= _minimumAdvancedWords,
+      ),
+    ];
+
+    return SafeArea(
+      child: ListView(
+        padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+        children: [
+          Text(
+            t.quizTab,
+            style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                  fontWeight: FontWeight.w800,
+                ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            t.quizIntro,
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: const Color(0xFF59615F),
+                ),
+          ),
+          const SizedBox(height: 16),
+          for (final deck in decks) ...[
+            Text(
+              deck.title,
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.w900,
+                  ),
+            ),
+            const SizedBox(height: 8),
+            QuizStartTile(
+              deck: deck,
+              mode: QuizMode.koreanToThai,
+              allWords: data.words,
+              studyState: studyState,
+              questionCount: _questionCount,
+            ),
+            QuizStartTile(
+              deck: deck,
+              mode: QuizMode.thaiToKorean,
+              allWords: data.words,
+              studyState: studyState,
+              questionCount: _questionCount,
+            ),
+            QuizStartTile(
+              deck: deck,
+              mode: QuizMode.listeningToThai,
+              allWords: data.words,
+              studyState: studyState,
+              questionCount: _questionCount,
+            ),
+            const SizedBox(height: 12),
+          ],
+        ],
+      ),
+    );
+  }
+
+  String _deckSubtitle(AppText t, List<WordEntry> words, int minimumWords) {
+    if (words.isEmpty) {
+      return t.preparingData;
+    }
+    if (words.length < minimumWords) {
+      return t.collected(words.length);
+    }
+    return t.learnable(words.length);
+  }
+}
+
+class QuizStartTile extends StatelessWidget {
+  const QuizStartTile({
+    required this.deck,
+    required this.mode,
+    required this.allWords,
+    required this.studyState,
+    required this.questionCount,
+    super.key,
+  });
+
+  final WordDeck deck;
+  final QuizMode mode;
+  final List<WordEntry> allWords;
+  final StudyState studyState;
+  final int questionCount;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.t;
+    final canStart = deck.enabled && deck.words.length >= 4;
+    final title = mode.title(t);
+    final quizWords = _quizWords();
+
+    return Card(
+      margin: const EdgeInsets.only(bottom: 8),
+      child: ListTile(
+        enabled: canStart,
+        leading: Icon(mode.icon),
+        title: Text(
+          title,
+          style: const TextStyle(fontWeight: FontWeight.w800),
+        ),
+        subtitle: Text(
+          canStart
+              ? (t.isThai
+                  ? '${quizWords.length} ข้อ · ${deck.title}'
+                  : '${quizWords.length}문제 · ${deck.title}')
+              : deck.subtitle,
+        ),
+        trailing: Icon(canStart ? Icons.play_arrow : Icons.lock_outline),
+        onTap: !canStart
+            ? null
+            : () {
+                Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (_) => QuizScreen(
+                      words: quizWords,
+                      allWords: allWords,
+                      deckName: '${deck.title} · $title',
+                      studyState: studyState,
+                      mode: mode,
+                    ),
+                  ),
+                );
+              },
+      ),
+    );
+  }
+
+  List<WordEntry> _quizWords() {
+    final result = [...deck.words]..shuffle();
+    return result.take(questionCount).toList();
+  }
+}
+
+class DataAttributionScreen extends StatelessWidget {
+  const DataAttributionScreen({required this.wordCount, super.key});
+
+  final int wordCount;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.t;
+    return Scaffold(
+      appBar: AppBar(title: Text(t.dataAttribution)),
+      body: SafeArea(
+        child: ListView(
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+          children: [
+            InfoSection(
+              title: t.data,
+              children: [
+                InfoRow(label: t.source, value: t.krdict),
+                InfoRow(label: t.data, value: t.wordsLabel(wordCount)),
+                InfoRow(label: t.language, value: '${t.korean} · ${t.thai}'),
+              ],
+            ),
+            const SizedBox(height: 12),
+            InfoSection(
+              title: t.license,
+              children: [
+                InfoRow(
+                    label: t.isThai ? 'ข้อความ' : '텍스트',
+                    value: t.isThai
+                        ? 'ต้องตรวจสอบเงื่อนไข CC BY-SA'
+                        : 'CC BY-SA 조건 확인 필요'),
+                InfoRow(
+                    label: t.isThai ? 'การแสดงในแอป' : '앱 표시',
+                    value: t.isThai
+                        ? 'คงที่มาและประกาศลิขสิทธิ์ของต้นฉบับ'
+                        : '원문 출처와 라이선스 고지 유지'),
+                InfoRow(
+                    label: t.isThai ? 'ข้อควรระวัง' : '주의',
+                    value: t.isThai
+                        ? 'เสียง รูปภาพ และมัลติมีเดียต้องตรวจสอบเงื่อนไขแยกต่างหาก'
+                        : '오디오, 이미지 등 멀티미디어는 별도 조건 확인'),
+              ],
+            ),
+            const SizedBox(height: 12),
+            InfoSection(
+              title: t.officialLinks,
+              children: const [
+                InfoRow(label: 'Krdict', value: 'https://krdict.korean.go.kr'),
+                InfoRow(
+                    label: 'Open API',
+                    value:
+                        'https://krdict.korean.go.kr/eng/openApi/openApiInfo'),
+                InfoRow(
+                    label: '저작권',
+                    value:
+                        'https://krdict.korean.go.kr/eng/kboardPolicy/copyRightTermsInfo'),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class InfoSection extends StatelessWidget {
+  const InfoSection({
+    required this.title,
+    required this.children,
+    super.key,
+  });
+
+  final String title;
+  final List<Widget> children;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.w900,
+                  ),
+            ),
+            const SizedBox(height: 12),
+            ...children,
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class InfoRow extends StatelessWidget {
+  const InfoRow({
+    required this.label,
+    required this.value,
+    super.key,
+  });
+
+  final String label;
+  final String value;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            label,
+            style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                  color: const Color(0xFF59615F),
+                ),
+          ),
+          const SizedBox(height: 2),
+          SelectableText(
+            value,
+            style: const TextStyle(fontWeight: FontWeight.w700),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class QuickPracticeTile extends StatelessWidget {
+  const QuickPracticeTile({
+    required this.title,
+    required this.subtitle,
+    required this.count,
+    required this.icon,
+    required this.onTap,
+    super.key,
+  });
+
+  final String title;
+  final String subtitle;
+  final int count;
+  final IconData icon;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: const EdgeInsets.only(bottom: 10),
+      child: ListTile(
+        enabled: onTap != null,
+        onTap: onTap,
+        leading: Icon(icon),
+        title: Text(title, style: const TextStyle(fontWeight: FontWeight.w800)),
+        subtitle: Text(subtitle),
+        trailing: Text('$count'),
+      ),
+    );
+  }
+}
+
+class WordDeckTile extends StatelessWidget {
+  const WordDeckTile({
+    required this.deck,
+    required this.count,
+    required this.seenCount,
+    required this.correctCount,
+    required this.onTap,
+    super.key,
+  });
+
+  final WordDeck deck;
+  final int count;
+  final int seenCount;
+  final int correctCount;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.t;
+    final progressPercent =
+        count == 0 ? 0 : ((seenCount / count) * 100).round();
+    return Card(
+      margin: const EdgeInsets.only(bottom: 10),
+      child: ListTile(
+        enabled: onTap != null,
+        onTap: onTap,
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        title: Text(
+          deck.title,
+          style: const TextStyle(fontWeight: FontWeight.w800),
+        ),
+        subtitle: Padding(
+          padding: const EdgeInsets.only(top: 4),
+          child: Text('${_deckProgressText(t)}\n${deck.subtitle}'),
+        ),
+        trailing: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              count == 0 ? t.readySoon : t.progressRate(progressPercent),
+              style: const TextStyle(fontWeight: FontWeight.w800),
+            ),
+            const SizedBox(width: 8),
+            Icon(onTap == null ? Icons.lock_outline : Icons.chevron_right),
+          ],
+        ),
+      ),
+    );
+  }
+
+  String _deckProgressText(AppText t) {
+    if (count == 0) {
+      return deck.description;
+    }
+    return t.progress(seenCount, count, correctCount);
+  }
+}
+
+class WordListScreen extends StatelessWidget {
+  const WordListScreen({
+    required this.deck,
+    required this.words,
+    required this.allWords,
+    required this.studyState,
+    this.showClearWrong = false,
+    super.key,
+  });
+
+  final WordDeck deck;
+  final List<WordEntry> words;
+  final List<WordEntry> allWords;
+  final StudyState studyState;
+  final bool showClearWrong;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.t;
+    return Scaffold(
+      appBar: AppBar(title: Text(deck.title)),
+      body: SafeArea(
+        child: ListView(
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+          children: [
+            Text(
+              deck.description,
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: const Color(0xFF59615F),
+                  ),
+            ),
+            const SizedBox(height: 12),
+            Row(
+              children: [
+                Expanded(
+                  child: FilledButton.tonalIcon(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute<void>(
+                          builder: (_) => WordCardScreen(
+                            words: words,
+                            initialIndex: 0,
+                            studyState: studyState,
+                          ),
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.style_outlined),
+                    label: Text(t.cardPractice),
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: FilledButton.icon(
+                    onPressed: words.length < 2
+                        ? null
+                        : () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute<void>(
+                                builder: (_) => QuizScreen(
+                                  words: words,
+                                  allWords: allWords,
+                                  deckName: deck.title,
+                                  studyState: studyState,
+                                ),
+                              ),
+                            );
+                          },
+                    icon: const Icon(Icons.quiz_outlined),
+                    label: Text(t.quiz),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            AnimatedBuilder(
+              animation: studyState,
+              builder: (context, _) {
+                final visibleWords = showClearWrong
+                    ? words
+                        .where((word) => studyState.wrongIds.contains(word.id))
+                        .toList()
+                    : words;
+                return Column(
+                  children: [
+                    for (var index = 0; index < visibleWords.length; index += 1)
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 8),
+                        child: Card(
+                          margin: EdgeInsets.zero,
+                          child: ListTile(
+                            onTap: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute<void>(
+                                  builder: (_) => WordCardScreen(
+                                    words: visibleWords,
+                                    initialIndex: index,
+                                    studyState: studyState,
+                                  ),
+                                ),
+                              );
+                            },
+                            title: Text(
+                              visibleWords[index].korean,
+                              style: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w800,
+                              ),
+                            ),
+                            subtitle: Text(visibleWords[index].thaiShort),
+                            trailing: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                IconButton(
+                                  tooltip: t.speakKorean,
+                                  onPressed: () => KoreanSpeech.speak(
+                                      visibleWords[index].korean),
+                                  icon: const Icon(Icons.volume_up_outlined),
+                                ),
+                                IconButton(
+                                  tooltip: t.favorites,
+                                  onPressed: () => studyState
+                                      .toggleFavorite(visibleWords[index].id),
+                                  icon: Icon(
+                                    studyState
+                                            .isFavorite(visibleWords[index].id)
+                                        ? Icons.star
+                                        : Icons.star_border,
+                                  ),
+                                ),
+                                if (showClearWrong)
+                                  IconButton(
+                                    tooltip: t.removeWrong,
+                                    onPressed: () => studyState
+                                        .clearWrong(visibleWords[index].id),
+                                    icon:
+                                        const Icon(Icons.check_circle_outline),
+                                  )
+                                else
+                                  const Icon(Icons.chevron_right),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                  ],
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+enum QuizMode {
+  koreanToThai,
+  thaiToKorean,
+  listeningToThai;
+
+  String title(AppText t) {
+    return switch (this) {
+      QuizMode.koreanToThai => t.koreanToThaiQuiz,
+      QuizMode.thaiToKorean => t.thaiToKoreanQuiz,
+      QuizMode.listeningToThai => t.listeningQuiz,
+    };
+  }
+
+  IconData get icon {
+    return switch (this) {
+      QuizMode.koreanToThai => Icons.translate,
+      QuizMode.thaiToKorean => Icons.spellcheck,
+      QuizMode.listeningToThai => Icons.hearing,
+    };
+  }
+}
+
+class QuizScreen extends StatefulWidget {
+  const QuizScreen({
+    required this.words,
+    required this.allWords,
+    required this.deckName,
+    required this.studyState,
+    this.mode = QuizMode.koreanToThai,
+    super.key,
+  });
+
+  final List<WordEntry> words;
+  final List<WordEntry> allWords;
+  final String deckName;
+  final StudyState studyState;
+  final QuizMode mode;
+
+  @override
+  State<QuizScreen> createState() => _QuizScreenState();
+}
+
+class _QuizScreenState extends State<QuizScreen> {
+  int _index = 0;
+  int _score = 0;
+  String? _selectedThai;
+  late final List<WordEntry> _quizWords = [...widget.words]..shuffle();
+
+  WordEntry get _word => _quizWords[_index];
+  bool get _answered => _selectedThai != null;
+
+  List<String> get _choices {
+    final correctAnswer = _answerFor(_word);
+    final candidates = <String, int>{};
+
+    for (final word in [...widget.words, ...widget.allWords]) {
+      final answer = _answerFor(word).trim();
+      if (word.id == _word.id || answer.isEmpty || answer == correctAnswer) {
+        continue;
+      }
+      candidates.putIfAbsent(answer, () => _choiceScore(_word.id, word));
+    }
+
+    final distractors = candidates.entries.toList()
+      ..sort((a, b) {
+        final scoreCompare = a.value.compareTo(b.value);
+        if (scoreCompare != 0) {
+          return scoreCompare;
+        }
+        return a.key.compareTo(b.key);
+      });
+
+    return _stableShuffle([
+      correctAnswer,
+      ...distractors.take(3).map((entry) => entry.key),
+    ]);
+  }
+
+  List<String> _stableShuffle(List<String> values) {
+    final result = [...values];
+    final seed = _hashText(_word.id);
+    result.sort((a, b) {
+      final aScore = _hashText('$seed:$a');
+      final bScore = _hashText('$seed:$b');
+      return aScore.compareTo(bScore);
+    });
+    return result;
+  }
+
+  int _choiceScore(String questionId, WordEntry candidate) {
+    final sameLevelBonus = candidate.levelKo == _word.levelKo ? 0 : 1000000;
+    final sameDeckBonus =
+        widget.words.any((word) => word.id == candidate.id) ? 0 : 500000;
+    return sameLevelBonus +
+        sameDeckBonus +
+        _hashText('$questionId:${candidate.id}:${candidate.thaiShort}');
+  }
+
+  String _answerFor(WordEntry word) {
+    return switch (widget.mode) {
+      QuizMode.koreanToThai || QuizMode.listeningToThai => word.thaiShort,
+      QuizMode.thaiToKorean => word.korean,
+    };
+  }
+
+  String _promptFor(WordEntry word) {
+    return switch (widget.mode) {
+      QuizMode.koreanToThai => word.korean,
+      QuizMode.thaiToKorean => word.thaiShort,
+      QuizMode.listeningToThai => word.pronunciation,
+    };
+  }
+
+  String _promptTitle(AppText t) {
+    return switch (widget.mode) {
+      QuizMode.koreanToThai => t.quizKoTitle,
+      QuizMode.thaiToKorean => t.thaiToKoreanPrompt,
+      QuizMode.listeningToThai => t.listeningPrompt,
+    };
+  }
+
+  int _hashText(String text) {
+    var hash = 0x811c9dc5;
+    for (final unit in text.codeUnits) {
+      hash ^= unit;
+      hash = (hash * 0x01000193) & 0x7fffffff;
+    }
+    return hash;
+  }
+
+  void _choose(String thai) {
+    if (_answered) {
+      return;
+    }
+
+    setState(() {
+      _selectedThai = thai;
+      if (thai == _answerFor(_word)) {
+        _score += 1;
+        widget.studyState.markCorrect(_word.id);
+      } else {
+        widget.studyState.markWrong(_word.id);
+      }
+    });
+  }
+
+  void _next() {
+    if (_index == _quizWords.length - 1) {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute<void>(
+          builder: (_) => QuizResultScreen(
+            deckName: widget.deckName,
+            score: _score,
+            total: _quizWords.length,
+            words: widget.words,
+            allWords: widget.allWords,
+            studyState: widget.studyState,
+            mode: widget.mode,
+            wrongWords: _quizWords
+                .where((word) => widget.studyState.wrongIds.contains(word.id))
+                .toList(),
+          ),
+        ),
+      );
+      return;
+    }
+
+    setState(() {
+      _index += 1;
+      _selectedThai = null;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.t;
+    final choices = _choices;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.deckName),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: Center(
+              child: Text(
+                '$_score/${_quizWords.length}',
+                style: Theme.of(context).textTheme.labelLarge,
+              ),
+            ),
+          ),
+        ],
+      ),
+      body: SafeArea(
+        child: ListView(
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 20),
+          children: [
+            LinearProgressIndicator(value: (_index + 1) / _quizWords.length),
+            const SizedBox(height: 20),
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(24),
+                child: Column(
+                  children: [
+                    Text(
+                      _promptTitle(t),
+                      style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                            color: const Color(0xFF59615F),
+                          ),
+                    ),
+                    const SizedBox(height: 16),
+                    Text(
+                      _promptFor(_word),
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 48,
+                        fontWeight: FontWeight.w900,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    if (widget.mode != QuizMode.listeningToThai)
+                      Text(
+                        _word.pronunciation,
+                        style: const TextStyle(
+                          color: Color(0xFF59615F),
+                          fontSize: 18,
+                        ),
+                      ),
+                    const SizedBox(height: 12),
+                    IconButton.filledTonal(
+                      tooltip: t.speakKorean,
+                      onPressed: () => KoreanSpeech.speak(_word.korean),
+                      icon: const Icon(Icons.volume_up_outlined),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+            for (final choice in choices)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: QuizChoiceButton(
+                  text: choice,
+                  isSelected: _selectedThai == choice,
+                  isCorrect: choice == _answerFor(_word),
+                  showResult: _answered,
+                  onPressed: () => _choose(choice),
+                ),
+              ),
+            const SizedBox(height: 12),
+            if (_answered)
+              Text(
+                _selectedThai == _answerFor(_word)
+                    ? t.correct
+                    : t.answerPrefix(_answerFor(_word)),
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontWeight: FontWeight.w800,
+                  color: _selectedThai == _answerFor(_word)
+                      ? const Color(0xFF236860)
+                      : const Color(0xFF9B2C2C),
+                ),
+              ),
+            const SizedBox(height: 12),
+            FilledButton.icon(
+              onPressed: _answered ? _next : null,
+              icon: const Icon(Icons.arrow_forward),
+              label: Text(
+                _index == _quizWords.length - 1 ? t.showResult : t.nextQuestion,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class QuizResultScreen extends StatelessWidget {
+  const QuizResultScreen({
+    required this.deckName,
+    required this.score,
+    required this.total,
+    required this.words,
+    required this.allWords,
+    required this.studyState,
+    required this.mode,
+    required this.wrongWords,
+    super.key,
+  });
+
+  final String deckName;
+  final int score;
+  final int total;
+  final List<WordEntry> words;
+  final List<WordEntry> allWords;
+  final StudyState studyState;
+  final QuizMode mode;
+  final List<WordEntry> wrongWords;
+
+  void _retry(BuildContext context) {
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute<void>(
+        builder: (_) => QuizScreen(
+          words: words,
+          allWords: allWords,
+          deckName: deckName,
+          studyState: studyState,
+          mode: mode,
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.t;
+    final percent = total == 0 ? 0 : (score / total * 100).round();
+
+    return Scaffold(
+      appBar: AppBar(title: Text(deckName)),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Expanded(
+                child: Card(
+                  child: Padding(
+                    padding: const EdgeInsets.all(24),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(
+                          Icons.emoji_events_outlined,
+                          size: 64,
+                          color: Color(0xFF236860),
+                        ),
+                        const SizedBox(height: 16),
+                        Text(
+                          t.quizComplete,
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineMedium
+                              ?.copyWith(
+                                fontWeight: FontWeight.w900,
+                              ),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          '$score/$total · $percent%',
+                          style: const TextStyle(
+                            fontSize: 28,
+                            fontWeight: FontWeight.w900,
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        Text(
+                          wrongWords.isEmpty
+                              ? t.noWrongWords
+                              : t.wrongSaved(wrongWords.length),
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(color: Color(0xFF59615F)),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 12),
+              FilledButton.icon(
+                onPressed: () => _retry(context),
+                icon: const Icon(Icons.refresh),
+                label: Text(t.retry),
+              ),
+              const SizedBox(height: 8),
+              FilledButton.tonalIcon(
+                onPressed: () => Navigator.of(context).pop(),
+                icon: const Icon(Icons.list_alt),
+                label: Text(t.wordList),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class QuizChoiceButton extends StatelessWidget {
+  const QuizChoiceButton({
+    required this.text,
+    required this.isSelected,
+    required this.isCorrect,
+    required this.showResult,
+    required this.onPressed,
+    super.key,
+  });
+
+  final String text;
+  final bool isSelected;
+  final bool isCorrect;
+  final bool showResult;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
+    final Color? backgroundColor;
+    final Color? foregroundColor;
+    final IconData? icon;
+
+    if (!showResult) {
+      backgroundColor = null;
+      foregroundColor = null;
+      icon = null;
+    } else if (isCorrect) {
+      backgroundColor = const Color(0xFFE3F3EC);
+      foregroundColor = const Color(0xFF145C48);
+      icon = Icons.check_circle;
+    } else if (isSelected) {
+      backgroundColor = const Color(0xFFF9E4E4);
+      foregroundColor = const Color(0xFF9B2C2C);
+      icon = Icons.cancel;
+    } else {
+      backgroundColor = colorScheme.surface;
+      foregroundColor = const Color(0xFF59615F);
+      icon = null;
+    }
+
+    return OutlinedButton(
+      onPressed: showResult ? null : onPressed,
+      style: OutlinedButton.styleFrom(
+        alignment: Alignment.centerLeft,
+        minimumSize: const Size.fromHeight(54),
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        disabledForegroundColor: foregroundColor,
+        side: BorderSide(
+          color: showResult && isCorrect
+              ? const Color(0xFF8BC7B1)
+              : const Color(0xFFDDE4E1),
+        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: Text(
+              text,
+              style: const TextStyle(fontWeight: FontWeight.w700),
+            ),
+          ),
+          if (icon != null) Icon(icon),
+        ],
+      ),
+    );
+  }
+}
+
+class WordCardScreen extends StatefulWidget {
+  const WordCardScreen({
+    required this.words,
+    required this.initialIndex,
+    required this.studyState,
+    super.key,
+  });
+
+  final List<WordEntry> words;
+  final int initialIndex;
+  final StudyState studyState;
+
+  @override
+  State<WordCardScreen> createState() => _WordCardScreenState();
+}
+
+class _WordCardScreenState extends State<WordCardScreen> {
+  late int _index = widget.initialIndex;
+  bool _showMeaning = false;
+
+  WordEntry get _word => widget.words[_index];
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        widget.studyState.markSeen(_word.id);
+      }
+    });
+  }
+
+  void _next() {
+    setState(() {
+      _index = (_index + 1) % widget.words.length;
+      _showMeaning = false;
+    });
+    widget.studyState.markSeen(_word.id);
+  }
+
+  void _previous() {
+    setState(() {
+      _index = (_index - 1 + widget.words.length) % widget.words.length;
+      _showMeaning = false;
+    });
+    widget.studyState.markSeen(_word.id);
+  }
+
+  @override
+  void dispose() {
+    KoreanSpeech.stop();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.t;
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('${_index + 1}/${widget.words.length}'),
+        actions: [
+          AnimatedBuilder(
+            animation: widget.studyState,
+            builder: (context, _) {
+              return IconButton(
+                tooltip: t.favorites,
+                onPressed: () => widget.studyState.toggleFavorite(_word.id),
+                icon: Icon(
+                  widget.studyState.isFavorite(_word.id)
+                      ? Icons.star
+                      : Icons.star_border,
+                ),
+              );
+            },
+          ),
+        ],
+      ),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 20),
+          child: Column(
+            children: [
+              Expanded(
+                child: GestureDetector(
+                  onTap: () => setState(() => _showMeaning = !_showMeaning),
+                  child: Card(
+                    child: SizedBox.expand(
+                      child: Padding(
+                        padding: const EdgeInsets.all(24),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              _word.korean,
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                fontSize: 52,
+                                fontWeight: FontWeight.w900,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              _word.pronunciation,
+                              style: const TextStyle(
+                                fontSize: 20,
+                                color: Color(0xFF59615F),
+                              ),
+                            ),
+                            const SizedBox(height: 12),
+                            IconButton.filledTonal(
+                              tooltip: t.speakKorean,
+                              onPressed: () => KoreanSpeech.speak(_word.korean),
+                              icon: const Icon(Icons.volume_up_outlined),
+                            ),
+                            const SizedBox(height: 12),
+                            Text(
+                              '${_word.levelKo} · ${_word.partOfSpeechKo}',
+                              style: Theme.of(context).textTheme.labelLarge,
+                            ),
+                            const SizedBox(height: 28),
+                            Visibility(
+                              visible: _showMeaning,
+                              maintainSize: true,
+                              maintainAnimation: true,
+                              maintainState: true,
+                              child: _WordMeaningBlock(word: _word),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 12),
+              AnimatedBuilder(
+                animation: widget.studyState,
+                builder: (context, _) {
+                  return _MemoryRatingControls(
+                    rating: widget.studyState.memoryRating(_word.id),
+                    onChanged: (rating) =>
+                        widget.studyState.setMemoryRating(_word.id, rating),
+                  );
+                },
+              ),
+              const SizedBox(height: 12),
+              Row(
+                children: [
+                  Expanded(
+                    child: FilledButton.tonalIcon(
+                      onPressed: _previous,
+                      icon: const Icon(Icons.arrow_back),
+                      label: Text(t.previous),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: FilledButton.icon(
+                      onPressed: () =>
+                          setState(() => _showMeaning = !_showMeaning),
+                      icon: Icon(_showMeaning
+                          ? Icons.visibility_off
+                          : Icons.visibility),
+                      label: Text(_showMeaning ? t.hideMeaning : t.showMeaning),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: FilledButton.tonalIcon(
+                      onPressed: _next,
+                      icon: const Icon(Icons.arrow_forward),
+                      label: Text(t.next),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _MemoryRatingControls extends StatelessWidget {
+  const _MemoryRatingControls({
+    required this.rating,
+    required this.onChanged,
+  });
+
+  final MemoryRating? rating;
+  final ValueChanged<MemoryRating> onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.t;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          t.memoryQuestion,
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.labelLarge,
+        ),
+        const SizedBox(height: 8),
+        SegmentedButton<MemoryRating>(
+          showSelectedIcon: false,
+          emptySelectionAllowed: true,
+          selected: rating == null ? <MemoryRating>{} : <MemoryRating>{rating!},
+          onSelectionChanged: (selected) {
+            if (selected.isNotEmpty) {
+              onChanged(selected.first);
+            }
+          },
+          segments: [
+            ButtonSegment<MemoryRating>(
+              value: MemoryRating.hard,
+              icon: const Icon(Icons.close),
+              label: Text(t.memoryHard),
+            ),
+            ButtonSegment<MemoryRating>(
+              value: MemoryRating.unsure,
+              icon: const Icon(Icons.help_outline),
+              label: Text(t.memoryUnsure),
+            ),
+            ButtonSegment<MemoryRating>(
+              value: MemoryRating.known,
+              icon: const Icon(Icons.check),
+              label: Text(t.memoryKnown),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class _WordMeaningBlock extends StatelessWidget {
+  const _WordMeaningBlock({required this.word});
+
+  final WordEntry word;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          word.thaiShort,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            fontSize: 28,
+            fontWeight: FontWeight.w800,
+          ),
+        ),
+        const SizedBox(height: 16),
+        Text(
+          word.definitionKo,
+          textAlign: TextAlign.center,
+        ),
+        const SizedBox(height: 8),
+        Text(
+          word.thaiDefinition,
+          textAlign: TextAlign.center,
+          style: const TextStyle(color: Color(0xFF59615F)),
+        ),
+      ],
+    );
+  }
+}

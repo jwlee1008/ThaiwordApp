@@ -1,0 +1,32 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+*.log
+
+# Data secrets
+*api_key*
+*secret*
+
+# Generated API caches
+data/sources/
+data/mirror/krdict/all_syllables_v1/
+
+# Flutter
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+build/
+
+# Node
+node_modules/
+dist/
+
+# Python
+__pycache__/
+.pycache_check/
+.venv/
+venv/
+
+# Local document scratch space
+doc_work/

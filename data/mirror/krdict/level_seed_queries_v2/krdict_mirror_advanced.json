@@ -1,0 +1,2056 @@
+[
+  {
+    "id": "krdict_14602",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=14602",
+    "targetCode": "14602",
+    "korean": "가설",
+    "thai": "การติดตั้ง(โทรศัพท์), การต่อ(อินเทอร์เน็ต), การเดิน(ไฟฟ้า), การก่อสร้าง(สะพาน), การก่อ, การสร้าง, การทำ",
+    "thaiCandidates": [
+      "การติดตั้ง(โทรศัพท์), การต่อ(อินเทอร์เน็ต), การเดิน(ไฟฟ้า), การก่อสร้าง(สะพาน), การก่อ, การสร้าง, การทำ"
+    ],
+    "thaiDefinition": "การติดตั้งสิ่งอำนวยความสะดวก เช่น สายไฟ สายโทรศัพท์ สะพาน",
+    "thaiDefinitionCandidates": [
+      "การติดตั้งสิ่งอำนวยความสะดวก เช่น สายไฟ สายโทรศัพท์ สะพาน"
+    ],
+    "pronunciation": "가설",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "전깃줄, 전화선, 다리 등의 시설을 설치함.",
+    "definitionKoCandidates": [
+      "전깃줄, 전화선, 다리 등의 시설을 설치함."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_14603",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=14603",
+    "targetCode": "14603",
+    "korean": "가설",
+    "thai": "การติดตั้งชั่วคราว, การก่อสร้างชั่วคราว, การสร้างชั่วคราว",
+    "thaiCandidates": [
+      "การติดตั้งชั่วคราว, การก่อสร้างชั่วคราว, การสร้างชั่วคราว"
+    ],
+    "thaiDefinition": "การติดตั้งชั่วคราว",
+    "thaiDefinitionCandidates": [
+      "การติดตั้งชั่วคราว"
+    ],
+    "pronunciation": "가ː설",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "임시로 설치함.",
+    "definitionKoCandidates": [
+      "임시로 설치함."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_14604",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=14604",
+    "targetCode": "14604",
+    "korean": "가설",
+    "thai": "การสมมุติ, สมมุติฐาน",
+    "thaiCandidates": [
+      "การสมมุติ, สมมุติฐาน"
+    ],
+    "thaiDefinition": "สมมุติฐานที่ยังไม่ได้รับการยืนยัน ซึ่งเป็นการสันนิษฐานเพื่ออธิบายเนื้อหาใดๆในการวิจัย",
+    "thaiDefinitionCandidates": [
+      "สมมุติฐานที่ยังไม่ได้รับการยืนยัน ซึ่งเป็นการสันนิษฐานเพื่ออธิบายเนื้อหาใดๆในการวิจัย"
+    ],
+    "pronunciation": "가ː설",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "연구에서 어떤 내용을 설명하려고 예상한 것으로 아직 증명되지 않은 가정.",
+    "definitionKoCandidates": [
+      "연구에서 어떤 내용을 설명하려고 예상한 것으로 아직 증명되지 않은 가정."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_14241",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=14241",
+    "targetCode": "14241",
+    "korean": "감상",
+    "thai": "ความอ่อนไหว, ความอ่อนแอ, ความรู้สึกอ่อนไหว",
+    "thaiCandidates": [
+      "ความอ่อนไหว, ความอ่อนแอ, ความรู้สึกอ่อนไหว"
+    ],
+    "thaiDefinition": "ความรู้สึกที่เศร้าหรือเปล่าเปลี่ยว  หรือจิตใจดังกล่าว",
+    "thaiDefinitionCandidates": [
+      "ความรู้สึกที่เศร้าหรือเปล่าเปลี่ยว  หรือจิตใจดังกล่าว"
+    ],
+    "pronunciation": "감ː상",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "슬프거나 쓸쓸하게 느낌. 또는 그런 마음.",
+    "definitionKoCandidates": [
+      "슬프거나 쓸쓸하게 느낌. 또는 그런 마음."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_15835",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=15835",
+    "targetCode": "15835",
+    "korean": "거부하다",
+    "thai": "ปฏิเสธ, ไม่รับ, ไม่ยอมรับ",
+    "thaiCandidates": [
+      "ปฏิเสธ, ไม่รับ, ไม่ยอมรับ"
+    ],
+    "thaiDefinition": "ไม่ยอมรับในคำขอร้องหรือข้อเสนอ เป็นต้น",
+    "thaiDefinitionCandidates": [
+      "ไม่ยอมรับในคำขอร้องหรือข้อเสนอ เป็นต้น"
+    ],
+    "pronunciation": "거ː부하다",
+    "partOfSpeechKo": "동사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "요구나 제안 등을 받아들이지 않다.",
+    "definitionKoCandidates": [
+      "요구나 제안 등을 받아들이지 않다."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_18798",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=18798",
+    "targetCode": "18798",
+    "korean": "고용",
+    "thai": "การจ้าง, การว่าจ้าง",
+    "thaiCandidates": [
+      "การจ้าง, การว่าจ้าง"
+    ],
+    "thaiDefinition": "การสั่งให้ผู้อื่นทำงานโดยให้เงินเป็นค่าตอบแทน",
+    "thaiDefinitionCandidates": [
+      "การสั่งให้ผู้อื่นทำงานโดยให้เงินเป็นค่าตอบแทน"
+    ],
+    "pronunciation": "고용",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "돈을 주고 사람에게 일을 시킴.",
+    "definitionKoCandidates": [
+      "돈을 주고 사람에게 일을 시킴."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_35264",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=35264",
+    "targetCode": "35264",
+    "korean": "규제",
+    "thai": "การกำหนด, การจำกัด, ข้อจำกัด, ข้อบังคับ, การยับยั้ง",
+    "thaiCandidates": [
+      "การกำหนด, การจำกัด, ข้อจำกัด, ข้อบังคับ, การยับยั้ง"
+    ],
+    "thaiDefinition": "การจำกัดการทำกิจกรรมของบุคคลหรือหมู่คณะตามตามกฎหรือกฏระเบียบ",
+    "thaiDefinitionCandidates": [
+      "การจำกัดการทำกิจกรรมของบุคคลหรือหมู่คณะตามตามกฎหรือกฏระเบียบ"
+    ],
+    "pronunciation": "규제",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "규칙이나 법에 의하여 개인이나 단체의 활동을 제한함.",
+    "definitionKoCandidates": [
+      "규칙이나 법에 의하여 개인이나 단체의 활동을 제한함."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_32490",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=32490",
+    "targetCode": "32490",
+    "korean": "기능",
+    "thai": "ทักษะ, เทคนิค, ฝีมือ, ความเชี่ยวชาญ, ความสามารถ",
+    "thaiCandidates": [
+      "ทักษะ, เทคนิค, ฝีมือ, ความเชี่ยวชาญ, ความสามารถ"
+    ],
+    "thaiDefinition": "ความสามารถและความชำนาญทางเทคนิคที่ทำให้การทำงานง่ายและแม่นยำ",
+    "thaiDefinitionCandidates": [
+      "ความสามารถและความชำนาญทางเทคนิคที่ทำให้การทำงานง่ายและแม่นยำ"
+    ],
+    "pronunciation": "기능",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "작업을 정확하고 손쉽게 해 주는 기술적인 재주와 능력.",
+    "definitionKoCandidates": [
+      "작업을 정확하고 손쉽게 해 주는 기술적인 재주와 능력."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_38346",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=38346",
+    "targetCode": "38346",
+    "korean": "기술",
+    "thai": "การบันทึกเชิงพรรณนา, การเขียนพรรณนา, การเขียนบรรยาย",
+    "thaiCandidates": [
+      "การบันทึกเชิงพรรณนา, การเขียนพรรณนา, การเขียนบรรยาย"
+    ],
+    "thaiDefinition": "การจดข้อเท็จจริงใด ๆ ตามความเป็นจริง  หรือบันทึกดังกล่าว",
+    "thaiDefinitionCandidates": [
+      "การจดข้อเท็จจริงใด ๆ ตามความเป็นจริง  หรือบันทึกดังกล่าว"
+    ],
+    "pronunciation": "기술",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "어떤 사실을 있는 그대로 적음. 또는 그런 기록.",
+    "definitionKoCandidates": [
+      "어떤 사실을 있는 그대로 적음. 또는 그런 기록."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_41570",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=41570",
+    "targetCode": "41570",
+    "korean": "네트워크",
+    "thai": "เครือข่าย",
+    "thaiCandidates": [
+      "เครือข่าย",
+      "เครือข่าย(โทรทัศน์, วิทยุ)",
+      "เครือข่าย, เน็ตเวิร์ค, ตาข่าย"
+    ],
+    "thaiDefinition": "ระบบหรือโครงสร้างเชื่อมต่อซึ่งกันและกันโดยใช้คอมพิวเตอร์ที่ติดตั้งอุปกรณ์สื่อสารอย่างโมเด็มหรือสายแลน",
+    "thaiDefinitionCandidates": [
+      "ระบบหรือโครงสร้างเชื่อมต่อซึ่งกันและกันโดยใช้คอมพิวเตอร์ที่ติดตั้งอุปกรณ์สื่อสารอย่างโมเด็มหรือสายแลน",
+      "ระบบการกระจายภาพเสียงรายการเดียวกันโดยเชื่อมต่อแต่ละสถานีในการกระจายภาพเสียงทางโทรทัศน์หรือวิทยุ",
+      "โครงสร้างที่ทำขึ้น เพื่อให้หน่วยงานต่าง ๆ ถูกเชื่อมโยงอย่างหนักแน่น ให้สามารถดำเนินการได้อย่างมีระบบและประสิทธิภาพในการจัดการปัญหาหรืองานใด ๆ"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "랜이나 모뎀 등의 통신 설비를 갖춘 컴퓨터를 이용하여 서로 연결시켜 주는 조직이나 체계.",
+    "definitionKoCandidates": [
+      "랜이나 모뎀 등의 통신 설비를 갖춘 컴퓨터를 이용하여 서로 연결시켜 주는 조직이나 체계.",
+      "라디오나 텔레비전의 방송에서, 각 방송국을 연결하여 동시에 같은 프로그램을 방송하는 체제.",
+      "어떠한 일이나 문제점을 처리하는 데 각 기관 등이 긴밀하게 연결되어 조직적이고 효율적으로 움직일 수 있도록 만든 체계."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_46644",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=46644",
+    "targetCode": "46644",
+    "korean": "도출하다",
+    "thai": "อนุมาน, นิรนัย",
+    "thaiCandidates": [
+      "อนุมาน, นิรนัย"
+    ],
+    "thaiDefinition": "ชักนำความคิด บทสรุป หรือการพิจารณา เป็นต้น ต่องานสิ่งใด",
+    "thaiDefinitionCandidates": [
+      "ชักนำความคิด บทสรุป หรือการพิจารณา เป็นต้น ต่องานสิ่งใด"
+    ],
+    "pronunciation": "도ː출하다",
+    "partOfSpeechKo": "동사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "어떤 일에 대한 생각, 결론, 판단 등을 이끌어 내다.",
+    "definitionKoCandidates": [
+      "어떤 일에 대한 생각, 결론, 판단 등을 이끌어 내다."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_55232",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=55232",
+    "targetCode": "55232",
+    "korean": "맥락",
+    "thai": "บริบท, ความสอดคล้อง, ความสัมพันธ์",
+    "thaiCandidates": [
+      "บริบท, ความสอดคล้อง, ความสัมพันธ์"
+    ],
+    "thaiDefinition": "ความลื่นไหลที่เกี่ยวข้องหรือเชื่อมโยงที่เชื่อมต่อซึ่งกันและกันอยู่",
+    "thaiDefinitionCandidates": [
+      "ความลื่นไหลที่เกี่ยวข้องหรือเชื่อมโยงที่เชื่อมต่อซึ่งกันและกันอยู่"
+    ],
+    "pronunciation": "맹낙",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "서로 이어져 있는 관계나 연관된 흐름.",
+    "definitionKoCandidates": [
+      "서로 이어져 있는 관계나 연관된 흐름."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_55975",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=55975",
+    "targetCode": "55975",
+    "korean": "모순",
+    "thai": "ความขัดแย้ง, ความไม่สมเหตุสมผล, ความไม่ลงรอยกัน",
+    "thaiCandidates": [
+      "ความขัดแย้ง, ความไม่สมเหตุสมผล, ความไม่ลงรอยกัน"
+    ],
+    "thaiDefinition": "การที่ต้นปลายของข้อเท็จจริงใดๆหรือข้อเท็จสองสิ่งมีความขัดแย้งกันจนไม่สมเหตุสมผล",
+    "thaiDefinitionCandidates": [
+      "การที่ต้นปลายของข้อเท็จจริงใดๆหรือข้อเท็จสองสิ่งมีความขัดแย้งกันจนไม่สมเหตุสมผล"
+    ],
+    "pronunciation": "모순",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "어떤 사실의 앞뒤, 또는 두 사실이 서로 어긋나 이치에 맞지 않음.",
+    "definitionKoCandidates": [
+      "어떤 사실의 앞뒤, 또는 두 사실이 서로 어긋나 이치에 맞지 않음."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_56941",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=56941",
+    "targetCode": "56941",
+    "korean": "문체",
+    "thai": "สำนวนการเขียน, รูปแบบการเขียน, ทำนองการเขียน",
+    "thaiCandidates": [
+      "สำนวนการเขียน, รูปแบบการเขียน, ทำนองการเขียน"
+    ],
+    "thaiDefinition": "ลักษณะเฉพาะทั่ว ๆ ไปที่ปรากฏอยู่ในหนังสือ ซึ่งขึ้นอยู่กับเนื้อหาหรือประเภทของหนังสือและลักษณะบุคลิกหรือความคิดของผู้เขียน",
+    "thaiDefinitionCandidates": [
+      "ลักษณะเฉพาะทั่ว ๆ ไปที่ปรากฏอยู่ในหนังสือ ซึ่งขึ้นอยู่กับเนื้อหาหรือประเภทของหนังสือและลักษณะบุคลิกหรือความคิดของผู้เขียน"
+    ],
+    "pronunciation": "문체",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "글쓴이의 개성이나 사상, 또는 글의 종류나 내용에 따라 글에 나타나는 전반적인 특색.",
+    "definitionKoCandidates": [
+      "글쓴이의 개성이나 사상, 또는 글의 종류나 내용에 따라 글에 나타나는 전반적인 특색."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_56689",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=56689",
+    "targetCode": "56689",
+    "korean": "미학",
+    "thai": "สุนทรียศาสตร์",
+    "thaiCandidates": [
+      "สุนทรียศาสตร์"
+    ],
+    "thaiDefinition": "ปรัชญาแขนงหนึ่งที่ศึกษาค้นคว้าเกี่ยวกับโครงสร้างและแก่นเนื้อแท้ของความสวยงามที่มีอยู่ในผลงานศิลปะ",
+    "thaiDefinitionCandidates": [
+      "ปรัชญาแขนงหนึ่งที่ศึกษาค้นคว้าเกี่ยวกับโครงสร้างและแก่นเนื้อแท้ของความสวยงามที่มีอยู่ในผลงานศิลปะ"
+    ],
+    "pronunciation": "미ː학",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "철학의 한 갈래로 예술 작품이 가지고 있는 아름다움의 본질과 구조에 대해 연구하는 학문.",
+    "definitionKoCandidates": [
+      "철학의 한 갈래로 예술 작품이 가지고 있는 아름다움의 본질과 구조에 대해 연구하는 학문."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_57598",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=57598",
+    "targetCode": "57598",
+    "korean": "반도체",
+    "thai": "สารกึ่งตัวนำ",
+    "thaiCandidates": [
+      "สารกึ่งตัวนำ"
+    ],
+    "thaiDefinition": "สสารที่เป็นตัวผ่านไฟฟ้าได้และไม่ได้ตามสภาพต่าง ๆ",
+    "thaiDefinitionCandidates": [
+      "สสารที่เป็นตัวผ่านไฟฟ้าได้และไม่ได้ตามสภาพต่าง ๆ"
+    ],
+    "pronunciation": "반ː도체",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "여러 상태에 따라 전기가 통하기도 하고 안 통하기도 하는 물질.",
+    "definitionKoCandidates": [
+      "여러 상태에 따라 전기가 통하기도 하고 안 통하기도 하는 물질."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_56156",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=56156",
+    "targetCode": "56156",
+    "korean": "반박하다",
+    "thai": "โต้แย้ง, โต้ตอบ, แย้ง, พูดแย้ง",
+    "thaiCandidates": [
+      "โต้แย้ง, โต้ตอบ, แย้ง, พูดแย้ง"
+    ],
+    "thaiDefinition": "พูดคัดค้านต่อความคิดเห็นหรือการแสดงทัศนคติใด ฯลฯ",
+    "thaiDefinitionCandidates": [
+      "พูดคัดค้านต่อความคิดเห็นหรือการแสดงทัศนคติใด ฯลฯ"
+    ],
+    "pronunciation": "반ː바카다",
+    "partOfSpeechKo": "동사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "어떤 의견이나 주장 등에 반대하여 말하다.",
+    "definitionKoCandidates": [
+      "어떤 의견이나 주장 등에 반대하여 말하다."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_14534",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=14534",
+    "targetCode": "14534",
+    "korean": "보편적",
+    "thai": "ที่สากล, ที่เป็นสากล, ทั่วไป, ธรรมดา",
+    "thaiCandidates": [
+      "ที่สากล, ที่เป็นสากล, ทั่วไป, ธรรมดา"
+    ],
+    "thaiDefinition": "ที่เป็นที่ยอมรับหรือเข้ากับทุกสิ่งได้ทั่ว",
+    "thaiDefinitionCandidates": [
+      "ที่เป็นที่ยอมรับหรือเข้ากับทุกสิ่งได้ทั่ว"
+    ],
+    "pronunciation": "보ː편적",
+    "partOfSpeechKo": "관형사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "모든 것에 두루 미치거나 통하는.",
+    "definitionKoCandidates": [
+      "모든 것에 두루 미치거나 통하는."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_14536",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=14536",
+    "targetCode": "14536",
+    "korean": "보편적",
+    "thai": "ทั่วไป, สากล",
+    "thaiCandidates": [
+      "ทั่วไป, สากล"
+    ],
+    "thaiDefinition": "สิ่งที่เป็นที่ยอมรับและเข้ากับทุกสิ่งได้ทั่ว",
+    "thaiDefinitionCandidates": [
+      "สิ่งที่เป็นที่ยอมรับและเข้ากับทุกสิ่งได้ทั่ว"
+    ],
+    "pronunciation": "보ː편적",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "모든 것에 두루 미치거나 통하는 것.",
+    "definitionKoCandidates": [
+      "모든 것에 두루 미치거나 통하는 것."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_59613",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=59613",
+    "targetCode": "59613",
+    "korean": "복지",
+    "thai": "สวัสดิการ, ความผาสุข, ชีวิตที่สุขสบาย",
+    "thaiCandidates": [
+      "สวัสดิการ, ความผาสุข, ชีวิตที่สุขสบาย"
+    ],
+    "thaiDefinition": "ชีวิตที่สบายและมีความสุข",
+    "thaiDefinitionCandidates": [
+      "ชีวิตที่สบายและมีความสุข"
+    ],
+    "pronunciation": "복찌",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "편안하고 행복하게 사는 삶.",
+    "definitionKoCandidates": [
+      "편안하고 행복하게 사는 삶."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_60208",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=60208",
+    "targetCode": "60208",
+    "korean": "복합적",
+    "thai": "ที่ผสมกัน, ที่ผสมผสาน",
+    "thaiCandidates": [
+      "ที่ผสมกัน, ที่ผสมผสาน"
+    ],
+    "thaiDefinition": "ที่มากกว่าสองสิ่งผสมเข้าด้วยกันเป็นหนึ่ง",
+    "thaiDefinitionCandidates": [
+      "ที่มากกว่าสองสิ่งผสมเข้าด้วยกันเป็นหนึ่ง"
+    ],
+    "pronunciation": "보캅쩍",
+    "partOfSpeechKo": "관형사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "두 가지 이상이 하나로 합쳐 있는.",
+    "definitionKoCandidates": [
+      "두 가지 이상이 하나로 합쳐 있는."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_60209",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=60209",
+    "targetCode": "60209",
+    "korean": "복합적",
+    "thai": "ที่ผสมกัน, ที่ผสมผสาน, ที่รวมเข้าด้วยกัน",
+    "thaiCandidates": [
+      "ที่ผสมกัน, ที่ผสมผสาน, ที่รวมเข้าด้วยกัน"
+    ],
+    "thaiDefinition": "สิ่งสองสิ่งขึ้นไปรวมเข้าด้วยกันอยู่เป็นหนึ่ง",
+    "thaiDefinitionCandidates": [
+      "สิ่งสองสิ่งขึ้นไปรวมเข้าด้วยกันอยู่เป็นหนึ่ง"
+    ],
+    "pronunciation": "보캅쩍",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "두 가지 이상이 하나로 합쳐 있는 것.",
+    "definitionKoCandidates": [
+      "두 가지 이상이 하나로 합쳐 있는 것."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_14550",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=14550",
+    "targetCode": "14550",
+    "korean": "본격적",
+    "thai": "โดยจริงจัง, แบบเอาจริงเอาจัง, โดยให้ถูกต้อง(ตามระเบียบ)",
+    "thaiCandidates": [
+      "โดยจริงจัง, แบบเอาจริงเอาจัง, โดยให้ถูกต้อง(ตามระเบียบ)"
+    ],
+    "thaiDefinition": "ที่เป็นไปอย่างกระตือรือร้นโดยมีลักษณะเพียบพร้อม",
+    "thaiDefinitionCandidates": [
+      "ที่เป็นไปอย่างกระตือรือร้นโดยมีลักษณะเพียบพร้อม"
+    ],
+    "pronunciation": "본껵쩍",
+    "partOfSpeechKo": "관형사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "모습을 제대로 갖추고 적극적으로 이루어지는.",
+    "definitionKoCandidates": [
+      "모습을 제대로 갖추고 적극적으로 이루어지는."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_14551",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=14551",
+    "targetCode": "14551",
+    "korean": "본격적",
+    "thai": "ที่ทำอย่างจริงจัง, ที่ทำอย่างถูกต้อง(ตามระเบียบ)",
+    "thaiCandidates": [
+      "ที่ทำอย่างจริงจัง, ที่ทำอย่างถูกต้อง(ตามระเบียบ)"
+    ],
+    "thaiDefinition": "การมีลักษณะที่พร้อมและเกิดขึ้นอย่างกระตือรือร้น",
+    "thaiDefinitionCandidates": [
+      "การมีลักษณะที่พร้อมและเกิดขึ้นอย่างกระตือรือร้น"
+    ],
+    "pronunciation": "본껵쩍",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "모습을 제대로 갖추고 적극적으로 이루어지는 것.",
+    "definitionKoCandidates": [
+      "모습을 제대로 갖추고 적극적으로 이루어지는 것."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_25675",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=25675",
+    "targetCode": "25675",
+    "korean": "본질",
+    "thai": "เนื้อแท้, สาระสำคัญ, เนื้อหาสำคัญ, แก่นสาร",
+    "thaiCandidates": [
+      "เนื้อแท้, สาระสำคัญ, เนื้อหาสำคัญ, แก่นสาร"
+    ],
+    "thaiDefinition": "ลักษณะพิเศษของสิ่งใดๆ ที่แสดงถึงความเป็นเอกลักษณ์ของสิ่งนั้น",
+    "thaiDefinitionCandidates": [
+      "ลักษณะพิเศษของสิ่งใดๆ ที่แสดงถึงความเป็นเอกลักษณ์ของสิ่งนั้น"
+    ],
+    "pronunciation": "본질",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "어떤 사물이 그 사물 자체가 되게 하는 원래의 특성.",
+    "definitionKoCandidates": [
+      "어떤 사물이 그 사물 자체가 되게 하는 원래의 특성."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_60385",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=60385",
+    "targetCode": "60385",
+    "korean": "비평",
+    "thai": "การวิจารณ์, การวิพากษ์วิจารณ์",
+    "thaiCandidates": [
+      "การวิจารณ์, การวิพากษ์วิจารณ์"
+    ],
+    "thaiDefinition": "การวิเคราะห์ความถูกและผิด ความสวยงามและอัปลักษณ์ เป็นต้น แล้วอภิปรายถึงคุณค่าของสิ่งของ",
+    "thaiDefinitionCandidates": [
+      "การวิเคราะห์ความถูกและผิด ความสวยงามและอัปลักษณ์ เป็นต้น แล้วอภิปรายถึงคุณค่าของสิ่งของ"
+    ],
+    "pronunciation": "비ː평",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "옳고 그름, 아름다움과 추함 등을 분석하여 사물의 가치를 논함.",
+    "definitionKoCandidates": [
+      "옳고 그름, 아름다움과 추함 등을 분석하여 사물의 가치를 논함."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_600889",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=600889",
+    "targetCode": "600889",
+    "korean": "서사",
+    "thai": "การพรรณนา",
+    "thaiCandidates": [
+      "การพรรณนา"
+    ],
+    "thaiDefinition": "การเขียนข้อเท็จจริงลงไปตามความเป็นจริง",
+    "thaiDefinitionCandidates": [
+      "การเขียนข้อเท็จจริงลงไปตามความเป็นจริง"
+    ],
+    "pronunciation": "서사",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "사실을 있는 그대로 적음.",
+    "definitionKoCandidates": [
+      "사실을 있는 그대로 적음."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_64632",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=64632",
+    "targetCode": "64632",
+    "korean": "수용하다",
+    "thai": "เวนคืน, บังคับซื้อ",
+    "thaiCandidates": [
+      "เวนคืน, บังคับซื้อ"
+    ],
+    "thaiDefinition": "องค์กรสาธารณะหรือประเทศเรียกเก็บสิ่งของที่แต่เดิมเคยเป็นของส่วนตัวไปแล้วนำไปใช้",
+    "thaiDefinitionCandidates": [
+      "องค์กรสาธารณะหรือประเทศเรียกเก็บสิ่งของที่แต่เดิมเคยเป็นของส่วนตัวไปแล้วนำไปใช้"
+    ],
+    "pronunciation": "수용하다",
+    "partOfSpeechKo": "동사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "본래 개인의 소유였던 것을 국가나 공공 기관이 거두어들여 사용하다.",
+    "definitionKoCandidates": [
+      "본래 개인의 소유였던 것을 국가나 공공 기관이 거두어들여 사용하다."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_64633",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=64633",
+    "targetCode": "64633",
+    "korean": "수용하다",
+    "thai": "รองรับ, บรรจุ",
+    "thaiCandidates": [
+      "รองรับ, บรรจุ"
+    ],
+    "thaiDefinition": "รวมและบรรจุคนหรือสิ่งของ เป็นต้น ลงไปที่สถานที่หรือสถานอำนวยความสะดวกตามที่กำหนด",
+    "thaiDefinitionCandidates": [
+      "รวมและบรรจุคนหรือสิ่งของ เป็นต้น ลงไปที่สถานที่หรือสถานอำนวยความสะดวกตามที่กำหนด"
+    ],
+    "pronunciation": "수용하다",
+    "partOfSpeechKo": "동사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "사람이나 물건 등을 일정한 장소나 시설에 모아 넣다.",
+    "definitionKoCandidates": [
+      "사람이나 물건 등을 일정한 장소나 시설에 모아 넣다."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_91362",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=91362",
+    "targetCode": "91362",
+    "korean": "실업",
+    "thai": "งานด้านธุรกิจ, งานด้านอุตสาหกรรม",
+    "thaiCandidates": [
+      "งานด้านธุรกิจ, งานด้านอุตสาหกรรม"
+    ],
+    "thaiDefinition": "ธุรกิจที่เกี่ยวกับเศรษฐกิจที่ทำสิ่งของที่จำเป็นในชีวิตประจำวันขึ้น เช่น เกษตรกรรม การพาณิชย์ อุตสาหกรรม  การประมง",
+    "thaiDefinitionCandidates": [
+      "ธุรกิจที่เกี่ยวกับเศรษฐกิจที่ทำสิ่งของที่จำเป็นในชีวิตประจำวันขึ้น เช่น เกษตรกรรม การพาณิชย์ อุตสาหกรรม  การประมง"
+    ],
+    "pronunciation": "시럽",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "농업, 상업, 공업, 수산업과 같이 생활에 필요한 물건을 만들어 내는 경제에 관한 사업.",
+    "definitionKoCandidates": [
+      "농업, 상업, 공업, 수산업과 같이 생활에 필요한 물건을 만들어 내는 경제에 관한 사업."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_601377",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=601377",
+    "targetCode": "601377",
+    "korean": "알고리즘",
+    "thai": "อัลกอรึทึม",
+    "thaiCandidates": [
+      "อัลกอรึทึม"
+    ],
+    "thaiDefinition": "ชุดขั้นตอนหรือกฎเกณฑ์ที่กำหนดขึ้นเพื่อแก้ไขปัญหาใดปัญหาหนึ่ง",
+    "thaiDefinitionCandidates": [
+      "ชุดขั้นตอนหรือกฎเกณฑ์ที่กำหนดขึ้นเพื่อแก้ไขปัญหาใดปัญหาหนึ่ง"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "어떤 문제를 해결하기 위하여 정해진 일련의 절차나 규칙의 집합.",
+    "definitionKoCandidates": [
+      "어떤 문제를 해결하기 위하여 정해진 일련의 절차나 규칙의 집합."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_67196",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=67196",
+    "targetCode": "67196",
+    "korean": "억제하다",
+    "thai": "อดกลั้น, ควบคุม(อารมณ์, ความรู้สึก), ข่มใจ",
+    "thaiCandidates": [
+      "อดกลั้น, ควบคุม(อารมณ์, ความรู้สึก), ข่มใจ",
+      "ควบคุม"
+    ],
+    "thaiDefinition": "กดความรู้สึกหรือความปรารถนา  การเกิดความอยาก เป็นต้น และทำไม่ให้เกิดขึ้น",
+    "thaiDefinitionCandidates": [
+      "กดความรู้สึกหรือความปรารถนา  การเกิดความอยาก เป็นต้น และทำไม่ให้เกิดขึ้น",
+      "กดสิ่งที่ข้ามขอบเขตหรือระดับออกไปและทำให้หยุด"
+    ],
+    "pronunciation": "억쩨하다",
+    "partOfSpeechKo": "동사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "감정이나 욕구, 충동 등을 내리눌러서 그치게 하다.",
+    "definitionKoCandidates": [
+      "감정이나 욕구, 충동 등을 내리눌러서 그치게 하다.",
+      "정도나 한도를 넘어서 나아가려는 것을 억눌러 멈추게 하다."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_15209",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=15209",
+    "targetCode": "15209",
+    "korean": "여론",
+    "thai": "มติมหาชน, ความเห็นของคนส่วนใหญ่, ประชามติ",
+    "thaiCandidates": [
+      "มติมหาชน, ความเห็นของคนส่วนใหญ่, ประชามติ"
+    ],
+    "thaiDefinition": "ความคิดเห็นที่ผู้คนในสังคมหนึ่ง ๆ มีอยู่ร่วมกัน",
+    "thaiDefinitionCandidates": [
+      "ความคิดเห็นที่ผู้คนในสังคมหนึ่ง ๆ มีอยู่ร่วมกัน"
+    ],
+    "pronunciation": "여ː론",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "한 사회의 사람들이 공통적으로 가지고 있는 의견.",
+    "definitionKoCandidates": [
+      "한 사회의 사람들이 공통적으로 가지고 있는 의견."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_70204",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=70204",
+    "targetCode": "70204",
+    "korean": "유전자",
+    "thai": "พันธุกรรม, ลักษณะทางพันธุกรรม",
+    "thaiCandidates": [
+      "พันธุกรรม, ลักษณะทางพันธุกรรม"
+    ],
+    "thaiDefinition": "ปัจจัยที่ถ่ายทอดไปให้ลูกหลานที่ผ่านการสืบพันธุ์ โดยบรรจุข้อมูลที่จำเป็นในการดำรงและประกอบเซลล์ของสิ่งมีชีวิต",
+    "thaiDefinitionCandidates": [
+      "ปัจจัยที่ถ่ายทอดไปให้ลูกหลานที่ผ่านการสืบพันธุ์ โดยบรรจุข้อมูลที่จำเป็นในการดำรงและประกอบเซลล์ของสิ่งมีชีวิต"
+    ],
+    "pronunciation": "유전자",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "생물체의 세포를 구성하고 유지하는 데 필요한 정보가 담겨 있으며 생식을 통해 자손에게 전해지는 요소.",
+    "definitionKoCandidates": [
+      "생물체의 세포를 구성하고 유지하는 데 필요한 정보가 담겨 있으며 생식을 통해 자손에게 전해지는 요소."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_71082",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=71082",
+    "targetCode": "71082",
+    "korean": "윤리",
+    "thai": "จริยธรรม, ศีลธรรม",
+    "thaiCandidates": [
+      "จริยธรรม, ศีลธรรม"
+    ],
+    "thaiDefinition": "เกณฑ์ความประพฤติที่เหมาะสมที่จะต้องรักษาในฐานะที่เป็นคน",
+    "thaiDefinitionCandidates": [
+      "เกณฑ์ความประพฤติที่เหมาะสมที่จะต้องรักษาในฐานะที่เป็นคน"
+    ],
+    "pronunciation": "율리",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "사람으로서 마땅히 지켜야 할 바람직한 행동 기준.",
+    "definitionKoCandidates": [
+      "사람으로서 마땅히 지켜야 할 바람직한 행동 기준."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_71714",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=71714",
+    "targetCode": "71714",
+    "korean": "이론",
+    "thai": "ความคิดที่แตกต่าง, ความคิดเห็นที่ขัดแย้งกัน",
+    "thaiCandidates": [
+      "ความคิดที่แตกต่าง, ความคิดเห็นที่ขัดแย้งกัน"
+    ],
+    "thaiDefinition": "ความขัดแย้งหรือความคิดเห็นอื่น",
+    "thaiDefinitionCandidates": [
+      "ความขัดแย้งหรือความคิดเห็นอื่น"
+    ],
+    "pronunciation": "이ː론",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "다른 이론이나 의견.",
+    "definitionKoCandidates": [
+      "다른 이론이나 의견."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_72915",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=72915",
+    "targetCode": "72915",
+    "korean": "인권",
+    "thai": "สิทธิมนุษยชน",
+    "thaiCandidates": [
+      "สิทธิมนุษยชน"
+    ],
+    "thaiDefinition": "สิทธิขั้นพื้นฐานที่มนุษย์พึงมี",
+    "thaiDefinitionCandidates": [
+      "สิทธิขั้นพื้นฐานที่มนุษย์พึงมี"
+    ],
+    "pronunciation": "인꿘",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "인간으로서 당연히 가지는 기본적인 권리.",
+    "definitionKoCandidates": [
+      "인간으로서 당연히 가지는 기본적인 권리."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_73466",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=73466",
+    "targetCode": "73466",
+    "korean": "입증하다",
+    "thai": "แสดงหลักฐาน, พิสูจน์",
+    "thaiCandidates": [
+      "แสดงหลักฐาน, พิสูจน์"
+    ],
+    "thaiDefinition": "พิสูจน์ความจริงใด ๆ ด้วยการแสดงพยานหลักฐาน",
+    "thaiDefinitionCandidates": [
+      "พิสูจน์ความจริงใด ๆ ด้วยการแสดงพยานหลักฐาน"
+    ],
+    "pronunciation": "입쯩하다",
+    "partOfSpeechKo": "동사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "증거를 들어서 어떤 사실을 증명하다.",
+    "definitionKoCandidates": [
+      "증거를 들어서 어떤 사실을 증명하다."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_73950",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=73950",
+    "targetCode": "73950",
+    "korean": "자동화",
+    "thai": "การทำให้เคลื่อนไหวเอง, การทำให้เคลื่อนไหวอัตโนมัติ",
+    "thaiCandidates": [
+      "การทำให้เคลื่อนไหวเอง, การทำให้เคลื่อนไหวอัตโนมัติ"
+    ],
+    "thaiDefinition": "การทำให้เคลื่อนไหวด้วยตัวเองโดยไม่อาศัยเรี่ยวแรงอื่น หรือการทำให้มีลักษณะดังกล่าว",
+    "thaiDefinitionCandidates": [
+      "การทำให้เคลื่อนไหวด้วยตัวเองโดยไม่อาศัยเรี่ยวแรงอื่น หรือการทำให้มีลักษณะดังกล่าว"
+    ],
+    "pronunciation": "자동화",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "다른 힘을 빌리지 않고 스스로 움직이게 됨. 또는 그렇게 되게 함.",
+    "definitionKoCandidates": [
+      "다른 힘을 빌리지 않고 스스로 움직이게 됨. 또는 그렇게 되게 함."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_73566",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=73566",
+    "targetCode": "73566",
+    "korean": "자본주의",
+    "thai": "ระบบทุนนิยม",
+    "thaiCandidates": [
+      "ระบบทุนนิยม"
+    ],
+    "thaiDefinition": "รูปแบบเศรษฐกิจในสังคมที่รับรองว่าผู้ที่มีเงินทุนจากวิธีการผลิตได้ทำกิจกรรมทางการผลิตเพื่อให้ได้มาซึ่งผลกำไร",
+    "thaiDefinitionCandidates": [
+      "รูปแบบเศรษฐกิจในสังคมที่รับรองว่าผู้ที่มีเงินทุนจากวิธีการผลิตได้ทำกิจกรรมทางการผลิตเพื่อให้ได้มาซึ่งผลกำไร"
+    ],
+    "pronunciation": "자본주의/자본주이",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "자본을 생산 수단으로 가진 사람이 이익을 얻기 위해 생산 활동을 하도록 보장하는 사회 경제 체제.",
+    "definitionKoCandidates": [
+      "자본을 생산 수단으로 가진 사람이 이익을 얻기 위해 생산 활동을 하도록 보장하는 사회 경제 체제."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_74469",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=74469",
+    "targetCode": "74469",
+    "korean": "재난",
+    "thai": "อุบัติเหตุ, อุบัติภัย, ภัยพิบัติ",
+    "thaiCandidates": [
+      "อุบัติเหตุ, อุบัติภัย, ภัยพิบัติ"
+    ],
+    "thaiDefinition": "ความทุกข์ยากหรืออุบัติเหตุที่โชคร้ายที่เกิดขึ้นอย่างไม่ปรารถนาให้เกิด",
+    "thaiDefinitionCandidates": [
+      "ความทุกข์ยากหรืออุบัติเหตุที่โชคร้ายที่เกิดขึ้นอย่างไม่ปรารถนาให้เกิด"
+    ],
+    "pronunciation": "재난",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "뜻하지 않게 일어난 불행한 사고나 고난.",
+    "definitionKoCandidates": [
+      "뜻하지 않게 일어난 불행한 사고나 고난."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_74383",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=74383",
+    "targetCode": "74383",
+    "korean": "재판",
+    "thai": "การตีพิมพ์อีกครั้ง, การพิมพ์ครั้งที่สอง, ฉบับพิมพ์ครั้งที่สอง",
+    "thaiCandidates": [
+      "การตีพิมพ์อีกครั้ง, การพิมพ์ครั้งที่สอง, ฉบับพิมพ์ครั้งที่สอง",
+      "การทำเหตุการณ์ซ้ำ, การทำซ้ำ, การเกิดซ้ำ"
+    ],
+    "thaiDefinition": "การตีพิมพ์หนังสือที่เคยตีพิมพ์ไปแล้วหนึ่งครั้งอีกครั้ง หรือหนังสือที่ตีพิมพ์ดังกล่าว",
+    "thaiDefinitionCandidates": [
+      "การตีพิมพ์หนังสือที่เคยตีพิมพ์ไปแล้วหนึ่งครั้งอีกครั้ง หรือหนังสือที่ตีพิมพ์ดังกล่าว",
+      "การเกิดขึ้นอีกครั้งของเหตุการณ์ที่เหมือนหรือคล้ายกับเหตุการณ์ในอดีต หรือเหตุการณ์ที่ทำดังกล่าว"
+    ],
+    "pronunciation": "재ː판",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "한 번 출판했던 책을 다시 출판함. 또는 그렇게 출판한 책.",
+    "definitionKoCandidates": [
+      "한 번 출판했던 책을 다시 출판함. 또는 그렇게 출판한 책.",
+      "전에 있었던 일과 같거나 비슷한 일을 다시 반복함. 또는 그렇게 하는 일."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_74616",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=74616",
+    "targetCode": "74616",
+    "korean": "저작권",
+    "thai": "ลิขสิทธิ์",
+    "thaiCandidates": [
+      "ลิขสิทธิ์"
+    ],
+    "thaiDefinition": "สิทธิที่คนที่สืบทอดในสิทธินั้นมีสิทธิ์หรือผู้มีลิขสิทธิเกี่ยวกับผลงานประพันธ์",
+    "thaiDefinitionCandidates": [
+      "สิทธิที่คนที่สืบทอดในสิทธินั้นมีสิทธิ์หรือผู้มีลิขสิทธิเกี่ยวกับผลงานประพันธ์"
+    ],
+    "pronunciation": "저ː작꿘",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "창작물에 대해 저작자나 그 권리를 이어받은 사람이 가지는 권리.",
+    "definitionKoCandidates": [
+      "창작물에 대해 저작자나 그 권리를 이어받은 사람이 가지는 권리."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_25298",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=25298",
+    "targetCode": "25298",
+    "korean": "전반적",
+    "thai": "โดยทั่วไป, โดยภาพรวม",
+    "thaiCandidates": [
+      "โดยทั่วไป, โดยภาพรวม"
+    ],
+    "thaiDefinition": "โดยครอบคลุมทั้งสาขาหรือเรื่องใด ๆ",
+    "thaiDefinitionCandidates": [
+      "โดยครอบคลุมทั้งสาขาหรือเรื่องใด ๆ"
+    ],
+    "pronunciation": "전반적",
+    "partOfSpeechKo": "관형사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "어떤 일이나 분야 전체에 걸친.",
+    "definitionKoCandidates": [
+      "어떤 일이나 분야 전체에 걸친."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_25299",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=25299",
+    "targetCode": "25299",
+    "korean": "전반적",
+    "thai": "ทั่วไป, ภาพรวม",
+    "thaiCandidates": [
+      "ทั่วไป, ภาพรวม"
+    ],
+    "thaiDefinition": "สิ่งที่ครอบคลุมทั้งสาขาหรือเรื่องใด ๆ",
+    "thaiDefinitionCandidates": [
+      "สิ่งที่ครอบคลุมทั้งสาขาหรือเรื่องใด ๆ"
+    ],
+    "pronunciation": "전반적",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "어떤 일이나 분야 전체에 걸치는 것.",
+    "definitionKoCandidates": [
+      "어떤 일이나 분야 전체에 걸치는 것."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_75633",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=75633",
+    "targetCode": "75633",
+    "korean": "정체성",
+    "thai": "คุณลักษณะเฉพาะตัว, คุณลักษณะดั้งเดิม",
+    "thaiCandidates": [
+      "คุณลักษณะเฉพาะตัว, คุณลักษณะดั้งเดิม"
+    ],
+    "thaiDefinition": "คุณลักษณะที่ตระหนักได้ถึงลักษณะเฉพาะดั้งเดิมของการดำรงอยู่ใดที่ไม่เปลี่ยนแปลง หรือการดำรงอยู่ที่มีคุณลักษณะนั้น",
+    "thaiDefinitionCandidates": [
+      "คุณลักษณะที่ตระหนักได้ถึงลักษณะเฉพาะดั้งเดิมของการดำรงอยู่ใดที่ไม่เปลี่ยนแปลง หรือการดำรงอยู่ที่มีคุณลักษณะนั้น"
+    ],
+    "pronunciation": "정ː체썽",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "어떤 존재의 변하지 않는 원래의 특성을 깨닫는 성질. 또는 그 성질을 가진 존재.",
+    "definitionKoCandidates": [
+      "어떤 존재의 변하지 않는 원래의 특성을 깨닫는 성질. 또는 그 성질을 가진 존재."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_75515",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=75515",
+    "targetCode": "75515",
+    "korean": "조정하다",
+    "thai": "ไกล่เกลี่ย, ประนีประนอม, ลอมชอม, ปรองดองกัน, เป็นคนกลาง",
+    "thaiCandidates": [
+      "ไกล่เกลี่ย, ประนีประนอม, ลอมชอม, ปรองดองกัน, เป็นคนกลาง"
+    ],
+    "thaiDefinition": "แทรกเข้าไปในระหว่างที่มีการทะเลาะวิวาทและทำให้คืนดีหรือเห็นชอบยินยอมตกลงกัน",
+    "thaiDefinitionCandidates": [
+      "แทรกเข้าไปในระหว่างที่มีการทะเลาะวิวาทและทำให้คืนดีหรือเห็นชอบยินยอมตกลงกัน"
+    ],
+    "pronunciation": "조정하다",
+    "partOfSpeechKo": "동사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "다툼이 있는 사이에 끼어서 서로 화해하게 하거나 타협하여 합의하게 하다.",
+    "definitionKoCandidates": [
+      "다툼이 있는 사이에 끼어서 서로 화해하게 하거나 타협하여 합의하게 하다."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_76602",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=76602",
+    "targetCode": "76602",
+    "korean": "중립적",
+    "thai": "ที่เป็นกลาง, ที่ไม่ฝักใฝ่ฝ่ายใด, อันเป็นกลาง, อันไม่ลำเอียง, อันยุติธรรม, อันทัดเทียม, อันเสมอภาค",
+    "thaiCandidates": [
+      "ที่เป็นกลาง, ที่ไม่ฝักใฝ่ฝ่ายใด, อันเป็นกลาง, อันไม่ลำเอียง, อันยุติธรรม, อันทัดเทียม, อันเสมอภาค"
+    ],
+    "thaiDefinition": "ที่ยืนอยู่กลางโดยไม่เอียงด้านใดด้านหนึ่ง หรือที่รับเอาท่าทีเช่นนั้น",
+    "thaiDefinitionCandidates": [
+      "ที่ยืนอยู่กลางโดยไม่เอียงด้านใดด้านหนึ่ง หรือที่รับเอาท่าทีเช่นนั้น"
+    ],
+    "pronunciation": "중닙쩍",
+    "partOfSpeechKo": "관형사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "어느 한쪽에 치우치지 않고 중간 입장에 서는. 또는 그런 태도를 취하는.",
+    "definitionKoCandidates": [
+      "어느 한쪽에 치우치지 않고 중간 입장에 서는. 또는 그런 태도를 취하는."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_76603",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=76603",
+    "targetCode": "76603",
+    "korean": "중립적",
+    "thai": "ที่เป็นกลาง, ที่ไม่ฝักใฝ่ฝ่ายใด, อันเป็นกลาง, อันไม่ลำเอียง, อันยุติธรรม, อันทัดเทียม, อันเสมอภาค",
+    "thaiCandidates": [
+      "ที่เป็นกลาง, ที่ไม่ฝักใฝ่ฝ่ายใด, อันเป็นกลาง, อันไม่ลำเอียง, อันยุติธรรม, อันทัดเทียม, อันเสมอภาค"
+    ],
+    "thaiDefinition": "การยืนอยู่ตรงกลางโดยไม่เอนเอียงไปด้านใดด้านหนึ่ง หรือการรับเอาท่าทีเช่นนั้น",
+    "thaiDefinitionCandidates": [
+      "การยืนอยู่ตรงกลางโดยไม่เอนเอียงไปด้านใดด้านหนึ่ง หรือการรับเอาท่าทีเช่นนั้น"
+    ],
+    "pronunciation": "중닙쩍",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "어느 한쪽에 치우치지 않고 중간 입장에 서는 것. 또는 그런 태도를 취하는 것.",
+    "definitionKoCandidates": [
+      "어느 한쪽에 치우치지 않고 중간 입장에 서는 것. 또는 그런 태도를 취하는 것."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_27816",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=27816",
+    "targetCode": "27816",
+    "korean": "지속적",
+    "thai": "อย่างต่อเนื่อง, ดำเนินไปอย่างต่อเนื่อง",
+    "thaiCandidates": [
+      "อย่างต่อเนื่อง, ดำเนินไปอย่างต่อเนื่อง"
+    ],
+    "thaiDefinition": "ซึ่งสภาพหรือเรื่องใด ๆ ดำเนินต่อเนื่องไปเป็นเวลานาน",
+    "thaiDefinitionCandidates": [
+      "ซึ่งสภาพหรือเรื่องใด ๆ ดำเนินต่อเนื่องไปเป็นเวลานาน"
+    ],
+    "pronunciation": "지속쩍",
+    "partOfSpeechKo": "관형사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "어떤 일이나 상태가 오래 계속되는.",
+    "definitionKoCandidates": [
+      "어떤 일이나 상태가 오래 계속되는."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_27820",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=27820",
+    "targetCode": "27820",
+    "korean": "지속적",
+    "thai": "อย่างต่อเนื่อง, ดำเนินไปอย่างต่อเนื่อง",
+    "thaiCandidates": [
+      "อย่างต่อเนื่อง, ดำเนินไปอย่างต่อเนื่อง"
+    ],
+    "thaiDefinition": "การที่สภาพหรือเรื่องใด ๆ ดำเนินต่อเนื่องไป\nเป็นเวลานาน",
+    "thaiDefinitionCandidates": [
+      "การที่สภาพหรือเรื่องใด ๆ ดำเนินต่อเนื่องไป\nเป็นเวลานาน"
+    ],
+    "pronunciation": "지속쩍",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "어떤 일이나 상태가 오래 계속되는 것.",
+    "definitionKoCandidates": [
+      "어떤 일이나 상태가 오래 계속되는 것."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_82799",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=82799",
+    "targetCode": "82799",
+    "korean": "창의적",
+    "thai": "ที่มีความคิดริเริ่ม, ที่มีความคิดสร้างสรรค์",
+    "thaiCandidates": [
+      "ที่มีความคิดริเริ่ม, ที่มีความคิดสร้างสรรค์"
+    ],
+    "thaiDefinition": "ที่ปรากฏสิ่งใหม่ที่ไม่เคยมีจนกระทั่งบัดนี้",
+    "thaiDefinitionCandidates": [
+      "ที่ปรากฏสิ่งใหม่ที่ไม่เคยมีจนกระทั่งบัดนี้"
+    ],
+    "pronunciation": "창ː의적/창ː이적",
+    "partOfSpeechKo": "관형사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "지금까지 없던 새로운 것이 나타나 있는.",
+    "definitionKoCandidates": [
+      "지금까지 없던 새로운 것이 나타나 있는."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_82800",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=82800",
+    "targetCode": "82800",
+    "korean": "창의적",
+    "thai": "ที่มีความคิดริเริ่ม, ที่มีความคิดสร้างสรรค์",
+    "thaiCandidates": [
+      "ที่มีความคิดริเริ่ม, ที่มีความคิดสร้างสรรค์"
+    ],
+    "thaiDefinition": "การที่สิ่งใหม่ที่ไม่เคยมีจนกระทั่งบัดนี้ปรากฎอยู่",
+    "thaiDefinitionCandidates": [
+      "การที่สิ่งใหม่ที่ไม่เคยมีจนกระทั่งบัดนี้ปรากฎอยู่"
+    ],
+    "pronunciation": "창ː의적/창ː이적",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "지금까지 없던 새로운 것이 나타나 있는 것.",
+    "definitionKoCandidates": [
+      "지금까지 없던 새로운 것이 나타나 있는 것."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_25329",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=25329",
+    "targetCode": "25329",
+    "korean": "철학",
+    "thai": "ปรัชญา",
+    "thaiCandidates": [
+      "ปรัชญา",
+      "ปรัชญา"
+    ],
+    "thaiDefinition": "ศาสตร์ที่ค้นคว้าหลักการเบื้องต้นเกี่ยวกับมนุษย์และโลก",
+    "thaiDefinitionCandidates": [
+      "ศาสตร์ที่ค้นคว้าหลักการเบื้องต้นเกี่ยวกับมนุษย์และโลก",
+      "ความคิดหรือความเห็นที่เกี่ยวกับหลักการเบื้องต้นของชีวิตหรือโลกซึ่งได้จากประสบการณ์หรือการเรียนรู้"
+    ],
+    "pronunciation": "철학",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "세계와 인간에 대한 근본 원리를 탐구하는 학문.",
+    "definitionKoCandidates": [
+      "세계와 인간에 대한 근본 원리를 탐구하는 학문.",
+      "경험이나 학습을 통해서 얻어진 세계나 인생의 근본 원리에 대한 의견이나 생각."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_25353",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=25353",
+    "targetCode": "25353",
+    "korean": "체계적",
+    "thai": "อย่างมีระบบ, อย่างเป็นระบบ, อย่างมีระเบียบ, อย่างเป็นระเบียบ",
+    "thaiCandidates": [
+      "อย่างมีระบบ, อย่างเป็นระบบ, อย่างมีระเบียบ, อย่างเป็นระเบียบ"
+    ],
+    "thaiDefinition": "ที่ทั้งหมดถูกจัดอย่างดีเป็นขั้นเป็นตอนตามหลักการที่กำหนดไว้",
+    "thaiDefinitionCandidates": [
+      "ที่ทั้งหมดถูกจัดอย่างดีเป็นขั้นเป็นตอนตามหลักการที่กำหนดไว้"
+    ],
+    "pronunciation": "체계적/체게적",
+    "partOfSpeechKo": "관형사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "전체가 일정한 원리에 따라 단계적으로 잘 짜여진.",
+    "definitionKoCandidates": [
+      "전체가 일정한 원리에 따라 단계적으로 잘 짜여진."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_25356",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=25356",
+    "targetCode": "25356",
+    "korean": "체계적",
+    "thai": "เป็นระบบ, เป็นระเบียบ",
+    "thaiCandidates": [
+      "เป็นระบบ, เป็นระเบียบ"
+    ],
+    "thaiDefinition": "การที่ทั้งหมดถูกจัดอย่างดีเป็นขั้นเป็นตอนตามหลักการที่กำหนดไว้",
+    "thaiDefinitionCandidates": [
+      "การที่ทั้งหมดถูกจัดอย่างดีเป็นขั้นเป็นตอนตามหลักการที่กำหนดไว้"
+    ],
+    "pronunciation": "체계적/체게적",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "전체가 일정한 원리에 따라 단계적으로 잘 짜여진 것.",
+    "definitionKoCandidates": [
+      "전체가 일정한 원리에 따라 단계적으로 잘 짜여진 것."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_83773",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=83773",
+    "targetCode": "83773",
+    "korean": "촉진하다",
+    "thai": "เร่ง, เร่งรัด, กระตุ้น, ผลักดัน, ส่งเสริม, สนับสนุน",
+    "thaiCandidates": [
+      "เร่ง, เร่งรัด, กระตุ้น, ผลักดัน, ส่งเสริม, สนับสนุน"
+    ],
+    "thaiDefinition": "เร่งทำให้ดำเนินการอย่างเร็ว",
+    "thaiDefinitionCandidates": [
+      "เร่งทำให้ดำเนินการอย่างเร็ว"
+    ],
+    "pronunciation": "촉찐하다",
+    "partOfSpeechKo": "동사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "다그쳐서 빨리 진행하게 하다.",
+    "definitionKoCandidates": [
+      "다그쳐서 빨리 진행하게 하다."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_80373",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=80373",
+    "targetCode": "80373",
+    "korean": "추론하다",
+    "thai": "อนุมาน, นิรนัย",
+    "thaiCandidates": [
+      "อนุมาน, นิรนัย"
+    ],
+    "thaiDefinition": "จำแนกความถูกและผิดโดยคาดคะเนแล้วคิด",
+    "thaiDefinitionCandidates": [
+      "จำแนกความถูกและผิดโดยคาดคะเนแล้วคิด"
+    ],
+    "pronunciation": "추론하다",
+    "partOfSpeechKo": "동사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "미루어 생각하여 옳고 그름을 따지다.",
+    "definitionKoCandidates": [
+      "미루어 생각하여 옳고 그름을 따지다."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_80395",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=80395",
+    "targetCode": "80395",
+    "korean": "추상적",
+    "thai": "ที่เป็นนามธรรม, ที่จับต้องไม่ได้",
+    "thaiCandidates": [
+      "ที่เป็นนามธรรม, ที่จับต้องไม่ได้",
+      "ที่เป็นนามธรรม, ที่จับต้องไม่ได้"
+    ],
+    "thaiDefinition": "ที่ไม่มีคุณลักษณะและรูปแบบที่กำหนด",
+    "thaiDefinitionCandidates": [
+      "ที่ไม่มีคุณลักษณะและรูปแบบที่กำหนด",
+      "ที่เป็นปกติโดยไม่ชัดเจนและไม่เป็นเชิงรูปธรรม"
+    ],
+    "pronunciation": "추상적",
+    "partOfSpeechKo": "관형사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "일정한 형태와 성질을 갖추고 있지 않은.",
+    "definitionKoCandidates": [
+      "일정한 형태와 성질을 갖추고 있지 않은.",
+      "구체적이지 않아 막연하고 일반적인."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_80396",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=80396",
+    "targetCode": "80396",
+    "korean": "추상적",
+    "thai": "ที่เป็นนามธรรม, ที่จับต้องไม่ได้",
+    "thaiCandidates": [
+      "ที่เป็นนามธรรม, ที่จับต้องไม่ได้",
+      "ที่เป็นนามธรรม, ที่จับต้องไม่ได้"
+    ],
+    "thaiDefinition": "สิ่งที่ไม่มีคุณลักษณะและรูปแบบที่กำหนด",
+    "thaiDefinitionCandidates": [
+      "สิ่งที่ไม่มีคุณลักษณะและรูปแบบที่กำหนด",
+      "สิ่งที่เป็นปกติโดยไม่ชัดเจนและไม่เป็นเชิงรูปธรรม"
+    ],
+    "pronunciation": "추상적",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "일정한 형태와 성질을 갖추고 있지 않은 것.",
+    "definitionKoCandidates": [
+      "일정한 형태와 성질을 갖추고 있지 않은 것.",
+      "구체적이지 않아 막연하고 일반적인 것."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_80880",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=80880",
+    "targetCode": "80880",
+    "korean": "침해하다",
+    "thai": "ละเมิด, ล่วงละเมิด, รุกราน, ทำลาย, บุกรุก",
+    "thaiCandidates": [
+      "ละเมิด, ล่วงละเมิด, รุกราน, ทำลาย, บุกรุก"
+    ],
+    "thaiDefinition": "ละเมิดที่ดิน สิทธิ หรือทรัพย์สิน เป็นต้น ของผู้อื่นและทำให้เสียหาย",
+    "thaiDefinitionCandidates": [
+      "ละเมิดที่ดิน สิทธิ หรือทรัพย์สิน เป็นต้น ของผู้อื่นและทำให้เสียหาย"
+    ],
+    "pronunciation": "침ː해하다",
+    "partOfSpeechKo": "동사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "남의 땅이나 권리, 재산 등을 범하여 해를 끼치다.",
+    "definitionKoCandidates": [
+      "남의 땅이나 권리, 재산 등을 범하여 해를 끼치다."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_600228",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=600228",
+    "targetCode": "600228",
+    "korean": "콘텐츠",
+    "thai": "เนื้อหา, คอนเทนต์",
+    "thaiCandidates": [
+      "เนื้อหา, คอนเทนต์"
+    ],
+    "thaiDefinition": "สิ่งที่บรรจุที่มีข้อมูลและวัฒนธรรม เช่น ข้อความ ดนตรี ภาพ หรือวิดีโอ เป็นต้น",
+    "thaiDefinitionCandidates": [
+      "สิ่งที่บรรจุที่มีข้อมูลและวัฒนธรรม เช่น ข้อความ ดนตรี ภาพ หรือวิดีโอ เป็นต้น"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "정보와 문화가 담겨 있는 문자, 음악, 이미지, 동영상 등과 같은 내용물.",
+    "definitionKoCandidates": [
+      "정보와 문화가 담겨 있는 문자, 음악, 이미지, 동영상 등과 같은 내용물."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_81923",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=81923",
+    "targetCode": "81923",
+    "korean": "통합",
+    "thai": "การผสาน, การรวม, การผสมผสาน, การรวมกัน, การรวมกลุ่ม, การรวมเข้าด้วยกัน",
+    "thaiCandidates": [
+      "การผสาน, การรวม, การผสมผสาน, การรวมกัน, การรวมกลุ่ม, การรวมเข้าด้วยกัน"
+    ],
+    "thaiDefinition": "การรวมองค์กรหรือกลุ่มหลาย ๆ กลุ่ม เป็นต้น\nเป็นหนึ่ง",
+    "thaiDefinitionCandidates": [
+      "การรวมองค์กรหรือกลุ่มหลาย ๆ กลุ่ม เป็นต้น\nเป็นหนึ่ง"
+    ],
+    "pronunciation": "통ː합",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "여러 개의 기구나 조직 등을 하나로 합침.",
+    "definitionKoCandidates": [
+      "여러 개의 기구나 조직 등을 하나로 합침."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_84458",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=84458",
+    "targetCode": "84458",
+    "korean": "풍자",
+    "thai": "การล้อเลียน, การค่อนแคะ, การเหน็บแนม, การกระแนะกระแหน",
+    "thaiCandidates": [
+      "การล้อเลียน, การค่อนแคะ, การเหน็บแนม, การกระแนะกระแหน",
+      "ถ้อยถากถาง, การเสียดสี, การแดกดัน, การถากถาง"
+    ],
+    "thaiDefinition": "การโจมตีและเปิดเผยพร้อมทั้งหัวเราะเยาะข้อด้อยของคนอื่นเป็นนัย ๆ กับสิ่งอื่น",
+    "thaiDefinitionCandidates": [
+      "การโจมตีและเปิดเผยพร้อมทั้งหัวเราะเยาะข้อด้อยของคนอื่นเป็นนัย ๆ กับสิ่งอื่น",
+      "การเขียนพร้อมทั้งหัวเราะเยาะเป็นนัย ๆ ถึงสิ่งที่ไม่ถูกต้องหรือจุดที่ไม่สมปรารถนาของปัจจุบันในวรรณกรรม เป็นต้น"
+    ],
+    "pronunciation": "풍자",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "남의 부족한 점을 다른 것에 빗대어 비웃으면서 폭로하고 공격함.",
+    "definitionKoCandidates": [
+      "남의 부족한 점을 다른 것에 빗대어 비웃으면서 폭로하고 공격함.",
+      "문학 작품 등에서, 현실의 바람직하지 못한 점이나 이치에 맞지 않는 일 등을 빗대어 비웃으면서 씀."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_84514",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=84514",
+    "targetCode": "84514",
+    "korean": "플랫폼",
+    "thai": "ชานชาลา",
+    "thaiCandidates": [
+      "ชานชาลา"
+    ],
+    "thaiDefinition": "สถานที่ขึ้นและลงรถไฟในสถานี",
+    "thaiDefinitionCandidates": [
+      "สถานที่ขึ้นและลงรถไฟในสถานี"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "역에서 기차를 타고 내리는 곳.",
+    "definitionKoCandidates": [
+      "역에서 기차를 타고 내리는 곳."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_86222",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=86222",
+    "targetCode": "86222",
+    "korean": "필연적",
+    "thai": "ที่แน่นอน, ที่แน่ชัด",
+    "thaiCandidates": [
+      "ที่แน่นอน, ที่แน่ชัด"
+    ],
+    "thaiDefinition": "อย่างที่ความสัมพันธ์ของวัตถุหรือผลลัพธ์ของเรื่องใดๆที่เป็นได้แค่อย่างนั้นแน่นอน",
+    "thaiDefinitionCandidates": [
+      "อย่างที่ความสัมพันธ์ของวัตถุหรือผลลัพธ์ของเรื่องใดๆที่เป็นได้แค่อย่างนั้นแน่นอน"
+    ],
+    "pronunciation": "피련적",
+    "partOfSpeechKo": "관형사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "어떤 일의 결과나 사물의 관계가 반드시 그렇게 될 수밖에 없는.",
+    "definitionKoCandidates": [
+      "어떤 일의 결과나 사물의 관계가 반드시 그렇게 될 수밖에 없는."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_86224",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=86224",
+    "targetCode": "86224",
+    "korean": "필연적",
+    "thai": "ที่แน่นอน, ที่แน่ชัด",
+    "thaiCandidates": [
+      "ที่แน่นอน, ที่แน่ชัด"
+    ],
+    "thaiDefinition": "สิ่งที่ความสัมพันธ์ของวัตถุหรือผลลัพธ์ของเรื่องบางเรื่องเป็นได้แค่อย่างนั้นแน่นอน",
+    "thaiDefinitionCandidates": [
+      "สิ่งที่ความสัมพันธ์ของวัตถุหรือผลลัพธ์ของเรื่องบางเรื่องเป็นได้แค่อย่างนั้นแน่นอน"
+    ],
+    "pronunciation": "피련적",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "어떤 일의 결과나 사물의 관계가 반드시 그렇게 될 수밖에 없는 것.",
+    "definitionKoCandidates": [
+      "어떤 일의 결과나 사물의 관계가 반드시 그렇게 될 수밖에 없는 것."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_87165",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=87165",
+    "targetCode": "87165",
+    "korean": "현상",
+    "thai": "การแข่งขันชิงรางวัล, การตอบแทนด้วยของรางวัล, ของรางวัล, เงินรางวัล",
+    "thaiCandidates": [
+      "การแข่งขันชิงรางวัล, การตอบแทนด้วยของรางวัล, ของรางวัล, เงินรางวัล"
+    ],
+    "thaiDefinition": "การเสนอเงื่อนไขสิ่งของหรือเงินทอง เป็นต้น ในการตามหาคน ค้นหาหรือรวบรวมสิ่งใด หรือเงินหรือสิ่งของที่มีลักษณะดังกล่าว",
+    "thaiDefinitionCandidates": [
+      "การเสนอเงื่อนไขสิ่งของหรือเงินทอง เป็นต้น ในการตามหาคน ค้นหาหรือรวบรวมสิ่งใด หรือเงินหรือสิ่งของที่มีลักษณะดังกล่าว"
+    ],
+    "pronunciation": "현ː상",
+    "partOfSpeechKo": "명사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "어떤 것을 모으거나 구하거나 사람을 찾는 일 등에 돈이나 물품 등을 내걺. 또는 그 돈이나 물품.",
+    "definitionKoCandidates": [
+      "어떤 것을 모으거나 구하거나 사람을 찾는 일 등에 돈이나 물품 등을 내걺. 또는 그 돈이나 물품."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_90593",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=90593",
+    "targetCode": "90593",
+    "korean": "협상하다",
+    "thai": "เจรจา, หารือ",
+    "thaiCandidates": [
+      "เจรจา, หารือ"
+    ],
+    "thaiDefinition": "ปรึกษาหารือเพื่อตัดสินและแก้ไขปัญหาโดยที่กลุ่มซึ่งมีความคิดเห็นแตกต่างกันรวมตัว",
+    "thaiDefinitionCandidates": [
+      "ปรึกษาหารือเพื่อตัดสินและแก้ไขปัญหาโดยที่กลุ่มซึ่งมีความคิดเห็นแตกต่างกันรวมตัว"
+    ],
+    "pronunciation": "협쌍하다",
+    "partOfSpeechKo": "동사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "서로 다른 의견을 가진 집단이 모여 문제를 해결하고 결정을 하기 위해 의논하다.",
+    "definitionKoCandidates": [
+      "서로 다른 의견을 가진 집단이 모여 문제를 해결하고 결정을 하기 위해 의논하다."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_87337",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=87337",
+    "targetCode": "87337",
+    "korean": "확대하다",
+    "thai": "ขยาย, เพิ่ม",
+    "thaiCandidates": [
+      "ขยาย, เพิ่ม"
+    ],
+    "thaiDefinition": "ทำให้กว้างแล้วจึงทำให้ใหญ่ขึ้น",
+    "thaiDefinitionCandidates": [
+      "ทำให้กว้างแล้วจึงทำให้ใหญ่ขึ้น"
+    ],
+    "pronunciation": "확때하다",
+    "partOfSpeechKo": "동사",
+    "levelKo": "고급",
+    "sourceCategories": [],
+    "definitionKo": "넓혀서 크게 하다.",
+    "definitionKoCandidates": [
+      "넓혀서 크게 하다."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  }
+]

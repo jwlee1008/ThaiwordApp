@@ -1,0 +1,10 @@
+{
+  "excludeTargetCodes": [],
+  "forceCategories": {},
+  "notes": {
+    "excludeTargetCodes": "앱 asset에서 제외할 krdict targetCode 목록",
+    "forceCategories": {
+      "example": ["targetCode를 키로 두고 category id 배열을 값으로 둔다"]
+    }
+  }
+}

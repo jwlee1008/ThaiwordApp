@@ -1,0 +1,37 @@
+[
+  {
+    "id": "krdict_32750",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=32750",
+    "targetCode": "32750",
+    "korean": "나무",
+    "thai": "ต้นไม้",
+    "thaiCandidates": [
+      "ต้นไม้",
+      "ไม้, เนื้อไม้, ท่อนไม้",
+      "ฟืน"
+    ],
+    "thaiDefinition": "พืชที่มีอายุหลายปี มีกิ่งใบติดอยู่ตามลำต้นที่แข็งแรง",
+    "thaiDefinitionCandidates": [
+      "พืชที่มีอายุหลายปี มีกิ่งใบติดอยู่ตามลำต้นที่แข็งแรง",
+      "วัสดุไม้ที่ใช้สร้างบ้านหรือทำเฟอร์นิเจอร์ เป็นต้น",
+      "ลำต้นหรือกิ่งไม้ที่ตัดไว้เพื่อใช้ติดไฟ"
+    ],
+    "pronunciation": "나무",
+    "partOfSpeechKo": "명사",
+    "levelKo": "초급",
+    "sourceCategories": [],
+    "definitionKo": "단단한 줄기에 가지와 잎이 달린, 여러 해 동안 자라는 식물.",
+    "definitionKoCandidates": [
+      "단단한 줄기에 가지와 잎이 달린, 여러 해 동안 자라는 식물.",
+      "집이나 가구 등을 만드는 데 사용하는 재목.",
+      "불을 때기 위해 베어 놓은 나무의 줄기나 가지."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  }
+]

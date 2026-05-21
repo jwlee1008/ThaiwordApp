@@ -1,0 +1,31 @@
+[
+  {
+    "id": "krdict_73276",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=73276",
+    "targetCode": "73276",
+    "korean": "학교",
+    "thai": "โรงเรียน, สถาบันศึกษา",
+    "thaiCandidates": [
+      "โรงเรียน, สถาบันศึกษา"
+    ],
+    "thaiDefinition": "หน่วยงานที่มีอาจารย์สอนนักเรียนด้วยระบบ หลักสูตรและวัตถุประสงค์ที่กำหนดไว้",
+    "thaiDefinitionCandidates": [
+      "หน่วยงานที่มีอาจารย์สอนนักเรียนด้วยระบบ หลักสูตรและวัตถุประสงค์ที่กำหนดไว้"
+    ],
+    "pronunciation": "학꾜",
+    "partOfSpeechKo": "명사",
+    "levelKo": "초급",
+    "sourceCategories": [],
+    "definitionKo": "일정한 목적, 교과 과정, 제도 등에 따라 학생을 교육하는 기관.",
+    "definitionKoCandidates": [
+      "일정한 목적, 교과 과정, 제도 등에 따라 학생을 교육하는 기관."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  }
+]

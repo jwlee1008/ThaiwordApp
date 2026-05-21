@@ -1,0 +1,1898 @@
+[
+  {
+    "id": "krdict_72337",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=72337",
+    "targetCode": "72337",
+    "korean": "-가",
+    "thai": "นามสกุล, ตระกูล",
+    "thaiCandidates": [
+      "นามสกุล, ตระกูล"
+    ],
+    "thaiDefinition": "ปัจจัยที่เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'คนที่มีนามสกุลนั้น ๆ'",
+    "thaiDefinitionCandidates": [
+      "ปัจจัยที่เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'คนที่มีนามสกุลนั้น ๆ'"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "‘그 성을 가진 사람’의 뜻을 더하는 접미사.",
+    "definitionKoCandidates": [
+      "‘그 성을 가진 사람’의 뜻을 더하는 접미사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_72338",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=72338",
+    "targetCode": "72338",
+    "korean": "-가",
+    "thai": "นัก..., ผู้เชี่ยวชาญทางด้าน…",
+    "thaiCandidates": [
+      "นัก..., ผู้เชี่ยวชาญทางด้าน…",
+      "นัก..., ผู้เชี่ยวชาญทางด้าน…",
+      "ผู้ถือครองมหา...",
+      "ผู้ที่มีลักษณะ..., คนที่มีลักษณะพิเศษนั้น ๆ"
+    ],
+    "thaiDefinition": "ปัจจัยที่เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'คนที่ทำสิ่งนั้น ๆ ด้วยความเชี่ยวชาญ' หรือ 'คนที่ทำสิ่งนั้น ๆ เป็นอาชีพ'",
+    "thaiDefinitionCandidates": [
+      "ปัจจัยที่เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'คนที่ทำสิ่งนั้น ๆ ด้วยความเชี่ยวชาญ' หรือ 'คนที่ทำสิ่งนั้น ๆ เป็นอาชีพ'",
+      "ปัจจัยที่เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'คนที่ชำนาญในสิ่งนั้น ๆ'",
+      "ปัจจัยที่เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'คนที่มีสิ่งนั้น ๆ อยู่มาก'",
+      "ปัจจัยที่ใช้เพิ่มความหมายของคำว่า 'คนที่มีลักษณะพิเศษนั้น ๆ'"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "‘그것을 전문적으로 하는 사람’ 또는 ‘그것을 직업으로 하는 사람’의 뜻을 더하는 접미사.",
+    "definitionKoCandidates": [
+      "‘그것을 전문적으로 하는 사람’ 또는 ‘그것을 직업으로 하는 사람’의 뜻을 더하는 접미사.",
+      "‘그것에 능숙한 사람’의 뜻을 더하는 접미사.",
+      "‘그것을 많이 가진 사람’의 뜻을 더하는 접미사.",
+      "‘그 특성을 가진 사람’의 뜻을 더하는 접미사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_72339",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=72339",
+    "targetCode": "72339",
+    "korean": "-가",
+    "thai": "ที่มีเชื้อสายนั้น ๆ, ที่อยู่ในตระกูลนั้น ๆ, ที่มีในสิ่งนั้น ๆ",
+    "thaiCandidates": [
+      "ที่มีเชื้อสายนั้น ๆ, ที่อยู่ในตระกูลนั้น ๆ, ที่มีในสิ่งนั้น ๆ"
+    ],
+    "thaiDefinition": "ปัจจัยที่เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'ตระกูล'",
+    "thaiDefinitionCandidates": [
+      "ปัจจัยที่เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'ตระกูล'"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "‘가문’의 뜻을 더하는 접미사.",
+    "definitionKoCandidates": [
+      "‘가문’의 뜻을 더하는 접미사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_72342",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=72342",
+    "targetCode": "72342",
+    "korean": "-가",
+    "thai": "เพลง..., บทเพลง...",
+    "thaiCandidates": [
+      "เพลง..., บทเพลง..."
+    ],
+    "thaiDefinition": "ปัจจัยที่เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'เพลง'",
+    "thaiDefinitionCandidates": [
+      "ปัจจัยที่เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'เพลง'"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "‘노래’의 뜻을 더하는 접미사.",
+    "definitionKoCandidates": [
+      "‘노래’의 뜻을 더하는 접미사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_88848",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=88848",
+    "targetCode": "88848",
+    "korean": "-년",
+    "thai": "ปี..., ปีที่...",
+    "thaiCandidates": [
+      "ปี..., ปีที่..."
+    ],
+    "thaiDefinition": "ปัจจัยที่เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'ปี'",
+    "thaiDefinitionCandidates": [
+      "ปัจจัยที่เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'ปี'"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "‘해’의 뜻을 더하는 접미사.",
+    "definitionKoCandidates": [
+      "‘해’의 뜻을 더하는 접미사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_74940",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=74940",
+    "targetCode": "74940",
+    "korean": "-문",
+    "thai": "บท..., บทความ..., ข้อความ..., คำ...",
+    "thaiCandidates": [
+      "บท..., บทความ..., ข้อความ..., คำ..."
+    ],
+    "thaiDefinition": "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'ข้อความ'",
+    "thaiDefinitionCandidates": [
+      "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'ข้อความ'"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "‘글’의 뜻을 더하는 접미사.",
+    "definitionKoCandidates": [
+      "‘글’의 뜻을 더하는 접미사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_74941",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=74941",
+    "targetCode": "74941",
+    "korean": "-물",
+    "thai": "สิ่ง..., สิ่งที่เป็น..., วัตถุ..., สาร...",
+    "thaiCandidates": [
+      "สิ่ง..., สิ่งที่เป็น..., วัตถุ..., สาร..."
+    ],
+    "thaiDefinition": "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'สิ่งของ' หรือ 'วัตถุ'",
+    "thaiDefinitionCandidates": [
+      "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'สิ่งของ' หรือ 'วัตถุ'"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "‘물건’ 또는 ‘물질’의 뜻을 더하는 접미사.",
+    "definitionKoCandidates": [
+      "‘물건’ 또는 ‘물질’의 뜻을 더하는 접미사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_74947",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=74947",
+    "targetCode": "74947",
+    "korean": "-받다",
+    "thai": "ได้รับ..., ที่เป็นกรรมวาจก",
+    "thaiCandidates": [
+      "ได้รับ..., ที่เป็นกรรมวาจก"
+    ],
+    "thaiDefinition": "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'กรรมวาจก' และทำให้เป็นคำกริยา",
+    "thaiDefinitionCandidates": [
+      "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'กรรมวาจก' และทำให้เป็นคำกริยา"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "‘피동’의 뜻을 더하고 동사로 만드는 접미사.",
+    "definitionKoCandidates": [
+      "‘피동’의 뜻을 더하고 동사로 만드는 접미사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_70318",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=70318",
+    "targetCode": "70318",
+    "korean": "-별",
+    "thai": "การแบ่งตาม..., การจำแนกตาม...",
+    "thaiCandidates": [
+      "การแบ่งตาม..., การจำแนกตาม..."
+    ],
+    "thaiDefinition": "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'ตามสิ่งนั้น ๆ'",
+    "thaiDefinitionCandidates": [
+      "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'ตามสิ่งนั้น ๆ'"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "'그것에 따른'의 뜻을 더하는 접미사.",
+    "definitionKoCandidates": [
+      "'그것에 따른'의 뜻을 더하는 접미사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_70677",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=70677",
+    "targetCode": "70677",
+    "korean": "-비",
+    "thai": "ค่า",
+    "thaiCandidates": [
+      "ค่า"
+    ],
+    "thaiDefinition": "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'ค่าใช้จ่าย' หรือ 'เงิน'",
+    "thaiDefinitionCandidates": [
+      "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'ค่าใช้จ่าย' หรือ 'เงิน'"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "‘비용’ 또는 ‘돈’의 뜻을 더하는 접미사.",
+    "definitionKoCandidates": [
+      "‘비용’ 또는 ‘돈’의 뜻을 더하는 접미사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_70681",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=70681",
+    "targetCode": "70681",
+    "korean": "-사",
+    "thai": "ผู้ที่ประกอบอาชีพ...",
+    "thaiCandidates": [
+      "ผู้ที่ประกอบอาชีพ..."
+    ],
+    "thaiDefinition": "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'อาชีพ'",
+    "thaiDefinitionCandidates": [
+      "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'อาชีพ'"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "‘직업’의 뜻을 더하는 접미사.",
+    "definitionKoCandidates": [
+      "‘직업’의 뜻을 더하는 접미사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_70683",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=70683",
+    "targetCode": "70683",
+    "korean": "-사",
+    "thai": "วัด...",
+    "thaiCandidates": [
+      "วัด..."
+    ],
+    "thaiDefinition": "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'วัด'",
+    "thaiDefinitionCandidates": [
+      "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'วัด'"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "‘절’의 뜻을 더하는 접미사.",
+    "definitionKoCandidates": [
+      "‘절’의 뜻을 더하는 접미사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_70684",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=70684",
+    "targetCode": "70684",
+    "korean": "-사",
+    "thai": "งาน..., เรื่องราว..., เหตุการณ์...",
+    "thaiCandidates": [
+      "งาน..., เรื่องราว..., เหตุการณ์..."
+    ],
+    "thaiDefinition": "ปัจจัยที่ใช้เพิ่มความหมายของ 'เรื่อง'",
+    "thaiDefinitionCandidates": [
+      "ปัจจัยที่ใช้เพิ่มความหมายของ 'เรื่อง'"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "‘일’의 뜻을 더하는 접미사.",
+    "definitionKoCandidates": [
+      "‘일’의 뜻을 더하는 접미사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_70685",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=70685",
+    "targetCode": "70685",
+    "korean": "-사",
+    "thai": "บริษัท...",
+    "thaiCandidates": [
+      "บริษัท..."
+    ],
+    "thaiDefinition": "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'บริษัท'",
+    "thaiDefinitionCandidates": [
+      "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'บริษัท'"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "‘회사’의 뜻을 더하는 접미사.",
+    "definitionKoCandidates": [
+      "‘회사’의 뜻을 더하는 접미사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_70686",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=70686",
+    "targetCode": "70686",
+    "korean": "-사",
+    "thai": "ผู้ที่ประกอบอาชีพ...",
+    "thaiCandidates": [
+      "ผู้ที่ประกอบอาชีพ..."
+    ],
+    "thaiDefinition": "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'คนที่ทำสิ่งนั้นเป็นอาชีพ'",
+    "thaiDefinitionCandidates": [
+      "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'คนที่ทำสิ่งนั้นเป็นอาชีพ'"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "'그것을 직업으로 하는 사람'의 뜻을 더하는 접미사.",
+    "definitionKoCandidates": [
+      "'그것을 직업으로 하는 사람'의 뜻을 더하는 접미사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_70804",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=70804",
+    "targetCode": "70804",
+    "korean": "-성",
+    "thai": "ลักษณะ..., ความมีคุณสมบัติ...",
+    "thaiCandidates": [
+      "ลักษณะ..., ความมีคุณสมบัติ..."
+    ],
+    "thaiDefinition": "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'คุณสมบัติ'",
+    "thaiDefinitionCandidates": [
+      "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'คุณสมบัติ'"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "‘성질’의 뜻을 더하는 접미사.",
+    "definitionKoCandidates": [
+      "‘성질’의 뜻을 더하는 접미사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_72700",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=72700",
+    "targetCode": "72700",
+    "korean": "-원",
+    "thai": "ผู้ที่ประกอบอาชีพ..., ผู้รับผิดชอบภารกิจ..., นัก..., ข้า...",
+    "thaiCandidates": [
+      "ผู้ที่ประกอบอาชีพ..., ผู้รับผิดชอบภารกิจ..., นัก..., ข้า...",
+      "สมาชิก, คน..., นัก..."
+    ],
+    "thaiDefinition": "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'คนที่ประกอบอาชีพกับงานนั้น ๆ'",
+    "thaiDefinitionCandidates": [
+      "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'คนที่ประกอบอาชีพกับงานนั้น ๆ'",
+      "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'คนที่ประกอบองค์กรหรือกลุ่มนั้น ๆ'"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "'그 일에 종사하는 사람'의 뜻을 더하는 접미사.",
+    "definitionKoCandidates": [
+      "'그 일에 종사하는 사람'의 뜻을 더하는 접미사.",
+      "'그 조직이나 단체 등을 이루고 있는 사람'의 뜻을 더하는 접미사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_72701",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=72701",
+    "targetCode": "72701",
+    "korean": "-원",
+    "thai": "สถาน..., สถาบัน..., หน่วยงาน..., ศูนย์...",
+    "thaiCandidates": [
+      "สถาน..., สถาบัน..., หน่วยงาน..., ศูนย์..."
+    ],
+    "thaiDefinition": "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'หน่วยงานรัฐบาล' หรือ 'หน่วยงานสาธารณะ'",
+    "thaiDefinitionCandidates": [
+      "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'หน่วยงานรัฐบาล' หรือ 'หน่วยงานสาธารณะ'"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "‘공공 기관’ 또는 ‘공공 단체’의 뜻을 더하는 접미사.",
+    "definitionKoCandidates": [
+      "‘공공 기관’ 또는 ‘공공 단체’의 뜻을 더하는 접미사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_73122",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=73122",
+    "targetCode": "73122",
+    "korean": "-자",
+    "thai": "ผู้..., ผู้ที่...",
+    "thaiCandidates": [
+      "ผู้..., ผู้ที่..."
+    ],
+    "thaiDefinition": "ปัจจัยที่ใช้เพิ่มเข้าในในคำเพื่อให้มีความหมายว่า 'คน'",
+    "thaiDefinitionCandidates": [
+      "ปัจจัยที่ใช้เพิ่มเข้าในในคำเพื่อให้มีความหมายว่า 'คน'"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "‘사람’의 뜻을 더하는 접미사.",
+    "definitionKoCandidates": [
+      "‘사람’의 뜻을 더하는 접미사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_88665",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=88665",
+    "targetCode": "88665",
+    "korean": "-주",
+    "thai": "เหล้า..., สุรา...",
+    "thaiCandidates": [
+      "เหล้า..., สุรา..."
+    ],
+    "thaiDefinition": "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'เหล้า'",
+    "thaiDefinitionCandidates": [
+      "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'เหล้า'"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "‘술’의 뜻을 더하는 접미사.",
+    "definitionKoCandidates": [
+      "‘술’의 뜻을 더하는 접미사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_88482",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=88482",
+    "targetCode": "88482",
+    "korean": "-해",
+    "thai": "ทะเล...",
+    "thaiCandidates": [
+      "ทะเล..."
+    ],
+    "thaiDefinition": "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'ทะเล'",
+    "thaiDefinitionCandidates": [
+      "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'ทะเล'"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "‘바다’의 뜻을 더하는 접미사.",
+    "definitionKoCandidates": [
+      "‘바다’의 뜻을 더하는 접미사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_88490",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=88490",
+    "targetCode": "88490",
+    "korean": "-형",
+    "thai": "ประเภท..., ชนิด..,. รูปแบบ..., ลักษณะ...",
+    "thaiCandidates": [
+      "ประเภท..., ชนิด..,. รูปแบบ..., ลักษณะ..."
+    ],
+    "thaiDefinition": "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'ชนิดดังกล่าว' หรือ 'รูปแบบดังกล่าว'",
+    "thaiDefinitionCandidates": [
+      "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'ชนิดดังกล่าว' หรือ 'รูปแบบดังกล่าว'"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "'그러한 유형' 또는 '그러한 형식'의 뜻을 더하는 접미사.",
+    "definitionKoCandidates": [
+      "'그러한 유형' 또는 '그러한 형식'의 뜻을 더하는 접미사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_88499",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=88499",
+    "targetCode": "88499",
+    "korean": "-화",
+    "thai": "การเปลี่ยนเป็น..., การเป็น..., การกลายเป็น..., การทำ...",
+    "thaiCandidates": [
+      "การเปลี่ยนเป็น..., การเป็น..., การกลายเป็น..., การทำ..."
+    ],
+    "thaiDefinition": "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'การเป็นอย่างนั้น' หรือ 'การทำอย่างนั้น'",
+    "thaiDefinitionCandidates": [
+      "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'การเป็นอย่างนั้น' หรือ 'การทำอย่างนั้น'"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "'그렇게 됨' 또는 '그렇게 만듦'의 뜻을 더하는 접미사.",
+    "definitionKoCandidates": [
+      "'그렇게 됨' 또는 '그렇게 만듦'의 뜻을 더하는 접미사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_88500",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=88500",
+    "targetCode": "88500",
+    "korean": "-화",
+    "thai": "ภาพ..., ภาพวาด..., รูปภาพ..., รูปวาด...",
+    "thaiCandidates": [
+      "ภาพ..., ภาพวาด..., รูปภาพ..., รูปวาด..."
+    ],
+    "thaiDefinition": "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'ภาพวาด'",
+    "thaiDefinitionCandidates": [
+      "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'ภาพวาด'"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "‘그림’의 뜻을 더하는 접미사.",
+    "definitionKoCandidates": [
+      "‘그림’의 뜻을 더하는 접미사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_88710",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=88710",
+    "targetCode": "88710",
+    "korean": "-화",
+    "thai": "รองเท้า...",
+    "thaiCandidates": [
+      "รองเท้า..."
+    ],
+    "thaiDefinition": "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'รองเท้า'",
+    "thaiDefinitionCandidates": [
+      "ปัจจัยที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'รองเท้า'"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "‘신발’의 뜻을 더하는 접미사.",
+    "definitionKoCandidates": [
+      "‘신발’의 뜻을 더하는 접미사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_72340",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=72340",
+    "targetCode": "72340",
+    "korean": "가-",
+    "thai": "ที่เป็นแบบชั่วคราว, ที่เป็นของปลอม",
+    "thaiCandidates": [
+      "ที่เป็นแบบชั่วคราว, ที่เป็นของปลอม"
+    ],
+    "thaiDefinition": "อุปสรรคที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'ของปลอม' หรือ 'ชั่วคราว'",
+    "thaiDefinitionCandidates": [
+      "อุปสรรคที่ใช้เพิ่มเข้าไปในคำเพื่อให้มีความหมายว่า 'ของปลอม' หรือ 'ชั่วคราว'"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "‘가짜의’ 또는 ‘임시의’의 뜻을 더하는 접두사.",
+    "definitionKoCandidates": [
+      "‘가짜의’ 또는 ‘임시의’의 뜻을 더하는 접두사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_28764",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=28764",
+    "targetCode": "28764",
+    "korean": "가다",
+    "thai": "...ไปแล้ว, ค่อย ๆ ...ไป",
+    "thaiCandidates": [
+      "...ไปแล้ว, ค่อย ๆ ...ไป",
+      "...ไปด้วย"
+    ],
+    "thaiDefinition": "คำที่ใช้แสดงการที่อากัปกริยา สภาพ การเปลี่ยนแปลงสภาพที่ปรากฏในคำพูดข้างหน้าดำเนินไปหรือเป็นไปอย่างต่อเนื่อง",
+    "thaiDefinitionCandidates": [
+      "คำที่ใช้แสดงการที่อากัปกริยา สภาพ การเปลี่ยนแปลงสภาพที่ปรากฏในคำพูดข้างหน้าดำเนินไปหรือเป็นไปอย่างต่อเนื่อง",
+      "คำที่ใช้แสดงว่าทำการกระทำที่ปรากฏในคำพูดข้างหน้าซ้ำไปมาต่อเนื่อง"
+    ],
+    "pronunciation": "가다",
+    "partOfSpeechKo": "보조 동사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "앞말이 나타내는 동작이나 상태, 상태 변화가 계속되거나 진행되는 것을 나타내는 말.",
+    "definitionKoCandidates": [
+      "앞말이 나타내는 동작이나 상태, 상태 변화가 계속되거나 진행되는 것을 나타내는 말.",
+      "앞말이 나타내는 동작을 이따금씩 반복해서 계속하는 것을 나타내는 말."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_72349",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=72349",
+    "targetCode": "72349",
+    "korean": "강-",
+    "thai": "ที่รุนแรง, ที่แรง",
+    "thaiCandidates": [
+      "ที่รุนแรง, ที่แรง"
+    ],
+    "thaiDefinition": "อุปสรรคที่ใช้เพิ่มความหมายของคำว่า 'ที่รุนแรงเป็นอย่างมาก' หรือ 'ที่หนักหนามาก'",
+    "thaiDefinitionCandidates": [
+      "อุปสรรคที่ใช้เพิ่มความหมายของคำว่า 'ที่รุนแรงเป็นอย่างมาก' หรือ 'ที่หนักหนามาก'"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "‘매우 센’ 또는 ‘호된’의 뜻을 더하는 접두사.",
+    "definitionKoCandidates": [
+      "‘매우 센’ 또는 ‘호된’의 뜻을 더하는 접두사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_40791",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=40791",
+    "targetCode": "40791",
+    "korean": "날",
+    "thai": "ใบมีด, คมมีด",
+    "thaiCandidates": [
+      "ใบมีด, คมมีด"
+    ],
+    "thaiDefinition": "ส่วนที่บางและมีความคมมากที่สุดของเครื่องมือดังเช่น กรรไกร มีด เป็นต้น ใช้สำหรับตัดหรือปอกสิ่งใด ๆ",
+    "thaiDefinitionCandidates": [
+      "ส่วนที่บางและมีความคมมากที่สุดของเครื่องมือดังเช่น กรรไกร มีด เป็นต้น ใช้สำหรับตัดหรือปอกสิ่งใด ๆ"
+    ],
+    "pronunciation": "날",
+    "partOfSpeechKo": "명사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "무엇을 자르거나 깎는 데 쓰는 가위나 칼 등의 도구에서 가장 얇고 날카로운 부분.",
+    "definitionKoCandidates": [
+      "무엇을 자르거나 깎는 데 쓰는 가위나 칼 등의 도구에서 가장 얇고 날카로운 부분."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_601039",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=601039",
+    "targetCode": "601039",
+    "korean": "날",
+    "thai": "ผม, ดิฉัน(ประธานในประโยค)",
+    "thaiCandidates": [
+      "ผม, ดิฉัน(ประธานในประโยค)"
+    ],
+    "thaiDefinition": "คำย่อของคำว่า ’나를’",
+    "thaiDefinitionCandidates": [
+      "คำย่อของคำว่า ’나를’"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "품사 없음",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "'나를'이 줄어든 말.",
+    "definitionKoCandidates": [
+      "'나를'이 줄어든 말."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_62274",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=62274",
+    "targetCode": "62274",
+    "korean": "날",
+    "thai": "วัน(ลักษณนาม)",
+    "thaiCandidates": [
+      "วัน(ลักษณนาม)"
+    ],
+    "thaiDefinition": "หน่วยนับระยะเวลาหนึ่งวัน",
+    "thaiDefinitionCandidates": [
+      "หน่วยนับระยะเวลาหนึ่งวัน"
+    ],
+    "pronunciation": "날",
+    "partOfSpeechKo": "의존 명사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "하루 동안을 세는 단위.",
+    "definitionKoCandidates": [
+      "하루 동안을 세는 단위."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_15435",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=15435",
+    "targetCode": "15435",
+    "korean": "바",
+    "thai": "ร้านเหล้า, บาร์",
+    "thaiCandidates": [
+      "ร้านเหล้า, บาร์",
+      "บาร์, เคาน์เตอร์"
+    ],
+    "thaiDefinition": "ร้านเหล้าแบบตะวันตกที่มีเก้าอี้อยู่หน้าเคาน์เตอร์แล้วมีคนผสมเหล้าอยู่หน้าลูกค้า",
+    "thaiDefinitionCandidates": [
+      "ร้านเหล้าแบบตะวันตกที่มีเก้าอี้อยู่หน้าเคาน์เตอร์แล้วมีคนผสมเหล้าอยู่หน้าลูกค้า",
+      "พื้นที่ที่คนผสมเหล้าอยู่หน้าลูกค้าในร้านเหล้าหรือร้านอาหารแบบตะวันตก หรือเคาน์เตอร์ยาวที่มีพื้นที่ดังกล่าว"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "명사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "긴 탁자 앞에 의자를 놓고 바텐더와 마주 앉아 술을 마시는 서양식 술집.",
+    "definitionKoCandidates": [
+      "긴 탁자 앞에 의자를 놓고 바텐더와 마주 앉아 술을 마시는 서양식 술집.",
+      "서양식 술집이나 레스토랑에서 바텐더가 손님을 상대하는 공간. 또는 그 공간에 놓인 긴 스탠드."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_58172",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=58172",
+    "targetCode": "58172",
+    "korean": "바람",
+    "thai": "เนื่องจาก..., เพราะว่า...",
+    "thaiCandidates": [
+      "เนื่องจาก..., เพราะว่า...",
+      "(ใส่)เพียงแค่..."
+    ],
+    "thaiDefinition": "คำแสดงเหตุผลหรือสาเหตุของประโยคหลัง",
+    "thaiDefinitionCandidates": [
+      "คำแสดงเหตุผลหรือสาเหตุของประโยคหลัง",
+      "คำแสดงการแต่งกายเช่นนั้น"
+    ],
+    "pronunciation": "바람",
+    "partOfSpeechKo": "의존 명사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "뒷말의 이유나 원인을 나타내는 말.",
+    "definitionKoCandidates": [
+      "뒷말의 이유나 원인을 나타내는 말.",
+      "그 옷차림을 나타내는 말."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_57999",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=57999",
+    "targetCode": "57999",
+    "korean": "밤",
+    "thai": "เกาลัด, เม็ดเกาลัด",
+    "thaiCandidates": [
+      "เกาลัด, เม็ดเกาลัด"
+    ],
+    "thaiDefinition": "ผลไม้สีน้ำตาลมีหนามหุ้มอยู่ที่เปลือกจำนวนมาก เปลือกด้านในมีรสฝาด รับประทานดิบ คั่วหรือต้มรับประทาน",
+    "thaiDefinitionCandidates": [
+      "ผลไม้สีน้ำตาลมีหนามหุ้มอยู่ที่เปลือกจำนวนมาก เปลือกด้านในมีรสฝาด รับประทานดิบ คั่วหรือต้มรับประทาน"
+    ],
+    "pronunciation": "밤ː",
+    "partOfSpeechKo": "명사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "가시가 많은 껍질에 싸여 있고 맛이 떫은 속껍질이 있으며 날것으로 먹거나 굽거나 삶아서 먹는 갈색의 열매.",
+    "definitionKoCandidates": [
+      "가시가 많은 껍질에 싸여 있고 맛이 떫은 속껍질이 있으며 날것으로 먹거나 굽거나 삶아서 먹는 갈색의 열매."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_83164",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=83164",
+    "targetCode": "83164",
+    "korean": "별",
+    "thai": "ที่พิเศษ, ที่แปลก",
+    "thaiCandidates": [
+      "ที่พิเศษ, ที่แปลก"
+    ],
+    "thaiDefinition": "ที่พิเศษหรือแปลกต่างกับปกติ",
+    "thaiDefinitionCandidates": [
+      "ที่พิเศษหรือแปลกต่างกับปกติ"
+    ],
+    "pronunciation": "별",
+    "partOfSpeechKo": "관형사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "보통과 다르게 특별하거나 이상한.",
+    "definitionKoCandidates": [
+      "보통과 다르게 특별하거나 이상한."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_29559",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=29559",
+    "targetCode": "29559",
+    "korean": "부모",
+    "thai": "พ่อแม่, บิดามารดา, บุพการี",
+    "thaiCandidates": [
+      "พ่อแม่, บิดามารดา, บุพการี"
+    ],
+    "thaiDefinition": "พ่อและแม่",
+    "thaiDefinitionCandidates": [
+      "พ่อและแม่"
+    ],
+    "pronunciation": "부모",
+    "partOfSpeechKo": "명사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "아버지와 어머니.",
+    "definitionKoCandidates": [
+      "아버지와 어머니."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_70676",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=70676",
+    "targetCode": "70676",
+    "korean": "비-",
+    "thai": "ไม่...",
+    "thaiCandidates": [
+      "ไม่..."
+    ],
+    "thaiDefinition": "อุปสรรคที่ใช้เพิ่มความหมายของคำว่า 'ความไม่ใช่'",
+    "thaiDefinitionCandidates": [
+      "อุปสรรคที่ใช้เพิ่มความหมายของคำว่า 'ความไม่ใช่'"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "'아님'의 뜻을 더하는 접두사.",
+    "definitionKoCandidates": [
+      "'아님'의 뜻을 더하는 접두사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_15830",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=15830",
+    "targetCode": "15830",
+    "korean": "사과",
+    "thai": "การขอโทษ, การขออภัย, การขอขมา, การขออภัยโทษ",
+    "thaiCandidates": [
+      "การขอโทษ, การขออภัย, การขอขมา, การขออภัยโทษ"
+    ],
+    "thaiDefinition": "การยอมรับในความผิดของตนเองและขอร้องให้ยกโทษให้",
+    "thaiDefinitionCandidates": [
+      "การยอมรับในความผิดของตนเองและขอร้องให้ยกโทษให้"
+    ],
+    "pronunciation": "사ː과",
+    "partOfSpeechKo": "명사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "자신의 잘못을 인정하며 용서해 달라고 빎.",
+    "definitionKoCandidates": [
+      "자신의 잘못을 인정하며 용서해 달라고 빎."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_49058",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=49058",
+    "targetCode": "49058",
+    "korean": "성",
+    "thai": "ป้อมปราการ, ปราสาท, กำแพง",
+    "thaiCandidates": [
+      "ป้อมปราการ, ปราสาท, กำแพง"
+    ],
+    "thaiDefinition": "อาคารที่สร้างอย่างแข็งแรงหรือกำแพงที่ใช้อิฐหรือดินทับถมกันให้สูงเพื่อป้องกันการจู่โจมของข้าศึก",
+    "thaiDefinitionCandidates": [
+      "อาคารที่สร้างอย่างแข็งแรงหรือกำแพงที่ใช้อิฐหรือดินทับถมกันให้สูงเพื่อป้องกันการจู่โจมของข้าศึก"
+    ],
+    "pronunciation": "성",
+    "partOfSpeechKo": "명사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "적의 공격을 막기 위해 흙이나 돌로 높이 쌓은 담이나 튼튼하게 지은 건물.",
+    "definitionKoCandidates": [
+      "적의 공격을 막기 위해 흙이나 돌로 높이 쌓은 담이나 튼튼하게 지은 건물."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_15636",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=15636",
+    "targetCode": "15636",
+    "korean": "수업",
+    "thai": "การเล่าเรียน, การเรียน, การศึกษา",
+    "thaiCandidates": [
+      "การเล่าเรียน, การเรียน, การศึกษา"
+    ],
+    "thaiDefinition": "การเรียนรู้และฝึกฝนเทคนิคหรือความรู้",
+    "thaiDefinitionCandidates": [
+      "การเรียนรู้และฝึกฝนเทคนิคหรือความรู้"
+    ],
+    "pronunciation": "수업",
+    "partOfSpeechKo": "명사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "학문이나 기술을 배우고 익힘.",
+    "definitionKoCandidates": [
+      "학문이나 기술을 배우고 익힘."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_13978",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=13978",
+    "targetCode": "13978",
+    "korean": "시장",
+    "thai": "นายกเทศมนตรี",
+    "thaiCandidates": [
+      "นายกเทศมนตรี"
+    ],
+    "thaiDefinition": "ผู้ดูแลรับผิดชอบบริหารงานเทศบาลตำแหน่งสูงสูด",
+    "thaiDefinitionCandidates": [
+      "ผู้ดูแลรับผิดชอบบริหารงานเทศบาลตำแหน่งสูงสูด"
+    ],
+    "pronunciation": "시ː장",
+    "partOfSpeechKo": "명사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "시를 다스리는 최고 책임자.",
+    "definitionKoCandidates": [
+      "시를 다스리는 최고 책임자."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_66090",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=66090",
+    "targetCode": "66090",
+    "korean": "싸다",
+    "thai": "ถ่ายราด, ฉี่ราด, ขับถ่าย, ฉี่, ขี้",
+    "thaiCandidates": [
+      "ถ่ายราด, ฉี่ราด, ขับถ่าย, ฉี่, ขี้",
+      "ขับถ่าย, ปลดปล่อย"
+    ],
+    "thaiDefinition": "ส่วนใหญ่หมายถึงเด็กถ่ายขี้หรือฉี่โดยอั้นไม่อยู่",
+    "thaiDefinitionCandidates": [
+      "ส่วนใหญ่หมายถึงเด็กถ่ายขี้หรือฉี่โดยอั้นไม่อยู่",
+      "ขับถ่ายอุจจาระหรือปัสสาวะ"
+    ],
+    "pronunciation": "싸다",
+    "partOfSpeechKo": "동사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "주로 어린아이가 똥이나 오줌을 참지 못하고 누다.",
+    "definitionKoCandidates": [
+      "주로 어린아이가 똥이나 오줌을 참지 못하고 누다.",
+      "똥이나 오줌을 누다."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_71351",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=71351",
+    "targetCode": "71351",
+    "korean": "아이",
+    "thai": "เฮ้, หูย",
+    "thaiCandidates": [
+      "เฮ้, หูย",
+      "อูย",
+      "เฮ้อ, โอ้"
+    ],
+    "thaiDefinition": "เสียงที่ออกมาตอนที่กระตุ้นสิ่งใดหรือตอนที่ไม่เป็นที่น่าพอใจกับสิ่งใด",
+    "thaiDefinitionCandidates": [
+      "เสียงที่ออกมาตอนที่กระตุ้นสิ่งใดหรือตอนที่ไม่เป็นที่น่าพอใจกับสิ่งใด",
+      "เสียงที่ออกมาตอนตกใจ เหนื่อย ตกตะลึงหรือเจ็บป่วย",
+      "เสียงที่ออกมาตอนที่ไม่รู้ตัวเพราะอารมณ์ดีหรือดีใจ"
+    ],
+    "pronunciation": "아이",
+    "partOfSpeechKo": "감탄사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "무엇을 재촉하거나 무엇이 못마땅할 때 내는 소리.",
+    "definitionKoCandidates": [
+      "무엇을 재촉하거나 무엇이 못마땅할 때 내는 소리.",
+      "아프거나 힘들거나 놀라거나 기막힐 때 내는 소리.",
+      "반갑거나 기분이 좋아서 어쩔 줄을 모를 때 내는 소리."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_72071",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=72071",
+    "targetCode": "72071",
+    "korean": "약-",
+    "thai": "...อ่อน",
+    "thaiCandidates": [
+      "...อ่อน"
+    ],
+    "thaiDefinition": "อุปสรรคที่ใช้เพิ่มความหมายของคำว่า 'ที่ไม่มีกำลังมาก' หรือ 'ที่มีอำนาจอ่อน'",
+    "thaiDefinitionCandidates": [
+      "อุปสรรคที่ใช้เพิ่มความหมายของคำว่า 'ที่ไม่มีกำลังมาก' หรือ 'ที่มีอำนาจอ่อน'"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "'매우 힘이 없는', '세력이 약한'의 뜻을 더하는 접두사.",
+    "definitionKoCandidates": [
+      "'매우 힘이 없는', '세력이 약한'의 뜻을 더하는 접두사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_72507",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=72507",
+    "targetCode": "72507",
+    "korean": "역-",
+    "thai": "...ตรงกันข้าม, ...ในทางตรงกันข้าม, ...ในทางกลับกัน",
+    "thaiCandidates": [
+      "...ตรงกันข้าม, ...ในทางตรงกันข้าม, ...ในทางกลับกัน"
+    ],
+    "thaiDefinition": "อุปสรรคที่ใช้เพิ่มความหมายของคำว่า 'ที่ตรงกันข้าม' หรือ 'ที่ลำดับหรือวิธีถูกเปลี่ยน'",
+    "thaiDefinitionCandidates": [
+      "อุปสรรคที่ใช้เพิ่มความหมายของคำว่า 'ที่ตรงกันข้าม' หรือ 'ที่ลำดับหรือวิธีถูกเปลี่ยน'"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "'반대되는' 또는 '차례나 방법이 뒤바뀐'의 뜻을 더하는 접두사.",
+    "definitionKoCandidates": [
+      "'반대되는' 또는 '차례나 방법이 뒤바뀐'의 뜻을 더하는 접두사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_69517",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=69517",
+    "targetCode": "69517",
+    "korean": "오다",
+    "thai": "...มา, เรื่อยมา, สืบมา",
+    "thaiCandidates": [
+      "...มา, เรื่อยมา, สืบมา"
+    ],
+    "thaiDefinition": "คำที่ใช้แสดงว่าสภาพหรือการกระทำที่อยู่ในคำพูดข้างหน้าได้ดำเนินอยู่อย่างต่อเนื่อง",
+    "thaiDefinitionCandidates": [
+      "คำที่ใช้แสดงว่าสภาพหรือการกระทำที่อยู่ในคำพูดข้างหน้าได้ดำเนินอยู่อย่างต่อเนื่อง"
+    ],
+    "pronunciation": "오다",
+    "partOfSpeechKo": "보조 동사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "앞말이 뜻하는 행동이나 상태가 계속 진행됨을 나타내는 말.",
+    "definitionKoCandidates": [
+      "앞말이 뜻하는 행동이나 상태가 계속 진행됨을 나타내는 말."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_26713",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=26713",
+    "targetCode": "26713",
+    "korean": "원",
+    "thai": "วงกลม",
+    "thaiCandidates": [
+      "วงกลม"
+    ],
+    "thaiDefinition": "รูปร่างหรือลักษณะที่เป็นวงกลม",
+    "thaiDefinitionCandidates": [
+      "รูปร่างหรือลักษณะที่เป็นวงกลม"
+    ],
+    "pronunciation": "원",
+    "partOfSpeechKo": "명사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "둥근 모양이나 형태.",
+    "definitionKoCandidates": [
+      "둥근 모양이나 형태."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_26726",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=26726",
+    "targetCode": "26726",
+    "korean": "위",
+    "thai": "กระเพาะ, กระเพาะอาหาร",
+    "thaiCandidates": [
+      "กระเพาะ, กระเพาะอาหาร"
+    ],
+    "thaiDefinition": "อวัยวะที่ทำหน้าที่ย่อยอาหารในร่างกายคนและสัตว์",
+    "thaiDefinitionCandidates": [
+      "อวัยวะที่ทำหน้าที่ย่อยอาหารในร่างกายคนและสัตว์"
+    ],
+    "pronunciation": "위",
+    "partOfSpeechKo": "명사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "동물이나 사람의 몸 안에서 소화시키는 일을 하는 기관.",
+    "definitionKoCandidates": [
+      "동물이나 사람의 몸 안에서 소화시키는 일을 하는 기관."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_24079",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=24079",
+    "targetCode": "24079",
+    "korean": "의사",
+    "thai": "ความคิดเห็น, ความคิด, ความเห็น",
+    "thaiCandidates": [
+      "ความคิดเห็น, ความคิด, ความเห็น"
+    ],
+    "thaiDefinition": "ความคิดที่เตรียมใจที่จะทำสิ่งใดสิ่งหนึ่ง",
+    "thaiDefinitionCandidates": [
+      "ความคิดที่เตรียมใจที่จะทำสิ่งใดสิ่งหนึ่ง"
+    ],
+    "pronunciation": "의사",
+    "partOfSpeechKo": "명사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "무엇을 하고자 마음먹은 생각.",
+    "definitionKoCandidates": [
+      "무엇을 하고자 마음먹은 생각."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_24755",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=24755",
+    "targetCode": "24755",
+    "korean": "자",
+    "thai": "ไม้บรรทัด",
+    "thaiCandidates": [
+      "ไม้บรรทัด"
+    ],
+    "thaiDefinition": "อุปกรณ์ที่ใช้วัดความยาวที่มีขีดวัดติดอยู่",
+    "thaiDefinitionCandidates": [
+      "อุปกรณ์ที่ใช้วัดความยาวที่มีขีดวัดติดอยู่"
+    ],
+    "pronunciation": "자",
+    "partOfSpeechKo": "명사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "눈금이 그려져 있는, 길이를 재는 데 쓰는 도구.",
+    "definitionKoCandidates": [
+      "눈금이 그려져 있는, 길이를 재는 데 쓰는 도구."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_24758",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=24758",
+    "targetCode": "24758",
+    "korean": "자",
+    "thai": "ตัวอักษร, ตัวหนังสือ, พยัญชนะ",
+    "thaiCandidates": [
+      "ตัวอักษร, ตัวหนังสือ, พยัญชนะ",
+      "ตัว(ลักษณนาม)",
+      "วัน, วันที่"
+    ],
+    "thaiDefinition": "เครื่องหมายที่เขียนเป็นคำ",
+    "thaiDefinitionCandidates": [
+      "เครื่องหมายที่เขียนเป็นคำ",
+      "หน่วยที่นับตัวอักษร",
+      "วันหนึ่ง ๆ ในเดือนหนึ่ง ๆ ของปีหนึ่ง ๆ"
+    ],
+    "pronunciation": "자",
+    "partOfSpeechKo": "명사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "말을 적는 기호.",
+    "definitionKoCandidates": [
+      "말을 적는 기호.",
+      "글자를 세는 단위.",
+      "어느 해의 어느 달 며칠."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_25945",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=25945",
+    "targetCode": "25945",
+    "korean": "자",
+    "thai": "เอ้า, อ่ะ, เถอะนะ",
+    "thaiCandidates": [
+      "เอ้า, อ่ะ, เถอะนะ",
+      "เอาล่ะ, เอาละ, อา, อ้า",
+      "อ่า, เอ่อ"
+    ],
+    "thaiDefinition": "คำพูดใช้เตือนหรือชักชวนให้ผู้อื่นทำการกระทำใด ๆ",
+    "thaiDefinitionCandidates": [
+      "คำพูดใช้เตือนหรือชักชวนให้ผู้อื่นทำการกระทำใด ๆ",
+      "คำพูดเพื่อเรียกความสนใจของผู้อื่น",
+      "คำพูดบ่นคนเดียวใช้ในกรณีที่ไม่รู้ว่าจะต้องทำอย่างไรและตัดสินใจไม่ได้"
+    ],
+    "pronunciation": "자",
+    "partOfSpeechKo": "감탄사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "남에게 어떤 행동을 권유하거나 재촉할 때에 하는 말.",
+    "definitionKoCandidates": [
+      "남에게 어떤 행동을 권유하거나 재촉할 때에 하는 말.",
+      "남의 주의를 끌려고 할 때에 하는 말.",
+      "당황스럽거나 어떻게 할지 결정하지 못했을 때에 하는 혼자 하는 말."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_83522",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=83522",
+    "targetCode": "83522",
+    "korean": "자",
+    "thai": "เขา, ไอ้, คน",
+    "thaiCandidates": [
+      "เขา, ไอ้, คน"
+    ],
+    "thaiDefinition": "คนหรือไอ้",
+    "thaiDefinitionCandidates": [
+      "คนหรือไอ้"
+    ],
+    "pronunciation": "자",
+    "partOfSpeechKo": "의존 명사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "놈 또는 사람.",
+    "definitionKoCandidates": [
+      "놈 또는 사람."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_88965",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=88965",
+    "targetCode": "88965",
+    "korean": "저-",
+    "thai": "...ต่ำ, ...น้อย",
+    "thaiCandidates": [
+      "...ต่ำ, ...น้อย"
+    ],
+    "thaiDefinition": "อุปสรรคที่ใช้เพิ่มความหมายของคำว่า 'ที่ต่ำ",
+    "thaiDefinitionCandidates": [
+      "อุปสรรคที่ใช้เพิ่มความหมายของคำว่า 'ที่ต่ำ"
+    ],
+    "pronunciation": "",
+    "partOfSpeechKo": "접사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "'낮은'의 뜻을 더하는 접두사.",
+    "definitionKoCandidates": [
+      "'낮은'의 뜻을 더하는 접두사."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_71219",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=71219",
+    "targetCode": "71219",
+    "korean": "저기",
+    "thai": "เอ่อ, คือ",
+    "thaiCandidates": [
+      "เอ่อ, คือ",
+      "เอ่อ, คือ"
+    ],
+    "thaiDefinition": "คำที่ใช้ตอนคิดไม่ค่อยออก",
+    "thaiDefinitionCandidates": [
+      "คำที่ใช้ตอนคิดไม่ค่อยออก",
+      "คำที่ใช้ตอนรู้สึกแปลกและไม่สบายใจในการจะเริ่มเรื่องพูด"
+    ],
+    "pronunciation": "저기",
+    "partOfSpeechKo": "감탄사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "생각이 잘 나지 않을 때에 쓰는 말.",
+    "definitionKoCandidates": [
+      "생각이 잘 나지 않을 때에 쓰는 말.",
+      "말을 꺼내기 어색하고 편하지 않을 때에 쓰는 말."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_27787",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=27787",
+    "targetCode": "27787",
+    "korean": "지도",
+    "thai": "การแนะนำ, การให้คำปรึกษา, การอบรมสั่งสอน",
+    "thaiCandidates": [
+      "การแนะนำ, การให้คำปรึกษา, การอบรมสั่งสอน",
+      "การแนะนำ, การให้คำปรึกษา, การอบรมสั่งสอน",
+      "การตักเตือน, การเตือน"
+    ],
+    "thaiDefinition": "การอมรมสั่งสอนหรือชักนำผู้อื่นไปในทิศทางหรือวัตถุประสงค์ใด ๆ",
+    "thaiDefinitionCandidates": [
+      "การอมรมสั่งสอนหรือชักนำผู้อื่นไปในทิศทางหรือวัตถุประสงค์ใด ๆ",
+      "ครูอาจารย์ให้ความรู้หรือสอนการใช้ชีวิตที่ถูกต้องให้กับนักเรียน",
+      "คำเตือนที่ได้รับเมื่อใช้เทคนิคหรือท่าที่ถูกห้ามในกีฬายูโด"
+    ],
+    "pronunciation": "지도",
+    "partOfSpeechKo": "명사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "어떤 목적이나 방향으로 다른 사람을 가르쳐 이끎.",
+    "definitionKoCandidates": [
+      "어떤 목적이나 방향으로 다른 사람을 가르쳐 이끎.",
+      "선생님이 학생에게 공부나 바른 생활을 가르침.",
+      "유도에서 금지된 기술 및 동작을 할 때 받는 주의."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_71727",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=71727",
+    "targetCode": "71727",
+    "korean": "차",
+    "thai": "ครั้ง, ลำดับ, คราว, หน",
+    "thaiCandidates": [
+      "ครั้ง, ลำดับ, คราว, หน",
+      "ตอน, ตอนที่, คราวที่, ขณะที่",
+      "รอบที่, ปีที่, อาทิตย์ที่"
+    ],
+    "thaiDefinition": "คำแสดงลำดับหรือจำนวนครั้งของสิ่งใด ๆ",
+    "thaiDefinitionCandidates": [
+      "คำแสดงลำดับหรือจำนวนครั้งของสิ่งใด ๆ",
+      "โอกาสหรือช่วงที่เคยทำสิ่งใด ๆ",
+      "คำพูดที่แสดงความหมายว่าช่วงเวลาดังกล่าวที่ได้ผ่านระยะเวลาหรือรอบที่กำหนด"
+    ],
+    "pronunciation": "차",
+    "partOfSpeechKo": "의존 명사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "어떤 일의 차례나 횟수를 나타내는 말.",
+    "definitionKoCandidates": [
+      "어떤 일의 차례나 횟수를 나타내는 말.",
+      "어떠한 일을 하던 기회나 순간.",
+      "일정한 주기나 기간이 지난 해당 시기를 나타내는 말."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_79456",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=79456",
+    "targetCode": "79456",
+    "korean": "타다",
+    "thai": "เกาะ, ติด, จับ, เกาะติด",
+    "thaiCandidates": [
+      "เกาะ, ติด, จับ, เกาะติด",
+      "แพ้",
+      "รู้สึก, ขี้..., มีความรู้สึก",
+      "ไวต่อสัมผัส, ไวต่อความรู้สึก, รู้สึก...ได้ง่าย, ขี้..."
+    ],
+    "thaiDefinition": "คราบไคลหรือฝุ่นเกาะติดง่าย",
+    "thaiDefinitionCandidates": [
+      "คราบไคลหรือฝุ่นเกาะติดง่าย",
+      "ได้รับการกระตุ้นอันรุนแรงต่อร่างกายได้ง่าย",
+      "รู้สึกถึงความรู้สึกทางกายที่คล้ายกับจั๊กจี้หรืออารมณ์ได้ง่าย",
+      "ได้รับอิทธิพลของอากาศหรือฤดูกาลง่าย"
+    ],
+    "pronunciation": "타다",
+    "partOfSpeechKo": "동사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "때나 먼지가 쉽게 달라붙다.",
+    "definitionKoCandidates": [
+      "때나 먼지가 쉽게 달라붙다.",
+      "몸에 독한 자극을 쉽게 받다.",
+      "감정이나 간지럼 같은 신체적 느낌을 쉽게 느끼다.",
+      "날씨나 계절의 영향을 쉽게 받다."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_91124",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=91124",
+    "targetCode": "91124",
+    "korean": "타다",
+    "thai": "ได้รับ, ได้, รับ",
+    "thaiCandidates": [
+      "ได้รับ, ได้, รับ",
+      "มี, ได้"
+    ],
+    "thaiDefinition": "ได้รับเงินหรือสิ่งของที่ให้เป็นรางวัลหรือส่วนแบ่ง",
+    "thaiDefinitionCandidates": [
+      "ได้รับเงินหรือสิ่งของที่ให้เป็นรางวัลหรือส่วนแบ่ง",
+      "มีโชคหรือพรสวรรค์ โชคชะตา เป็นต้น ตั้งแต่ตอนที่เกิด"
+    ],
+    "pronunciation": "타다",
+    "partOfSpeechKo": "동사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "몫이나 상으로 주는 돈이나 물건을 받다.",
+    "definitionKoCandidates": [
+      "몫이나 상으로 주는 돈이나 물건을 받다.",
+      "복이나 재주, 운명 등을 태어나면서부터 지니다."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_85216",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=85216",
+    "targetCode": "85216",
+    "korean": "하",
+    "thai": "ฮา, ฮ่า",
+    "thaiCandidates": [
+      "ฮา, ฮ่า"
+    ],
+    "thaiDefinition": "เสียงที่เปล่งออกมาเบา ๆ เมื่อเวลาดีใจ เศร้าใจ โกรธ หรือเป็นห่วง",
+    "thaiDefinitionCandidates": [
+      "เสียงที่เปล่งออกมาเบา ๆ เมื่อเวลาดีใจ เศร้าใจ โกรธ หรือเป็นห่วง"
+    ],
+    "pronunciation": "하",
+    "partOfSpeechKo": "감탄사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "기쁘거나 슬프거나 화가 나거나 걱정스러울 때 가볍게 내는 소리.",
+    "definitionKoCandidates": [
+      "기쁘거나 슬프거나 화가 나거나 걱정스러울 때 가볍게 내는 소리."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_85217",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=85217",
+    "targetCode": "85217",
+    "korean": "하",
+    "thai": "ล่าง, ต่ำ, สุดท้าย",
+    "thaiCandidates": [
+      "ล่าง, ต่ำ, สุดท้าย"
+    ],
+    "thaiDefinition": "ล่างสุดเมื่อเวลาแบ่งลำดับ ระดับ หรือสิ่งอื่นออกเป็น บน ล่าง หรือบน กลาง ล่าง",
+    "thaiDefinitionCandidates": [
+      "ล่างสุดเมื่อเวลาแบ่งลำดับ ระดับ หรือสิ่งอื่นออกเป็น บน ล่าง หรือบน กลาง ล่าง"
+    ],
+    "pronunciation": "하ː",
+    "partOfSpeechKo": "명사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "차례나 등급 등을 상, 하 또는 상, 중, 하로 나누었을 때 맨 아래.",
+    "definitionKoCandidates": [
+      "차례나 등급 등을 상, 하 또는 상, 중, 하로 나누었을 때 맨 아래."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_72469",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=72469",
+    "targetCode": "72469",
+    "korean": "해",
+    "thai": "ปี(ลักษณนาม)",
+    "thaiCandidates": [
+      "ปี(ลักษณนาม)"
+    ],
+    "thaiDefinition": "หน่วยนับระยะเวลาที่โลกหมุนรอบพระอาทิตย์หนึ่งรอบ",
+    "thaiDefinitionCandidates": [
+      "หน่วยนับระยะเวลาที่โลกหมุนรอบพระอาทิตย์หนึ่งรอบ"
+    ],
+    "pronunciation": "해",
+    "partOfSpeechKo": "의존 명사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "지구가 태양을 한 바퀴 도는 동안을 세는 단위.",
+    "definitionKoCandidates": [
+      "지구가 태양을 한 바퀴 도는 동안을 세는 단위."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  },
+  {
+    "id": "krdict_87616",
+    "source": "krdict",
+    "sourceUrl": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=87616",
+    "targetCode": "87616",
+    "korean": "화",
+    "thai": "อังคาร, วันอังคาร",
+    "thaiCandidates": [
+      "อังคาร, วันอังคาร"
+    ],
+    "thaiDefinition": "วันที่สองของสัปดาห์โดยยึดวันจันทร์เป็นวันเริ่มต้น",
+    "thaiDefinitionCandidates": [
+      "วันที่สองของสัปดาห์โดยยึดวันจันทร์เป็นวันเริ่มต้น"
+    ],
+    "pronunciation": "화",
+    "partOfSpeechKo": "명사",
+    "levelKo": "중급",
+    "sourceCategories": [],
+    "definitionKo": "월요일을 기준으로 한 주의 둘째 날.",
+    "definitionKoCandidates": [
+      "월요일을 기준으로 한 주의 둘째 날."
+    ],
+    "exampleKo": "",
+    "exampleKoCandidates": [],
+    "categories": [],
+    "tags": [],
+    "distractors": [],
+    "reviewStatus": "source_imported"
+  }
+]

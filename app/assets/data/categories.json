@@ -1,0 +1,98 @@
+[
+  {
+    "id": "greetings_intro",
+    "ko": "인사/소개",
+    "th": "การทักทาย/การแนะนำตัว",
+    "description": "인사, 자기소개, 이름, 국적, 기본 예절 표현"
+  },
+  {
+    "id": "numbers_time_dates",
+    "ko": "숫자/시간/날짜",
+    "th": "ตัวเลข/เวลา/วันที่",
+    "description": "숫자, 시각, 날짜, 요일, 빈도 표현"
+  },
+  {
+    "id": "family_people",
+    "ko": "가족/사람",
+    "th": "ครอบครัว/ผู้คน",
+    "description": "가족, 관계, 사람을 부르는 말"
+  },
+  {
+    "id": "food_restaurant",
+    "ko": "음식/식당",
+    "th": "อาหาร/ร้านอาหาร",
+    "description": "음식, 맛, 주문, 식당 상황"
+  },
+  {
+    "id": "transport_directions",
+    "ko": "교통/길찾기",
+    "th": "การเดินทาง/การถามทาง",
+    "description": "교통수단, 장소 이동, 방향, 길찾기"
+  },
+  {
+    "id": "school_life",
+    "ko": "학교생활",
+    "th": "ชีวิตในโรงเรียน",
+    "description": "학교, 수업, 공부, 시험, 교실 물건"
+  },
+  {
+    "id": "work_life",
+    "ko": "직장생활",
+    "th": "ชีวิตการทำงาน",
+    "description": "회사, 직업, 업무, 회의, 근무 표현"
+  },
+  {
+    "id": "shopping",
+    "ko": "쇼핑",
+    "th": "การซื้อของ",
+    "description": "가격, 물건, 계산, 교환, 시장/가게"
+  },
+  {
+    "id": "health_hospital",
+    "ko": "병원/건강",
+    "th": "โรงพยาบาล/สุขภาพ",
+    "description": "몸, 증상, 병원, 약국, 건강 상태"
+  },
+  {
+    "id": "home_daily_items",
+    "ko": "집/생활용품",
+    "th": "บ้าน/ของใช้ประจำวัน",
+    "description": "집, 방, 가구, 생활 물건, 집안일"
+  },
+  {
+    "id": "emotion_personality",
+    "ko": "감정/성격",
+    "th": "อารมณ์/นิสัย",
+    "description": "감정, 기분, 성격, 태도 표현"
+  },
+  {
+    "id": "weather_seasons",
+    "ko": "날씨/계절",
+    "th": "อากาศ/ฤดูกาล",
+    "description": "날씨, 계절, 온도, 자연 현상"
+  },
+  {
+    "id": "travel",
+    "ko": "여행",
+    "th": "การท่องเที่ยว",
+    "description": "숙소, 관광, 예약, 여행 상황"
+  },
+  {
+    "id": "korean_culture",
+    "ko": "한국문화",
+    "th": "วัฒนธรรมเกาหลี",
+    "description": "명절, 예절, 대중문화, 한국 생활"
+  },
+  {
+    "id": "topik_beginner",
+    "ko": "TOPIK 초급",
+    "th": "TOPIK ระดับต้น",
+    "description": "TOPIK I 수준의 기초 어휘"
+  },
+  {
+    "id": "topik_intermediate",
+    "ko": "TOPIK 중급",
+    "th": "TOPIK ระดับกลาง",
+    "description": "TOPIK II 초중반 수준의 어휘"
+  }
+]
