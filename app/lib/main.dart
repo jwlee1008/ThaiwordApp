@@ -177,6 +177,84 @@ class CourseCatalog {
   }
 }
 
+class CourseStageStats {
+  const CourseStageStats({
+    required this.wordCount,
+    required this.seenCount,
+    required this.quizAttempts,
+    required this.quizCorrect,
+  });
+
+  final int wordCount;
+  final int seenCount;
+  final int quizAttempts;
+  final int quizCorrect;
+
+  int get learningPercent =>
+      wordCount == 0 ? 0 : (seenCount / wordCount * 100).round();
+
+  int get quizAccuracyPercent =>
+      quizAttempts == 0 ? 0 : (quizCorrect / quizAttempts * 100).round();
+
+  int get requiredAttempts => CourseProgressPolicy.minimumQuizAttempts(
+        wordCount,
+      );
+
+  int get remainingAttempts =>
+      (requiredAttempts - quizAttempts).clamp(0, requiredAttempts);
+
+  bool get canAdvance =>
+      wordCount > 0 &&
+      quizAttempts >= requiredAttempts &&
+      quizAccuracyPercent >= CourseProgressPolicy.requiredQuizAccuracyPercent;
+}
+
+class CourseProgressPolicy {
+  CourseProgressPolicy._();
+
+  static const int requiredQuizAccuracyPercent = 80;
+
+  static int minimumQuizAttempts(int wordCount) {
+    if (wordCount <= 0) {
+      return 0;
+    }
+    return (wordCount * 0.2).ceil().clamp(10, 30);
+  }
+
+  static CourseStageStats statsFor(
+    CourseStage stage,
+    List<WordEntry> allWords,
+    StudyState studyState,
+  ) {
+    final words = CourseCatalog.wordsForStage(stage, allWords);
+    return CourseStageStats(
+      wordCount: words.length,
+      seenCount:
+          words.where((word) => studyState.seenIds.contains(word.id)).length,
+      quizAttempts: studyState.quizAttemptsForStage(stage.id),
+      quizCorrect: studyState.quizCorrectForStage(stage.id),
+    );
+  }
+
+  static int unlockedStageIndex(
+    List<WordEntry> allWords,
+    StudyState studyState,
+  ) {
+    var unlocked = CourseCatalog.indexOf(studyState.courseStage);
+    for (var index = 0; index < CourseCatalog.stages.length; index += 1) {
+      final stats = statsFor(
+        CourseCatalog.stages[index],
+        allWords,
+        studyState,
+      );
+      if (stats.canAdvance) {
+        unlocked = unlocked < index + 1 ? index + 1 : unlocked;
+      }
+    }
+    return unlocked.clamp(0, CourseCatalog.stages.length - 1);
+  }
+}
+
 class AppSettings extends ChangeNotifier {
   AppSettings({this.persistenceEnabled = true});
 
@@ -267,8 +345,14 @@ class AppText {
   String get currentCourse => isThai ? 'คอร์สปัจจุบัน' : '현재 코스';
   String get courseMap => isThai ? 'เส้นทางการเรียน' : '학습 로드맵';
   String get courseSettings => isThai ? 'คอร์สการเรียน' : '학습 코스';
-  String get courseSettingsDescription =>
-      isThai ? 'เปลี่ยนคอร์สได้โดยไม่ลบประวัติ' : '학습 기록은 유지하고 코스만 변경';
+  String get courseSettingsDescription => isThai
+      ? 'ล็อกไว้ก่อน ระหว่างเตรียมฟีเจอร์พรีเมียม'
+      : '추후 유료 기능 전환 예정으로 잠겨 있습니다';
+  String get courseChangeLocked =>
+      isThai ? 'การเปลี่ยนคอร์สถูกล็อกไว้' : '학습 코스 변경은 잠겨 있습니다';
+  String get courseChangeLockedDescription => isThai
+      ? 'ตอนนี้เรียนตามเส้นทางที่เลือกไว้ก่อน'
+      : '현재 선택된 코스 기준으로 학습을 이어갑니다';
   String get placementTitle =>
       isThai ? 'เริ่มจากระดับที่เหมาะกับคุณ' : '나에게 맞는 단계부터 시작';
   String get placementIntro =>
@@ -279,9 +363,23 @@ class AppText {
   String get placementStart => isThai ? 'เริ่มเรียน' : '학습 시작';
   String get lockedStage =>
       isThai ? 'เรียนคอร์สก่อนหน้าให้ถึงเป้าหมาย' : '이전 단계 목표 달성 후 열림';
-  String courseProgress(int percent, int mastery) => isThai
-      ? 'ความคืบหน้า $percent% · ความแม่นยำ $mastery%'
-      : '학습률 $percent% · 숙련도 $mastery%';
+  String courseProgress(int learningPercent, int correct, int attempts,
+          int accuracyPercent) =>
+      isThai
+          ? 'เรียนแล้ว $learningPercent% · แบบทดสอบ $correct/$attempts ($accuracyPercent%)'
+          : '학습률 $learningPercent% · 퀴즈 정답률 $correct/$attempts ($accuracyPercent%)';
+  String advanceRequirement(int remainingAttempts, int requiredPercent) {
+    if (remainingAttempts > 0) {
+      return isThai
+          ? 'เลื่อนระดับ: ทำแบบทดสอบอีก $remainingAttempts ข้อ และรักษาความถูกต้อง $requiredPercent%+'
+          : '다음 단계까지: 퀴즈 $remainingAttempts문제 더 풀고 정답률 $requiredPercent% 이상 유지';
+    }
+    return isThai
+        ? 'เลื่อนระดับ: ต้องรักษาความถูกต้อง $requiredPercent%+'
+        : '다음 단계까지: 정답률 $requiredPercent% 이상 필요';
+  }
+
+  String get advanceReady => isThai ? 'พร้อมไปคอร์สถัดไป' : '다음 단계로 갈 준비 완료';
   String get beginner => isThai ? 'ระดับต้น' : '초급';
   String get intermediate => isThai ? 'ระดับกลาง' : '중급';
   String get advanced => isThai ? 'ระดับสูง' : '고급';
@@ -494,6 +592,8 @@ class StudyState extends ChangeNotifier {
   static const String _memoryRatingKey = 'memory_ratings';
   static const String _courseStageKey = 'course_stage_id';
   static const String _onboardingCompleteKey = 'onboarding_complete';
+  static const String _quizAttemptsByStageKey = 'quiz_attempts_by_stage';
+  static const String _quizCorrectByStageKey = 'quiz_correct_by_stage';
 
   final bool persistenceEnabled;
   final Set<String> _favoriteIds = <String>{};
@@ -501,6 +601,8 @@ class StudyState extends ChangeNotifier {
   final Set<String> _seenIds = <String>{};
   final Set<String> _correctIds = <String>{};
   final Map<String, MemoryRating> _memoryRatings = <String, MemoryRating>{};
+  final Map<String, int> _quizAttemptsByStage = <String, int>{};
+  final Map<String, int> _quizCorrectByStage = <String, int>{};
   CourseStage _courseStage = CourseCatalog.defaultStage;
   bool _onboardingComplete = false;
   bool _loaded = false;
@@ -539,6 +641,14 @@ class StudyState extends ChangeNotifier {
       ..clear()
       ..addAll(_parseMemoryRatings(
           preferences.getStringList(_memoryRatingKey) ?? const []));
+    _quizAttemptsByStage
+      ..clear()
+      ..addAll(_parseCountMap(
+          preferences.getStringList(_quizAttemptsByStageKey) ?? const []));
+    _quizCorrectByStage
+      ..clear()
+      ..addAll(_parseCountMap(
+          preferences.getStringList(_quizCorrectByStageKey) ?? const []));
     _courseStage = CourseCatalog.byId(preferences.getString(_courseStageKey));
     _onboardingComplete = preferences.getBool(_onboardingCompleteKey) ?? false;
     _loaded = true;
@@ -546,6 +656,11 @@ class StudyState extends ChangeNotifier {
   }
 
   bool isFavorite(String wordId) => _favoriteIds.contains(wordId);
+
+  int quizAttemptsForStage(String stageId) =>
+      _quizAttemptsByStage[stageId] ?? 0;
+
+  int quizCorrectForStage(String stageId) => _quizCorrectByStage[stageId] ?? 0;
 
   Future<void> toggleFavorite(String wordId) async {
     if (_favoriteIds.contains(wordId)) {
@@ -571,6 +686,29 @@ class StudyState extends ChangeNotifier {
     if (!changed) {
       return;
     }
+    notifyListeners();
+    await _saveProgress();
+  }
+
+  Future<void> recordQuizAnswer({
+    required String? stageId,
+    required String wordId,
+    required bool isCorrect,
+  }) async {
+    _seenIds.add(wordId);
+    if (isCorrect) {
+      _correctIds.add(wordId);
+      if (stageId != null) {
+        _quizCorrectByStage[stageId] = (_quizCorrectByStage[stageId] ?? 0) + 1;
+      }
+    } else {
+      _wrongIds.add(wordId);
+    }
+
+    if (stageId != null) {
+      _quizAttemptsByStage[stageId] = (_quizAttemptsByStage[stageId] ?? 0) + 1;
+    }
+
     notifyListeners();
     await _saveProgress();
   }
@@ -629,6 +767,8 @@ class StudyState extends ChangeNotifier {
     _seenIds.clear();
     _correctIds.clear();
     _memoryRatings.clear();
+    _quizAttemptsByStage.clear();
+    _quizCorrectByStage.clear();
     notifyListeners();
 
     if (!persistenceEnabled) {
@@ -642,6 +782,8 @@ class StudyState extends ChangeNotifier {
       preferences.remove(_seenKey),
       preferences.remove(_correctKey),
       preferences.remove(_memoryRatingKey),
+      preferences.remove(_quizAttemptsByStageKey),
+      preferences.remove(_quizCorrectByStageKey),
     ]);
   }
 
@@ -672,7 +814,40 @@ class StudyState extends ChangeNotifier {
       preferences.setStringList(_seenKey, _seenIds.toList()..sort()),
       preferences.setStringList(_correctKey, _correctIds.toList()..sort()),
       preferences.setStringList(_memoryRatingKey, _serializeMemoryRatings()),
+      preferences.setStringList(
+        _quizAttemptsByStageKey,
+        _serializeCountMap(_quizAttemptsByStage),
+      ),
+      preferences.setStringList(
+        _quizCorrectByStageKey,
+        _serializeCountMap(_quizCorrectByStage),
+      ),
     ]);
+  }
+
+  Map<String, int> _parseCountMap(List<String> values) {
+    final counts = <String, int>{};
+    for (final value in values) {
+      final separator = value.indexOf(':');
+      if (separator <= 0 || separator == value.length - 1) {
+        continue;
+      }
+      final id = value.substring(0, separator);
+      final count = int.tryParse(value.substring(separator + 1));
+      if (count == null || count < 0) {
+        continue;
+      }
+      counts[id] = count;
+    }
+    return counts;
+  }
+
+  List<String> _serializeCountMap(Map<String, int> counts) {
+    return counts.entries
+        .where((entry) => entry.value > 0)
+        .map((entry) => '${entry.key}:${entry.value}')
+        .toList()
+      ..sort();
   }
 
   Map<String, MemoryRating> _parseMemoryRatings(List<String> values) {
@@ -1273,7 +1448,8 @@ class StudyTab extends StatelessWidget {
     final decks = CourseCatalog.stages
         .map((stage) => _deckForStage(t, stage, data.words))
         .toList();
-    final unlockedIndex = _unlockedStageIndex(data.words, studyState);
+    final unlockedIndex =
+        CourseProgressPolicy.unlockedStageIndex(data.words, studyState);
 
     return SafeArea(
       child: ListView(
@@ -1305,14 +1481,17 @@ class StudyTab extends StatelessWidget {
               final currentWords = CourseCatalog.wordsForStage(
                   studyState.courseStage, data.words);
               final todayWords = _todayReviewWords(currentWords, studyState);
+              final currentStats = CourseProgressPolicy.statsFor(
+                studyState.courseStage,
+                data.words,
+                studyState,
+              );
 
               return Column(
                 children: [
                   _CurrentCourseCard(
                     stage: studyState.courseStage,
-                    words: currentWords,
-                    seenCount: _seenCount(currentWords, studyState),
-                    correctCount: _correctCount(currentWords, studyState),
+                    stats: currentStats,
                     onTap: currentWords.isEmpty
                         ? null
                         : () {
@@ -1430,14 +1609,16 @@ class StudyTab extends StatelessWidget {
               builder: (context, _) {
                 final stageIndex = decks.indexOf(deck);
                 final enabled = stageIndex <= unlockedIndex && deck.enabled;
-                final seenCount = _seenCount(deck.words, studyState);
-                final correctCount = _correctCount(deck.words, studyState);
+                final stats = CourseProgressPolicy.statsFor(
+                  CourseCatalog.stages[stageIndex],
+                  data.words,
+                  studyState,
+                );
 
                 return WordDeckTile(
                   deck: deck,
                   count: deck.words.length,
-                  seenCount: seenCount,
-                  correctCount: correctCount,
+                  stats: stats,
                   onTap: !enabled
                       ? null
                       : () {
@@ -1481,39 +1662,6 @@ class StudyTab extends StatelessWidget {
       return t.preparingData;
     }
     return t.learnable(words.length);
-  }
-
-  int _seenCount(List<WordEntry> words, StudyState studyState) {
-    return words.where((word) => studyState.seenIds.contains(word.id)).length;
-  }
-
-  int _correctCount(List<WordEntry> words, StudyState studyState) {
-    return words
-        .where((word) => studyState.correctIds.contains(word.id))
-        .length;
-  }
-
-  int _unlockedStageIndex(List<WordEntry> words, StudyState studyState) {
-    var unlocked = CourseCatalog.indexOf(studyState.courseStage);
-    for (var index = 0; index < CourseCatalog.stages.length; index += 1) {
-      final stageWords = CourseCatalog.wordsForStage(
-        CourseCatalog.stages[index],
-        words,
-      );
-      if (stageWords.isEmpty) {
-        continue;
-      }
-      final seenPercent =
-          (_seenCount(stageWords, studyState) / stageWords.length * 100)
-              .round();
-      final masteryPercent =
-          (_correctCount(stageWords, studyState) / stageWords.length * 100)
-              .round();
-      if (seenPercent >= 80 && masteryPercent >= 70) {
-        unlocked = unlocked < index + 1 ? index + 1 : unlocked;
-      }
-    }
-    return unlocked.clamp(0, CourseCatalog.stages.length - 1);
   }
 
   List<WordEntry> _todayReviewWords(
@@ -1580,25 +1728,23 @@ class StudyTab extends StatelessWidget {
 class _CurrentCourseCard extends StatelessWidget {
   const _CurrentCourseCard({
     required this.stage,
-    required this.words,
-    required this.seenCount,
-    required this.correctCount,
+    required this.stats,
     required this.onTap,
   });
 
   final CourseStage stage;
-  final List<WordEntry> words;
-  final int seenCount;
-  final int correctCount;
+  final CourseStageStats stats;
   final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     final t = context.t;
-    final progress =
-        words.isEmpty ? 0 : ((seenCount / words.length) * 100).round();
-    final mastery =
-        words.isEmpty ? 0 : ((correctCount / words.length) * 100).round();
+    final requirement = stats.canAdvance
+        ? t.advanceReady
+        : t.advanceRequirement(
+            stats.remainingAttempts,
+            CourseProgressPolicy.requiredQuizAccuracyPercent,
+          );
     return Card(
       child: ListTile(
         onTap: onTap,
@@ -1608,7 +1754,14 @@ class _CurrentCourseCard extends StatelessWidget {
           style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
         ),
         subtitle: Text(
-          '${stage.description(t)}\n${t.courseProgress(progress, mastery)}',
+          '${stage.description(t)}\n'
+          '${t.courseProgress(
+            stats.learningPercent,
+            stats.quizCorrect,
+            stats.quizAttempts,
+            stats.quizAccuracyPercent,
+          )}\n'
+          '$requirement',
         ),
         trailing: const Icon(Icons.chevron_right),
       ),
@@ -1864,17 +2017,57 @@ class _CourseSettingsCard extends StatelessWidget {
             AnimatedBuilder(
               animation: studyState,
               builder: (context, _) {
-                return Wrap(
-                  spacing: 8,
-                  runSpacing: 8,
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    for (final stage in CourseCatalog.stages)
-                      ChoiceChip(
-                        key: ValueKey('course_${stage.id}'),
-                        label: Text(stage.title(text)),
-                        selected: studyState.courseStage.id == stage.id,
-                        onSelected: (_) => studyState.setCourseStage(stage),
+                    Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFEAF3F0),
+                        borderRadius: BorderRadius.circular(8),
                       ),
+                      child: Row(
+                        children: [
+                          const Icon(Icons.lock_outline, size: 20),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  text.courseChangeLocked,
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                                ),
+                                const SizedBox(height: 2),
+                                Text(
+                                  text.courseChangeLockedDescription,
+                                  style: const TextStyle(
+                                    color: Color(0xFF59615F),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    Wrap(
+                      spacing: 8,
+                      runSpacing: 8,
+                      children: [
+                        for (final stage in CourseCatalog.stages)
+                          ChoiceChip(
+                            key: ValueKey('course_${stage.id}'),
+                            label: Text(stage.title(text)),
+                            selected: studyState.courseStage.id == stage.id,
+                            onSelected: null,
+                          ),
+                      ],
+                    ),
                   ],
                 );
               },
@@ -1901,81 +2094,99 @@ class QuizTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = context.t;
-    final currentStage = studyState.courseStage;
-    final decks = [
-      _deckForStage(t, currentStage),
-      ...CourseCatalog.stages
-          .where((stage) => stage.id != currentStage.id)
-          .map((stage) => _deckForStage(t, stage)),
-    ];
 
     return SafeArea(
-      child: ListView(
-        padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
-        children: [
-          Text(
-            t.quizTab,
-            style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  fontWeight: FontWeight.w800,
+      child: AnimatedBuilder(
+        animation: studyState,
+        builder: (context, _) {
+          final unlockedIndex = CourseProgressPolicy.unlockedStageIndex(
+            data.words,
+            studyState,
+          );
+          final decks = [
+            for (var index = 0; index < CourseCatalog.stages.length; index += 1)
+              _deckForStage(
+                t,
+                CourseCatalog.stages[index],
+                enabled: index <= unlockedIndex,
+              ),
+          ];
+
+          return ListView(
+            padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+            children: [
+              Text(
+                t.quizTab,
+                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                      fontWeight: FontWeight.w800,
+                    ),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                t.quizIntro,
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      color: const Color(0xFF59615F),
+                    ),
+              ),
+              const SizedBox(height: 16),
+              for (final deck in decks) ...[
+                Text(
+                  deck.title,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w900,
+                      ),
                 ),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            t.quizIntro,
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: const Color(0xFF59615F),
+                const SizedBox(height: 8),
+                QuizStartTile(
+                  deck: deck,
+                  mode: QuizMode.koreanToThai,
+                  allWords: data.words,
+                  studyState: studyState,
+                  questionCount: _questionCount,
                 ),
-          ),
-          const SizedBox(height: 16),
-          for (final deck in decks) ...[
-            Text(
-              deck.title,
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w900,
-                  ),
-            ),
-            const SizedBox(height: 8),
-            QuizStartTile(
-              deck: deck,
-              mode: QuizMode.koreanToThai,
-              allWords: data.words,
-              studyState: studyState,
-              questionCount: _questionCount,
-            ),
-            QuizStartTile(
-              deck: deck,
-              mode: QuizMode.thaiToKorean,
-              allWords: data.words,
-              studyState: studyState,
-              questionCount: _questionCount,
-            ),
-            QuizStartTile(
-              deck: deck,
-              mode: QuizMode.listeningToThai,
-              allWords: data.words,
-              studyState: studyState,
-              questionCount: _questionCount,
-            ),
-            const SizedBox(height: 12),
-          ],
-        ],
+                QuizStartTile(
+                  deck: deck,
+                  mode: QuizMode.thaiToKorean,
+                  allWords: data.words,
+                  studyState: studyState,
+                  questionCount: _questionCount,
+                ),
+                QuizStartTile(
+                  deck: deck,
+                  mode: QuizMode.listeningToThai,
+                  allWords: data.words,
+                  studyState: studyState,
+                  questionCount: _questionCount,
+                ),
+                const SizedBox(height: 12),
+              ],
+            ],
+          );
+        },
       ),
     );
   }
 
-  WordDeck _deckForStage(AppText t, CourseStage stage) {
+  WordDeck _deckForStage(
+    AppText t,
+    CourseStage stage, {
+    required bool enabled,
+  }) {
     final words = CourseCatalog.wordsForStage(stage, data.words);
     return WordDeck(
-      id: 'quiz_${stage.id}',
+      id: stage.id,
       title: stage.title(t),
-      subtitle: _deckSubtitle(t, words),
+      subtitle: _deckSubtitle(t, words, enabled),
       description: stage.description(t),
       words: words,
-      enabled: words.isNotEmpty,
+      enabled: enabled && words.isNotEmpty,
     );
   }
 
-  String _deckSubtitle(AppText t, List<WordEntry> words) {
+  String _deckSubtitle(AppText t, List<WordEntry> words, bool enabled) {
+    if (!enabled) {
+      return t.lockedStage;
+    }
     if (words.isEmpty) {
       return t.preparingData;
     }
@@ -2034,6 +2245,7 @@ class QuizStartTile extends StatelessWidget {
                       deckName: '${deck.title} · $title',
                       studyState: studyState,
                       mode: mode,
+                      stageId: deck.id,
                     ),
                   ),
                 );
@@ -2216,23 +2428,19 @@ class WordDeckTile extends StatelessWidget {
   const WordDeckTile({
     required this.deck,
     required this.count,
-    required this.seenCount,
-    required this.correctCount,
+    required this.stats,
     required this.onTap,
     super.key,
   });
 
   final WordDeck deck;
   final int count;
-  final int seenCount;
-  final int correctCount;
+  final CourseStageStats stats;
   final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     final t = context.t;
-    final progressPercent =
-        count == 0 ? 0 : ((seenCount / count) * 100).round();
     return Card(
       margin: const EdgeInsets.only(bottom: 10),
       child: ListTile(
@@ -2246,13 +2454,20 @@ class WordDeckTile extends StatelessWidget {
         ),
         subtitle: Padding(
           padding: const EdgeInsets.only(top: 4),
-          child: Text('${_deckProgressText(t)}\n${deck.subtitle}'),
+          child: Text(
+            '${_deckProgressText(t)}\n'
+            '${stats.canAdvance ? t.advanceReady : t.advanceRequirement(
+                stats.remainingAttempts,
+                CourseProgressPolicy.requiredQuizAccuracyPercent,
+              )}\n'
+            '${deck.subtitle}',
+          ),
         ),
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              count == 0 ? t.readySoon : t.progressRate(progressPercent),
+              count == 0 ? t.readySoon : t.progressRate(stats.learningPercent),
               style: const TextStyle(fontWeight: FontWeight.w800),
             ),
             const SizedBox(width: 8),
@@ -2267,7 +2482,12 @@ class WordDeckTile extends StatelessWidget {
     if (count == 0) {
       return deck.description;
     }
-    return t.progress(seenCount, count, correctCount);
+    return t.courseProgress(
+      stats.learningPercent,
+      stats.quizCorrect,
+      stats.quizAttempts,
+      stats.quizAccuracyPercent,
+    );
   }
 }
 
@@ -2456,6 +2676,7 @@ class QuizScreen extends StatefulWidget {
     required this.deckName,
     required this.studyState,
     this.mode = QuizMode.koreanToThai,
+    this.stageId,
     super.key,
   });
 
@@ -2464,6 +2685,7 @@ class QuizScreen extends StatefulWidget {
   final String deckName;
   final StudyState studyState;
   final QuizMode mode;
+  final String? stageId;
 
   @override
   State<QuizScreen> createState() => _QuizScreenState();
@@ -2562,15 +2784,18 @@ class _QuizScreenState extends State<QuizScreen> {
       return;
     }
 
+    final isCorrect = thai == _answerFor(_word);
     setState(() {
       _selectedThai = thai;
-      if (thai == _answerFor(_word)) {
+      if (isCorrect) {
         _score += 1;
-        widget.studyState.markCorrect(_word.id);
-      } else {
-        widget.studyState.markWrong(_word.id);
       }
     });
+    widget.studyState.recordQuizAnswer(
+      stageId: widget.stageId,
+      wordId: _word.id,
+      isCorrect: isCorrect,
+    );
   }
 
   void _next() {
@@ -2585,6 +2810,7 @@ class _QuizScreenState extends State<QuizScreen> {
             allWords: widget.allWords,
             studyState: widget.studyState,
             mode: widget.mode,
+            stageId: widget.stageId,
             wrongWords: _quizWords
                 .where((word) => widget.studyState.wrongIds.contains(word.id))
                 .toList(),
@@ -2715,6 +2941,7 @@ class QuizResultScreen extends StatelessWidget {
     required this.allWords,
     required this.studyState,
     required this.mode,
+    required this.stageId,
     required this.wrongWords,
     super.key,
   });
@@ -2726,6 +2953,7 @@ class QuizResultScreen extends StatelessWidget {
   final List<WordEntry> allWords;
   final StudyState studyState;
   final QuizMode mode;
+  final String? stageId;
   final List<WordEntry> wrongWords;
 
   void _retry(BuildContext context) {
@@ -2737,6 +2965,7 @@ class QuizResultScreen extends StatelessWidget {
           deckName: deckName,
           studyState: studyState,
           mode: mode,
+          stageId: stageId,
         ),
       ),
     );

@@ -23,7 +23,7 @@ Future<void> tapQuizTab(WidgetTester tester) async {
 }
 
 Future<void> tapSettingsTab(WidgetTester tester) async {
-  await tester.tap(find.byIcon(Icons.settings_outlined));
+  await tester.tap(find.byKey(const ValueKey('settings_tab')));
   await tester.pump(const Duration(milliseconds: 300));
 }
 
@@ -53,6 +53,15 @@ String _visibleQuestionAnswer(VocabularyData data) {
   throw StateError('No visible quiz question found.');
 }
 
+String _visibleThaiToKoreanAnswer(VocabularyData data) {
+  for (final word in data.words) {
+    if (find.text(word.thaiShort).hitTestable().evaluate().isNotEmpty) {
+      return word.korean;
+    }
+  }
+  throw StateError('No visible Thai to Korean quiz question found.');
+}
+
 Future<void> answerVisibleQuestion(
   WidgetTester tester,
   VocabularyData data,
@@ -61,6 +70,19 @@ Future<void> answerVisibleQuestion(
     find.descendant(
       of: find.byType(QuizChoiceButton),
       matching: find.text(_visibleQuestionAnswer(data)),
+    ),
+  );
+  await tester.pump();
+}
+
+Future<void> answerVisibleThaiToKoreanQuestion(
+  WidgetTester tester,
+  VocabularyData data,
+) async {
+  await tester.tap(
+    find.descendant(
+      of: find.byType(QuizChoiceButton),
+      matching: find.text(_visibleThaiToKoreanAnswer(data)),
     ),
   );
   await tester.pump();
@@ -493,7 +515,8 @@ void main() {
     await tester.pumpWidget(const ThaiKoreanWordApp(initialData: sampleData));
     await pumpUntilFound(tester, find.text('현재 코스'));
 
-    expect(find.textContaining('학습률 50% · 숙련도 50%'), findsWidgets);
+    expect(find.textContaining('학습률 50% · 퀴즈 정답률 0/0 (0%)'), findsWidgets);
+    expect(find.textContaining('다음 단계까지: 퀴즈 10문제 더'), findsWidgets);
   });
 
   testWidgets('opens quiz tab with multiple quiz types',
@@ -509,6 +532,17 @@ void main() {
     expect(find.text('듣고 뜻 고르기'), findsWidgets);
   });
 
+  testWidgets('locks quiz decks above the current course',
+      (WidgetTester tester) async {
+    await tester.pumpWidget(const ThaiKoreanWordApp(initialData: sampleData));
+    await pumpUntilFound(tester, find.text('현재 코스'));
+
+    await tapQuizTab(tester);
+
+    expect(find.text('초급 첫걸음'), findsWidgets);
+    expect(find.text('이전 단계 목표 달성 후 열림'), findsWidgets);
+  });
+
   testWidgets('starts Thai to Korean quiz from quiz tab',
       (WidgetTester tester) async {
     await tester.pumpWidget(const ThaiKoreanWordApp(initialData: quizData));
@@ -521,6 +555,17 @@ void main() {
 
     expect(find.text('한국어 단어 고르기'), findsOneWidget);
     expect(find.byType(QuizChoiceButton), findsNWidgets(4));
+
+    await answerVisibleThaiToKoreanQuestion(tester, quizData);
+    final preferences = await SharedPreferences.getInstance();
+    expect(
+      preferences.getStringList('quiz_attempts_by_stage'),
+      contains('beginner_foundation:1'),
+    );
+    expect(
+      preferences.getStringList('quiz_correct_by_stage'),
+      contains('beginner_foundation:1'),
+    );
   });
 
   testWidgets('opens data attribution screen', (WidgetTester tester) async {
@@ -533,7 +578,16 @@ void main() {
       120,
       scrollable: find.byType(Scrollable).first,
     );
-    await tester.tap(find.text('출처 및 라이선스'));
+    await tester.drag(
+      find.byType(Scrollable).first,
+      const Offset(0, -220),
+    );
+    await tester.pump();
+    final attributionTile = find.ancestor(
+      of: find.text('출처 및 라이선스'),
+      matching: find.byType(ListTile),
+    );
+    await tester.tap(attributionTile);
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
 
@@ -664,6 +718,18 @@ void main() {
     expect(find.text('ต้น · ก้าวแรก'), findsWidgets);
   });
 
+  testWidgets('keeps course changes locked in settings',
+      (WidgetTester tester) async {
+    await tester.pumpWidget(const ThaiKoreanWordApp(initialData: sampleData));
+    await pumpUntilFound(tester, find.text('현재 코스'));
+
+    await tapSettingsTab(tester);
+
+    expect(find.text('학습 코스 변경은 잠겨 있습니다'), findsOneWidget);
+    expect(find.byKey(const ValueKey('course_beginner_foundation')),
+        findsOneWidget);
+  });
+
   testWidgets('opens settings and resets study state',
       (WidgetTester tester) async {
     SharedPreferences.setMockInitialValues(<String, Object>{
@@ -681,6 +747,11 @@ void main() {
     await tapSettingsTab(tester);
 
     expect(find.text('설정'), findsWidgets);
+    await tester.scrollUntilVisible(
+      find.text('학습 상태'),
+      120,
+      scrollable: find.byType(Scrollable).first,
+    );
     expect(find.text('학습 상태'), findsOneWidget);
     await tester.scrollUntilVisible(
       find.text('학습 기록 초기화'),
