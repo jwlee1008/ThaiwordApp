@@ -22,6 +22,15 @@ Future<void> tapQuizTab(WidgetTester tester) async {
   await tester.pump(const Duration(milliseconds: 300));
 }
 
+Future<void> scrollToText(WidgetTester tester, String text) async {
+  await tester.scrollUntilVisible(
+    find.text(text),
+    120,
+    scrollable: find.byType(Scrollable).first,
+  );
+  await tester.pump();
+}
+
 Future<void> tapSettingsTab(WidgetTester tester) async {
   await tester.tap(find.byKey(const ValueKey('settings_tab')));
   await tester.pump(const Duration(milliseconds: 300));
@@ -267,8 +276,9 @@ void main() {
     expect(find.text('KorThai Words'), findsWidgets);
     expect(find.text('현재 코스'), findsOneWidget);
     expect(find.text('초급 첫걸음'), findsWidgets);
-    expect(find.text('학습률 0%'), findsWidgets);
+    expect(find.textContaining('학습률 0%'), findsWidgets);
     expect(find.text('3 words'), findsOneWidget);
+    await scrollToText(tester, '학습 로드맵');
     expect(find.text('학습 로드맵'), findsOneWidget);
     expect(find.textContaining('다음 업데이트에서 열릴 예정'), findsNothing);
   });
@@ -282,6 +292,33 @@ void main() {
 
     expect(find.text('เริ่มจากระดับที่เหมาะกับคุณ'), findsOneWidget);
     expect(find.text('ข้ามและเริ่มระดับต้น'), findsOneWidget);
+  });
+
+  testWidgets('starts placement test after intro and supports unknown answer',
+      (WidgetTester tester) async {
+    await tester.binding.setSurfaceSize(const Size(800, 900));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
+
+    SharedPreferences.setMockInitialValues(<String, Object>{
+      'interface_language': 'ko',
+    });
+
+    await tester.pumpWidget(const ThaiKoreanWordApp(initialData: quizData));
+    await pumpUntilFound(tester, find.text('단계별로 공부하는 단어장'));
+
+    expect(find.text('레벨 테스트 시작'), findsOneWidget);
+    await tester.tap(find.text('레벨 테스트 시작'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+
+    expect(find.text('모르겠습니다'), findsOneWidget);
+    expect(find.byType(QuizChoiceButton), findsNWidgets(4));
+    expect(_choiceTexts(tester), hasLength(4));
+
+    await tester.tap(find.text('모르겠습니다'));
+    await tester.pump();
+    await tester.tap(find.text('다음 문제'));
+    await tester.pump();
   });
 
   testWidgets('skips placement test and opens beginner course',
@@ -328,6 +365,7 @@ void main() {
 
     await tester.pumpWidget(const ThaiKoreanWordApp(initialData: sampleData));
     await pumpUntilFound(tester, find.text('오늘의 복습'));
+    await scrollToText(tester, '오늘의 복습');
 
     expect(find.text('오답과 애매한 단어 우선 · 2개'), findsOneWidget);
 
@@ -436,6 +474,7 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
 
+    await scrollToText(tester, '즐겨찾기');
     expect(find.text('즐겨찾기'), findsOneWidget);
     expect(find.text('1'), findsOneWidget);
   });
@@ -459,6 +498,7 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
 
+    await scrollToText(tester, '오답노트');
     expect(find.text('오답노트'), findsOneWidget);
     expect(find.text('1'), findsOneWidget);
   });
@@ -474,6 +514,7 @@ void main() {
     await tester.pumpWidget(const ThaiKoreanWordApp(initialData: sampleData));
     await pumpUntilFound(tester, find.text('현재 코스'));
 
+    await scrollToText(tester, '오답노트');
     await tester.tap(find.text('오답노트'));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
@@ -498,6 +539,7 @@ void main() {
     await tester.pumpWidget(const ThaiKoreanWordApp(initialData: sampleData));
     await pumpUntilFound(tester, find.text('현재 코스'));
 
+    await scrollToText(tester, '즐겨찾기');
     expect(find.text('즐겨찾기'), findsOneWidget);
     expect(find.text('오답노트'), findsOneWidget);
     expect(find.text('1'), findsNWidgets(2));
@@ -519,42 +561,41 @@ void main() {
     expect(find.textContaining('다음 단계까지: 퀴즈 10문제 더'), findsWidgets);
   });
 
-  testWidgets('opens quiz tab with multiple quiz types',
+  testWidgets('shows quiz modes on the home screen',
       (WidgetTester tester) async {
     await tester.pumpWidget(const ThaiKoreanWordApp(initialData: quizData));
     await pumpUntilFound(tester, find.text('현재 코스'));
 
-    await tapQuizTab(tester);
-
-    expect(find.text('퀴즈'), findsWidgets);
+    expect(find.text('퀴즈 보기'), findsOneWidget);
     expect(find.text('한국어 → 태국어 뜻'), findsWidgets);
     expect(find.text('태국어 뜻 → 한국어'), findsWidgets);
+    await scrollToText(tester, '듣고 뜻 고르기');
     expect(find.text('듣고 뜻 고르기'), findsWidgets);
   });
 
-  testWidgets('locks quiz decks above the current course',
-      (WidgetTester tester) async {
-    await tester.pumpWidget(const ThaiKoreanWordApp(initialData: sampleData));
-    await pumpUntilFound(tester, find.text('현재 코스'));
-
-    await tapQuizTab(tester);
-
-    expect(find.text('초급 첫걸음'), findsWidgets);
-    expect(find.text('이전 단계 목표 달성 후 열림'), findsWidgets);
-  });
-
-  testWidgets('starts Thai to Korean quiz from quiz tab',
+  testWidgets('does not expose upper course quizzes on the home screen',
       (WidgetTester tester) async {
     await tester.pumpWidget(const ThaiKoreanWordApp(initialData: quizData));
     await pumpUntilFound(tester, find.text('현재 코스'));
 
-    await tapQuizTab(tester);
+    expect(find.text('초급 첫걸음'), findsWidgets);
+    expect(find.textContaining('10문제 · 중급 입문'), findsNothing);
+  });
+
+  testWidgets('starts Thai to Korean quiz from the home screen',
+      (WidgetTester tester) async {
+    await tester.pumpWidget(const ThaiKoreanWordApp(initialData: quizData));
+    await pumpUntilFound(tester, find.text('현재 코스'));
+
     await tester.tap(find.text('태국어 뜻 → 한국어').first);
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
 
     expect(find.text('한국어 단어 고르기'), findsOneWidget);
     expect(find.byType(QuizChoiceButton), findsNWidgets(4));
+    expect(find.text('학꾜'), findsNothing);
+    expect(find.text('학쌩'), findsNothing);
+    expect(find.byTooltip('한국어 발음 듣기'), findsNothing);
 
     await answerVisibleThaiToKoreanQuestion(tester, quizData);
     final preferences = await SharedPreferences.getInstance();
@@ -566,6 +607,22 @@ void main() {
       preferences.getStringList('quiz_correct_by_stage'),
       contains('beginner_foundation:1'),
     );
+  });
+
+  testWidgets('listening quiz only shows the speech button as the prompt',
+      (WidgetTester tester) async {
+    await tester.pumpWidget(const ThaiKoreanWordApp(initialData: quizData));
+    await pumpUntilFound(tester, find.text('현재 코스'));
+
+    await scrollToText(tester, '듣고 뜻 고르기');
+    await tester.tap(find.text('듣고 뜻 고르기').first);
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+
+    expect(find.text('소리를 듣고 뜻 고르기'), findsOneWidget);
+    expect(find.byTooltip('한국어 발음 듣기'), findsOneWidget);
+    expect(find.text('학꾜'), findsNothing);
+    expect(find.text('학교'), findsNothing);
   });
 
   testWidgets('opens data attribution screen', (WidgetTester tester) async {

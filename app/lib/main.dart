@@ -20,6 +20,17 @@ enum MemoryRating {
   known,
 }
 
+Color? _touchOverlayColor(Set<WidgetState> states) {
+  if (states.contains(WidgetState.pressed)) {
+    return const Color(0x33236860);
+  }
+  if (states.contains(WidgetState.hovered) ||
+      states.contains(WidgetState.focused)) {
+    return const Color(0x1A236860);
+  }
+  return null;
+}
+
 class CourseStage {
   const CourseStage({
     required this.id,
@@ -357,6 +368,19 @@ class AppText {
       isThai ? 'เริ่มจากระดับที่เหมาะกับคุณ' : '나에게 맞는 단계부터 시작';
   String get placementIntro =>
       isThai ? 'ตอบไม่กี่ข้อเพื่อเลือกคอร์สเริ่มต้น' : '짧은 테스트로 시작 코스를 정합니다';
+  String get placementGuideTitle =>
+      isThai ? 'เรียนให้เป็นขั้นตอน' : '단계별로 공부하는 단어장';
+  String get placementGuideStudy => isThai
+      ? 'เรียน: ดูการ์ดคำศัพท์และทำเครื่องหมายว่าจำได้แค่ไหน'
+      : '공부하기: 단어카드를 보며 기억도를 체크합니다';
+  String get placementGuideQuiz => isThai
+      ? 'ทดสอบ: คำตอบถูกจะสะสมเป็นความแม่นยำของคอร์ส'
+      : '테스트하기: 정답이 누적되어 코스 정답률에 반영됩니다';
+  String get placementGuideLevel => isThai
+      ? 'เมื่อทำแบบทดสอบถึงจำนวนที่กำหนดและความแม่นยำผ่านเกณฑ์ จะเปิดระดับถัดไป'
+      : '정해진 문제 수와 정답률 기준을 넘으면 다음 단계가 열립니다';
+  String get placementStartTest => isThai ? 'เริ่มทดสอบระดับ' : '레벨 테스트 시작';
+  String get placementUnknown => isThai ? 'ไม่ทราบ' : '모르겠습니다';
   String get placementSkip => isThai ? 'ข้ามและเริ่มระดับต้น' : '건너뛰고 초급부터';
   String get placementQuestion => isThai ? 'เลือกความหมาย' : '뜻을 골라주세요';
   String get placementResult => isThai ? 'คอร์สเริ่มต้น' : '추천 시작 코스';
@@ -409,6 +433,14 @@ class AppText {
   String get levelQuiz => isThai ? 'แบบทดสอบตามระดับ' : '난이도별 퀴즈';
   String get levelQuizSubtitle =>
       isThai ? 'เลือกคำถามแบบปรนัย 10 ข้อ' : '각 난이도에서 10문제 객관식으로 풀기';
+  String get continueStudy => isThai ? 'เรียนต่อ' : '공부 계속하기';
+  String continueStudySubtitle(String course) => isThai
+      ? 'เปิดการ์ดของ $course ต่อจากคำที่ยังไม่ได้เรียน'
+      : '$course 단어카드를 이어서 봅니다';
+  String get quizSectionTitle => isThai ? 'ทดสอบ' : '퀴즈 보기';
+  String get quizSectionSubtitle => isThai
+      ? 'เลือกวิธีทดสอบ คำตอบจะนับรวมกับความแม่นยำของคอร์ส'
+      : '방식을 골라 풀면 현재 코스 정답률에 반영됩니다';
   String get cardPractice => isThai ? 'ฝึกการ์ด' : '카드 연습';
   String get quiz => isThai ? 'แบบทดสอบ' : '퀴즈';
   String get quizKoTitle => isThai ? 'เลือกความหมายภาษาไทย' : '한국어 뜻 고르기';
@@ -513,8 +545,20 @@ class KoreanSpeech {
     }
 
     if (!_configured) {
+      await _tts.setSharedInstance(true);
+      await _tts.setIosAudioCategory(
+        IosTextToSpeechAudioCategory.playback,
+        [
+          IosTextToSpeechAudioCategoryOptions.defaultToSpeaker,
+          IosTextToSpeechAudioCategoryOptions.allowBluetooth,
+          IosTextToSpeechAudioCategoryOptions.allowBluetoothA2DP,
+        ],
+        IosTextToSpeechAudioMode.spokenAudio,
+      );
+      await _tts.autoStopSharedSession(false);
       await _tts.setLanguage('ko-KR');
       await _tts.setSpeechRate(0.38);
+      await _tts.setVolume(1.0);
       await _tts.setPitch(1.0);
       _configured = true;
     }
@@ -552,14 +596,48 @@ class _ThaiKoreanWordAppState extends State<ThaiKoreanWordApp> {
             brightness: Brightness.light,
           ),
           useMaterial3: true,
+          splashFactory: InkRipple.splashFactory,
+          splashColor: const Color(0x24236860),
+          highlightColor: const Color(0x1F236860),
+          hoverColor: const Color(0x10236860),
+          focusColor: const Color(0x1A236860),
           scaffoldBackgroundColor: const Color(0xFFF5F7F8),
           appBarTheme: const AppBarTheme(
             centerTitle: false,
             backgroundColor: Color(0xFFF5F7F8),
             surfaceTintColor: Colors.transparent,
           ),
+          filledButtonTheme: FilledButtonThemeData(
+            style: ButtonStyle(
+              overlayColor: WidgetStateProperty.resolveWith(
+                _touchOverlayColor,
+              ),
+            ),
+          ),
+          outlinedButtonTheme: OutlinedButtonThemeData(
+            style: ButtonStyle(
+              overlayColor: WidgetStateProperty.resolveWith(
+                _touchOverlayColor,
+              ),
+            ),
+          ),
+          textButtonTheme: TextButtonThemeData(
+            style: ButtonStyle(
+              overlayColor: WidgetStateProperty.resolveWith(
+                _touchOverlayColor,
+              ),
+            ),
+          ),
+          iconButtonTheme: IconButtonThemeData(
+            style: ButtonStyle(
+              overlayColor: WidgetStateProperty.resolveWith(
+                _touchOverlayColor,
+              ),
+            ),
+          ),
           cardTheme: CardThemeData(
             elevation: 0,
+            clipBehavior: Clip.antiAlias,
             color: Colors.white,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
@@ -1092,9 +1170,12 @@ class PlacementScreen extends StatefulWidget {
 }
 
 class _PlacementScreenState extends State<PlacementScreen> {
+  static const String _unknownAnswer = '__unknown__';
+
   late final List<WordEntry> _questions = _buildQuestions();
   int _index = 0;
   int _score = 0;
+  bool _testStarted = false;
   String? _selectedAnswer;
   CourseStage? _recommendedStage;
 
@@ -1123,18 +1204,31 @@ class _PlacementScreenState extends State<PlacementScreen> {
   }
 
   List<String> get _choices {
-    final correct = _word.thaiShort;
-    final choices = <String>[correct];
+    final correct = _word.thaiShort.trim();
+    final candidates = <String, int>{};
     for (final word in widget.data.words) {
-      if (word.id == _word.id || word.thaiShort == correct) {
+      final answer = word.thaiShort.trim();
+      if (word.id == _word.id || answer.isEmpty || answer == correct) {
         continue;
       }
-      choices.add(word.thaiShort);
-      if (choices.length == 4) {
-        break;
-      }
+      candidates.putIfAbsent(
+        answer,
+        () => _hashText('${_word.id}:${word.id}:$answer'),
+      );
     }
-    return _stableShuffle(choices);
+    final distractors = candidates.entries.toList()
+      ..sort((a, b) {
+        final scoreCompare = a.value.compareTo(b.value);
+        if (scoreCompare != 0) {
+          return scoreCompare;
+        }
+        return a.key.compareTo(b.key);
+      });
+
+    return _stableShuffle([
+      correct,
+      ...distractors.take(3).map((entry) => entry.key),
+    ]);
   }
 
   List<String> _stableShuffle(List<String> values) {
@@ -1159,9 +1253,18 @@ class _PlacementScreenState extends State<PlacementScreen> {
     }
     setState(() {
       _selectedAnswer = answer;
-      if (answer == _word.thaiShort) {
+      if (answer == _word.thaiShort.trim()) {
         _score += 1;
       }
+    });
+  }
+
+  void _chooseUnknown() {
+    if (_answered) {
+      return;
+    }
+    setState(() {
+      _selectedAnswer = _unknownAnswer;
     });
   }
 
@@ -1278,6 +1381,71 @@ class _PlacementScreenState extends State<PlacementScreen> {
       );
     }
 
+    if (!_testStarted) {
+      return Scaffold(
+        appBar: AppBar(title: Text(t.placementTitle)),
+        body: SafeArea(
+          child: ListView(
+            padding: const EdgeInsets.fromLTRB(16, 8, 16, 20),
+            children: [
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(24),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Icon(
+                        Icons.route_outlined,
+                        size: 48,
+                        color: Color(0xFF236860),
+                      ),
+                      const SizedBox(height: 16),
+                      Text(
+                        t.placementGuideTitle,
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineSmall
+                            ?.copyWith(fontWeight: FontWeight.w900),
+                      ),
+                      const SizedBox(height: 12),
+                      _PlacementGuideRow(
+                        icon: Icons.style_outlined,
+                        text: t.placementGuideStudy,
+                      ),
+                      _PlacementGuideRow(
+                        icon: Icons.quiz_outlined,
+                        text: t.placementGuideQuiz,
+                      ),
+                      _PlacementGuideRow(
+                        icon: Icons.lock_open_outlined,
+                        text: t.placementGuideLevel,
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        t.placementIntro,
+                        style: const TextStyle(color: Color(0xFF59615F)),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 12),
+              FilledButton.icon(
+                onPressed: () => setState(() => _testStarted = true),
+                icon: const Icon(Icons.play_arrow),
+                label: Text(t.placementStartTest),
+              ),
+              const SizedBox(height: 8),
+              TextButton(
+                onPressed: () => _start(CourseCatalog.defaultStage),
+                child: Text(t.placementSkip),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text(t.placementTitle),
@@ -1343,6 +1511,18 @@ class _PlacementScreenState extends State<PlacementScreen> {
                   onPressed: () => _choose(choice),
                 ),
               ),
+            OutlinedButton.icon(
+              onPressed: _answered ? null : _chooseUnknown,
+              icon: const Icon(Icons.help_outline),
+              label: Text(t.placementUnknown),
+              style: OutlinedButton.styleFrom(
+                minimumSize: const Size.fromHeight(48),
+                alignment: Alignment.center,
+                backgroundColor: _selectedAnswer == _unknownAnswer
+                    ? const Color(0xFFEAF3F0)
+                    : null,
+              ),
+            ),
             const SizedBox(height: 12),
             FilledButton.icon(
               onPressed: _answered ? _next : null,
@@ -1353,6 +1533,36 @@ class _PlacementScreenState extends State<PlacementScreen> {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class _PlacementGuideRow extends StatelessWidget {
+  const _PlacementGuideRow({
+    required this.icon,
+    required this.text,
+  });
+
+  final IconData icon;
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(icon, size: 20, color: const Color(0xFF236860)),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Text(
+              text,
+              style: const TextStyle(fontWeight: FontWeight.w700),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -1379,7 +1589,6 @@ class _HomeShellState extends State<HomeShell> {
   Widget build(BuildContext context) {
     final pages = [
       StudyTab(data: widget.data, studyState: widget.studyState),
-      QuizTab(data: widget.data, studyState: widget.studyState),
       SettingsScreen(
         studyState: widget.studyState,
         wordCount: widget.data.words.length,
@@ -1415,12 +1624,6 @@ class _HomeShellState extends State<HomeShell> {
             label: context.t.study,
           ),
           NavigationDestination(
-            key: const ValueKey('quiz_tab'),
-            icon: const Icon(Icons.quiz_outlined),
-            selectedIcon: const Icon(Icons.quiz),
-            label: context.t.quizTab,
-          ),
-          NavigationDestination(
             key: const ValueKey('settings_tab'),
             icon: const Icon(Icons.settings_outlined),
             selectedIcon: const Icon(Icons.settings),
@@ -1445,200 +1648,252 @@ class StudyTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = context.t;
-    final decks = CourseCatalog.stages
-        .map((stage) => _deckForStage(t, stage, data.words))
-        .toList();
-    final unlockedIndex =
-        CourseProgressPolicy.unlockedStageIndex(data.words, studyState);
 
     return SafeArea(
-      child: ListView(
-        padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
-        children: [
-          Text(
-            t.currentCourse,
-            style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  fontWeight: FontWeight.w800,
-                ),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            t.studyIntro,
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: const Color(0xFF59615F),
-                ),
-          ),
-          const SizedBox(height: 16),
-          AnimatedBuilder(
-            animation: studyState,
-            builder: (context, _) {
-              final favoriteWords = data.words
-                  .where((word) => studyState.favoriteIds.contains(word.id))
-                  .toList();
-              final wrongWords = data.words
-                  .where((word) => studyState.wrongIds.contains(word.id))
-                  .toList();
-              final currentWords = CourseCatalog.wordsForStage(
-                  studyState.courseStage, data.words);
-              final todayWords = _todayReviewWords(currentWords, studyState);
-              final currentStats = CourseProgressPolicy.statsFor(
-                studyState.courseStage,
-                data.words,
-                studyState,
-              );
+      child: AnimatedBuilder(
+        animation: studyState,
+        builder: (context, _) {
+          final decks = CourseCatalog.stages
+              .map((stage) => _deckForStage(t, stage, data.words))
+              .toList();
+          final unlockedIndex = CourseProgressPolicy.unlockedStageIndex(
+            data.words,
+            studyState,
+          );
+          final currentStage = studyState.courseStage;
+          final currentDeck = _deckForStage(t, currentStage, data.words);
+          final currentWords = currentDeck.words;
+          final currentStats = CourseProgressPolicy.statsFor(
+            currentStage,
+            data.words,
+            studyState,
+          );
+          final favoriteWords = data.words
+              .where((word) => studyState.favoriteIds.contains(word.id))
+              .toList();
+          final wrongWords = data.words
+              .where((word) => studyState.wrongIds.contains(word.id))
+              .toList();
+          final todayWords = _todayReviewWords(currentWords, studyState);
 
-              return Column(
-                children: [
-                  _CurrentCourseCard(
-                    stage: studyState.courseStage,
-                    stats: currentStats,
-                    onTap: currentWords.isEmpty
-                        ? null
-                        : () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute<void>(
-                                builder: (_) => WordListScreen(
-                                  deck: _deckForStage(
-                                      t, studyState.courseStage, data.words),
-                                  words: currentWords,
-                                  allWords: data.words,
-                                  studyState: studyState,
-                                ),
-                              ),
-                            );
-                          },
-                  ),
-                  const SizedBox(height: 6),
-                  QuickPracticeTile(
-                    title: t.todayReview,
-                    subtitle: todayWords.isEmpty
-                        ? t.todayReviewEmpty
-                        : t.todayReviewSubtitle(todayWords.length),
-                    count: todayWords.length,
-                    icon: Icons.today_outlined,
-                    onTap: todayWords.isEmpty
-                        ? null
-                        : () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute<void>(
-                                builder: (_) => WordListScreen(
-                                  deck: WordDeck(
-                                    id: 'today_review',
-                                    title: t.todayReview,
-                                    subtitle: t
-                                        .todayReviewSubtitle(todayWords.length),
-                                    description: t.todayReviewDescription,
-                                    words: const [],
-                                  ),
-                                  words: todayWords,
-                                  allWords: data.words,
-                                  studyState: studyState,
-                                ),
-                              ),
-                            );
-                          },
-                  ),
-                  QuickPracticeTile(
-                    title: t.favorites,
-                    subtitle: t.favoritesSubtitle,
-                    count: favoriteWords.length,
-                    icon: Icons.star_outline,
-                    onTap: favoriteWords.isEmpty
-                        ? null
-                        : () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute<void>(
-                                builder: (_) => WordListScreen(
-                                  deck: WordDeck(
-                                    id: 'favorites',
-                                    title: t.favorites,
-                                    subtitle: t.favoritesSubtitle,
-                                    description: t.favoritesSubtitle,
-                                    words: const [],
-                                  ),
-                                  words: favoriteWords,
-                                  allWords: data.words,
-                                  studyState: studyState,
-                                ),
-                              ),
-                            );
-                          },
-                  ),
-                  QuickPracticeTile(
-                    title: t.wrongNote,
-                    subtitle: t.wrongNoteSubtitle,
-                    count: wrongWords.length,
-                    icon: Icons.report_gmailerrorred_outlined,
-                    onTap: wrongWords.isEmpty
-                        ? null
-                        : () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute<void>(
-                                builder: (_) => WordListScreen(
-                                  deck: WordDeck(
-                                    id: 'wrong_note',
-                                    title: t.wrongNote,
-                                    subtitle: t.wrongNoteSubtitle,
-                                    description: t.wrongNoteSubtitle,
-                                    words: const [],
-                                  ),
-                                  words: wrongWords,
-                                  allWords: data.words,
-                                  studyState: studyState,
-                                  showClearWrong: true,
-                                ),
-                              ),
-                            );
-                          },
-                  ),
-                  const SizedBox(height: 6),
-                ],
-              );
-            },
-          ),
-          Text(
-            t.courseMap,
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.w900,
-                ),
-          ),
-          const SizedBox(height: 8),
-          for (final deck in decks)
-            AnimatedBuilder(
-              animation: studyState,
-              builder: (context, _) {
-                final stageIndex = decks.indexOf(deck);
-                final enabled = stageIndex <= unlockedIndex && deck.enabled;
-                final stats = CourseProgressPolicy.statsFor(
-                  CourseCatalog.stages[stageIndex],
-                  data.words,
-                  studyState,
-                );
-
-                return WordDeckTile(
-                  deck: deck,
-                  count: deck.words.length,
-                  stats: stats,
-                  onTap: !enabled
-                      ? null
-                      : () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute<void>(
-                              builder: (_) => WordListScreen(
-                                deck: deck,
-                                words: deck.words,
-                                allWords: data.words,
-                                studyState: studyState,
-                              ),
+          return ListView(
+            padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+            children: [
+              Text(
+                t.currentCourse,
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.w900,
+                    ),
+              ),
+              const SizedBox(height: 8),
+              _CurrentCourseCard(
+                stage: currentStage,
+                stats: currentStats,
+                onTap: currentWords.isEmpty
+                    ? null
+                    : () => _openWordList(context, currentDeck, currentWords),
+              ),
+              const SizedBox(height: 10),
+              _PrimaryActionCard(
+                icon: Icons.play_circle_outline,
+                title: t.continueStudy,
+                subtitle: t.continueStudySubtitle(currentStage.title(t)),
+                onTap: currentWords.isEmpty
+                    ? null
+                    : () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute<void>(
+                            builder: (_) => WordCardScreen(
+                              words: currentWords,
+                              initialIndex:
+                                  _nextStudyIndex(currentWords, studyState),
+                              studyState: studyState,
                             ),
-                          );
-                        },
-                );
-              },
-            ),
-        ],
+                          ),
+                        );
+                      },
+              ),
+              const SizedBox(height: 14),
+              Text(
+                t.quizSectionTitle,
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.w900,
+                    ),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                t.quizSectionSubtitle,
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      color: const Color(0xFF59615F),
+                    ),
+              ),
+              const SizedBox(height: 8),
+              QuizStartTile(
+                deck: currentDeck,
+                mode: QuizMode.koreanToThai,
+                allWords: data.words,
+                studyState: studyState,
+                questionCount: 10,
+              ),
+              QuizStartTile(
+                deck: currentDeck,
+                mode: QuizMode.thaiToKorean,
+                allWords: data.words,
+                studyState: studyState,
+                questionCount: 10,
+              ),
+              QuizStartTile(
+                deck: currentDeck,
+                mode: QuizMode.listeningToThai,
+                allWords: data.words,
+                studyState: studyState,
+                questionCount: 10,
+              ),
+              const SizedBox(height: 6),
+              QuickPracticeTile(
+                title: t.todayReview,
+                subtitle: todayWords.isEmpty
+                    ? t.todayReviewEmpty
+                    : t.todayReviewSubtitle(todayWords.length),
+                count: todayWords.length,
+                icon: Icons.today_outlined,
+                onTap: todayWords.isEmpty
+                    ? null
+                    : () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute<void>(
+                            builder: (_) => WordListScreen(
+                              deck: WordDeck(
+                                id: 'today_review',
+                                title: t.todayReview,
+                                subtitle:
+                                    t.todayReviewSubtitle(todayWords.length),
+                                description: t.todayReviewDescription,
+                                words: const [],
+                              ),
+                              words: todayWords,
+                              allWords: data.words,
+                              studyState: studyState,
+                            ),
+                          ),
+                        );
+                      },
+              ),
+              QuickPracticeTile(
+                title: t.favorites,
+                subtitle: t.favoritesSubtitle,
+                count: favoriteWords.length,
+                icon: Icons.star_outline,
+                onTap: favoriteWords.isEmpty
+                    ? null
+                    : () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute<void>(
+                            builder: (_) => WordListScreen(
+                              deck: WordDeck(
+                                id: 'favorites',
+                                title: t.favorites,
+                                subtitle: t.favoritesSubtitle,
+                                description: t.favoritesSubtitle,
+                                words: const [],
+                              ),
+                              words: favoriteWords,
+                              allWords: data.words,
+                              studyState: studyState,
+                            ),
+                          ),
+                        );
+                      },
+              ),
+              QuickPracticeTile(
+                title: t.wrongNote,
+                subtitle: t.wrongNoteSubtitle,
+                count: wrongWords.length,
+                icon: Icons.report_gmailerrorred_outlined,
+                onTap: wrongWords.isEmpty
+                    ? null
+                    : () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute<void>(
+                            builder: (_) => WordListScreen(
+                              deck: WordDeck(
+                                id: 'wrong_note',
+                                title: t.wrongNote,
+                                subtitle: t.wrongNoteSubtitle,
+                                description: t.wrongNoteSubtitle,
+                                words: const [],
+                              ),
+                              words: wrongWords,
+                              allWords: data.words,
+                              studyState: studyState,
+                              showClearWrong: true,
+                            ),
+                          ),
+                        );
+                      },
+              ),
+              const SizedBox(height: 10),
+              Text(
+                t.courseMap,
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.w900,
+                    ),
+              ),
+              const SizedBox(height: 8),
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: [
+                  for (var index = 0;
+                      index < CourseCatalog.stages.length;
+                      index += 1)
+                    _StageProgressChip(
+                      stage: CourseCatalog.stages[index],
+                      stats: CourseProgressPolicy.statsFor(
+                        CourseCatalog.stages[index],
+                        data.words,
+                        studyState,
+                      ),
+                      selected:
+                          CourseCatalog.stages[index].id == currentStage.id,
+                      enabled: index <= unlockedIndex && decks[index].enabled,
+                      onTap: () => _openWordList(
+                        context,
+                        decks[index],
+                        decks[index].words,
+                      ),
+                    ),
+                ],
+              ),
+            ],
+          );
+        },
       ),
     );
+  }
+
+  void _openWordList(
+    BuildContext context,
+    WordDeck deck,
+    List<WordEntry> words,
+  ) {
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => WordListScreen(
+          deck: deck,
+          words: words,
+          allWords: data.words,
+          studyState: studyState,
+        ),
+      ),
+    );
+  }
+
+  int _nextStudyIndex(List<WordEntry> words, StudyState studyState) {
+    final index = words.indexWhere(
+      (word) => !studyState.seenIds.contains(word.id),
+    );
+    return index == -1 ? 0 : index;
   }
 
   WordDeck _deckForStage(
@@ -1764,6 +2019,103 @@ class _CurrentCourseCard extends StatelessWidget {
           '$requirement',
         ),
         trailing: const Icon(Icons.chevron_right),
+      ),
+    );
+  }
+}
+
+class _PrimaryActionCard extends StatelessWidget {
+  const _PrimaryActionCard({
+    required this.icon,
+    required this.title,
+    required this.subtitle,
+    required this.onTap,
+  });
+
+  final IconData icon;
+  final String title;
+  final String subtitle;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: ListTile(
+        enabled: onTap != null,
+        onTap: onTap,
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
+        leading: Icon(icon, size: 34),
+        title: Text(
+          title,
+          style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w900),
+        ),
+        subtitle: Padding(
+          padding: const EdgeInsets.only(top: 4),
+          child: Text(subtitle),
+        ),
+        trailing: const Icon(Icons.arrow_forward),
+      ),
+    );
+  }
+}
+
+class _StageProgressChip extends StatelessWidget {
+  const _StageProgressChip({
+    required this.stage,
+    required this.stats,
+    required this.selected,
+    required this.enabled,
+    required this.onTap,
+  });
+
+  final CourseStage stage;
+  final CourseStageStats stats;
+  final bool selected;
+  final bool enabled;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.t;
+    final borderColor =
+        selected ? const Color(0xFF236860) : const Color(0xFFDDE4E1);
+    final shape = RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(8),
+      side: BorderSide(color: borderColor),
+    );
+
+    return Material(
+      color: selected ? const Color(0xFFEAF3F0) : Colors.white,
+      shape: shape,
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: enabled ? onTap : null,
+        customBorder: shape,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(
+                enabled ? Icons.flag_outlined : Icons.lock_outline,
+                size: 16,
+                color:
+                    enabled ? const Color(0xFF236860) : const Color(0xFF7A8581),
+              ),
+              const SizedBox(width: 6),
+              Text(
+                '${stage.title(t)} · ${stats.learningPercent}%',
+                style: TextStyle(
+                  fontWeight: selected ? FontWeight.w900 : FontWeight.w700,
+                  color: enabled
+                      ? const Color(0xFF2F3835)
+                      : const Color(0xFF7A8581),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -2758,7 +3110,7 @@ class _QuizScreenState extends State<QuizScreen> {
     return switch (widget.mode) {
       QuizMode.koreanToThai => word.korean,
       QuizMode.thaiToKorean => word.thaiShort,
-      QuizMode.listeningToThai => word.pronunciation,
+      QuizMode.listeningToThai => '',
     };
   }
 
@@ -2863,30 +3215,34 @@ class _QuizScreenState extends State<QuizScreen> {
                             color: const Color(0xFF59615F),
                           ),
                     ),
-                    const SizedBox(height: 16),
-                    Text(
-                      _promptFor(_word),
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontSize: 48,
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    if (widget.mode != QuizMode.listeningToThai)
+                    if (widget.mode != QuizMode.listeningToThai) ...[
+                      const SizedBox(height: 16),
                       Text(
-                        _word.pronunciation,
+                        _promptFor(_word),
+                        textAlign: TextAlign.center,
                         style: const TextStyle(
-                          color: Color(0xFF59615F),
-                          fontSize: 18,
+                          fontSize: 48,
+                          fontWeight: FontWeight.w900,
                         ),
                       ),
-                    const SizedBox(height: 12),
-                    IconButton.filledTonal(
-                      tooltip: t.speakKorean,
-                      onPressed: () => KoreanSpeech.speak(_word.korean),
-                      icon: const Icon(Icons.volume_up_outlined),
-                    ),
+                      const SizedBox(height: 8),
+                      if (widget.mode == QuizMode.koreanToThai)
+                        Text(
+                          _word.pronunciation,
+                          style: const TextStyle(
+                            color: Color(0xFF59615F),
+                            fontSize: 18,
+                          ),
+                        ),
+                    ],
+                    if (widget.mode == QuizMode.listeningToThai)
+                      const SizedBox(height: 24),
+                    if (widget.mode != QuizMode.thaiToKorean)
+                      IconButton.filledTonal(
+                        tooltip: t.speakKorean,
+                        onPressed: () => KoreanSpeech.speak(_word.korean),
+                        icon: const Icon(Icons.volume_up_outlined),
+                      ),
                   ],
                 ),
               ),
@@ -3201,9 +3557,9 @@ class _WordCardScreenState extends State<WordCardScreen> {
           child: Column(
             children: [
               Expanded(
-                child: GestureDetector(
-                  onTap: () => setState(() => _showMeaning = !_showMeaning),
-                  child: Card(
+                child: Card(
+                  child: InkWell(
+                    onTap: () => setState(() => _showMeaning = !_showMeaning),
                     child: SizedBox.expand(
                       child: Padding(
                         padding: const EdgeInsets.all(24),
