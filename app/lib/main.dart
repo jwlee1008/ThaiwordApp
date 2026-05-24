@@ -20,13 +20,37 @@ enum MemoryRating {
   known,
 }
 
+class CutePalette {
+  CutePalette._();
+
+  static const Color background = Color(0xFFFFF6FB);
+  static const Color surface = Color(0xFFFFFBFF);
+  static const Color cream = Color(0xFFFFF8E8);
+  static const Color lavender = Color(0xFFF4E7FF);
+  static const Color softPink = Color(0xFFFFE6F2);
+  static const Color sky = Color(0xFFE8F7FF);
+  static const Color mint = Color(0xFFEAF8EF);
+  static const Color pink = Color(0xFFFF6FAE);
+  static const Color hotPink = Color(0xFFE94792);
+  static const Color purple = Color(0xFF8B45E8);
+  static const Color deepPurple = Color(0xFF5F2A9B);
+  static const Color yellow = Color(0xFFFFD966);
+  static const Color ink = Color(0xFF3A2843);
+  static const Color muted = Color(0xFF7D637A);
+  static const Color border = Color(0xFFFFC7DE);
+  static const Color success = Color(0xFF2D9A6B);
+  static const Color successBg = Color(0xFFE8F8EF);
+  static const Color danger = Color(0xFFC94460);
+  static const Color dangerBg = Color(0xFFFFE6EB);
+}
+
 Color? _touchOverlayColor(Set<WidgetState> states) {
   if (states.contains(WidgetState.pressed)) {
-    return const Color(0x33236860);
+    return CutePalette.hotPink.withValues(alpha: 0.18);
   }
   if (states.contains(WidgetState.hovered) ||
       states.contains(WidgetState.focused)) {
-    return const Color(0x1A236860);
+    return CutePalette.purple.withValues(alpha: 0.12);
   }
   return null;
 }
@@ -592,23 +616,52 @@ class _ThaiKoreanWordAppState extends State<ThaiKoreanWordApp> {
         title: 'KorThai Words',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color(0xFF236860),
+            seedColor: CutePalette.pink,
             brightness: Brightness.light,
+          ).copyWith(
+            primary: CutePalette.purple,
+            onPrimary: Colors.white,
+            secondary: CutePalette.pink,
+            tertiary: CutePalette.yellow,
+            surface: CutePalette.surface,
+            onSurface: CutePalette.ink,
+            error: CutePalette.danger,
           ),
           useMaterial3: true,
           splashFactory: InkRipple.splashFactory,
-          splashColor: const Color(0x24236860),
-          highlightColor: const Color(0x1F236860),
-          hoverColor: const Color(0x10236860),
-          focusColor: const Color(0x1A236860),
-          scaffoldBackgroundColor: const Color(0xFFF5F7F8),
+          fontFamilyFallback: const [
+            'Apple SD Gothic Neo',
+            'Noto Sans Thai',
+            'Noto Sans CJK KR',
+            'Arial Unicode MS',
+          ],
+          splashColor: CutePalette.hotPink.withValues(alpha: 0.14),
+          highlightColor: CutePalette.purple.withValues(alpha: 0.12),
+          hoverColor: CutePalette.pink.withValues(alpha: 0.08),
+          focusColor: CutePalette.purple.withValues(alpha: 0.10),
+          scaffoldBackgroundColor: CutePalette.background,
+          textTheme: ThemeData.light().textTheme.apply(
+                bodyColor: CutePalette.ink,
+                displayColor: CutePalette.ink,
+              ),
           appBarTheme: const AppBarTheme(
             centerTitle: false,
-            backgroundColor: Color(0xFFF5F7F8),
+            backgroundColor: CutePalette.background,
             surfaceTintColor: Colors.transparent,
+            foregroundColor: CutePalette.deepPurple,
+            titleTextStyle: TextStyle(
+              color: CutePalette.deepPurple,
+              fontSize: 22,
+              fontWeight: FontWeight.w900,
+            ),
           ),
           filledButtonTheme: FilledButtonThemeData(
             style: ButtonStyle(
+              shape: const WidgetStatePropertyAll(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(8)),
+                ),
+              ),
               overlayColor: WidgetStateProperty.resolveWith(
                 _touchOverlayColor,
               ),
@@ -616,6 +669,17 @@ class _ThaiKoreanWordAppState extends State<ThaiKoreanWordApp> {
           ),
           outlinedButtonTheme: OutlinedButtonThemeData(
             style: ButtonStyle(
+              foregroundColor: const WidgetStatePropertyAll(
+                CutePalette.deepPurple,
+              ),
+              side: const WidgetStatePropertyAll(
+                BorderSide(color: CutePalette.border),
+              ),
+              shape: const WidgetStatePropertyAll(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(8)),
+                ),
+              ),
               overlayColor: WidgetStateProperty.resolveWith(
                 _touchOverlayColor,
               ),
@@ -623,6 +687,9 @@ class _ThaiKoreanWordAppState extends State<ThaiKoreanWordApp> {
           ),
           textButtonTheme: TextButtonThemeData(
             style: ButtonStyle(
+              foregroundColor: const WidgetStatePropertyAll(
+                CutePalette.deepPurple,
+              ),
               overlayColor: WidgetStateProperty.resolveWith(
                 _touchOverlayColor,
               ),
@@ -630,18 +697,59 @@ class _ThaiKoreanWordAppState extends State<ThaiKoreanWordApp> {
           ),
           iconButtonTheme: IconButtonThemeData(
             style: ButtonStyle(
+              foregroundColor: const WidgetStatePropertyAll(
+                CutePalette.deepPurple,
+              ),
               overlayColor: WidgetStateProperty.resolveWith(
                 _touchOverlayColor,
               ),
             ),
           ),
+          navigationBarTheme: NavigationBarThemeData(
+            backgroundColor: CutePalette.surface,
+            indicatorColor: CutePalette.softPink,
+            labelTextStyle: WidgetStateProperty.resolveWith((states) {
+              return TextStyle(
+                color: states.contains(WidgetState.selected)
+                    ? CutePalette.deepPurple
+                    : CutePalette.muted,
+                fontWeight: states.contains(WidgetState.selected)
+                    ? FontWeight.w900
+                    : FontWeight.w700,
+              );
+            }),
+            iconTheme: WidgetStateProperty.resolveWith((states) {
+              return IconThemeData(
+                color: states.contains(WidgetState.selected)
+                    ? CutePalette.hotPink
+                    : CutePalette.muted,
+              );
+            }),
+          ),
           cardTheme: CardThemeData(
             elevation: 0,
             clipBehavior: Clip.antiAlias,
-            color: Colors.white,
+            color: CutePalette.surface,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
-              side: const BorderSide(color: Color(0xFFDDE4E1)),
+              side: const BorderSide(color: CutePalette.border),
+            ),
+          ),
+          chipTheme: ChipThemeData(
+            backgroundColor: CutePalette.cream,
+            selectedColor: CutePalette.softPink,
+            disabledColor: const Color(0xFFF4EAF1),
+            labelStyle: const TextStyle(
+              color: CutePalette.deepPurple,
+              fontWeight: FontWeight.w800,
+            ),
+            secondaryLabelStyle: const TextStyle(
+              color: CutePalette.deepPurple,
+              fontWeight: FontWeight.w900,
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+              side: const BorderSide(color: CutePalette.border),
             ),
           ),
         ),
@@ -1338,7 +1446,7 @@ class _PlacementScreenState extends State<PlacementScreen> {
                           const Icon(
                             Icons.auto_awesome,
                             size: 64,
-                            color: Color(0xFF236860),
+                            color: CutePalette.hotPink,
                           ),
                           const SizedBox(height: 16),
                           Text(
@@ -1353,7 +1461,7 @@ class _PlacementScreenState extends State<PlacementScreen> {
                           Text(
                             recommended.description(t),
                             textAlign: TextAlign.center,
-                            style: const TextStyle(color: Color(0xFF59615F)),
+                            style: const TextStyle(color: CutePalette.muted),
                           ),
                           const SizedBox(height: 16),
                           Text(
@@ -1394,10 +1502,15 @@ class _PlacementScreenState extends State<PlacementScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Icon(
-                        Icons.route_outlined,
-                        size: 48,
-                        color: Color(0xFF236860),
+                      Center(
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: Image.asset(
+                            'assets/branding/app_icon_1024.png',
+                            width: 96,
+                            height: 96,
+                          ),
+                        ),
                       ),
                       const SizedBox(height: 16),
                       Text(
@@ -1423,7 +1536,7 @@ class _PlacementScreenState extends State<PlacementScreen> {
                       const SizedBox(height: 8),
                       Text(
                         t.placementIntro,
-                        style: const TextStyle(color: Color(0xFF59615F)),
+                        style: const TextStyle(color: CutePalette.muted),
                       ),
                     ],
                   ),
@@ -1463,7 +1576,7 @@ class _PlacementScreenState extends State<PlacementScreen> {
             Text(
               t.placementIntro,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: const Color(0xFF59615F),
+                    color: CutePalette.muted,
                   ),
             ),
             const SizedBox(height: 16),
@@ -1477,7 +1590,7 @@ class _PlacementScreenState extends State<PlacementScreen> {
                     Text(
                       t.placementQuestion,
                       style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                            color: const Color(0xFF59615F),
+                            color: CutePalette.muted,
                           ),
                     ),
                     const SizedBox(height: 16),
@@ -1519,7 +1632,7 @@ class _PlacementScreenState extends State<PlacementScreen> {
                 minimumSize: const Size.fromHeight(48),
                 alignment: Alignment.center,
                 backgroundColor: _selectedAnswer == _unknownAnswer
-                    ? const Color(0xFFEAF3F0)
+                    ? CutePalette.softPink
                     : null,
               ),
             ),
@@ -1554,7 +1667,7 @@ class _PlacementGuideRow extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(icon, size: 20, color: const Color(0xFF236860)),
+          Icon(icon, size: 20, color: CutePalette.hotPink),
           const SizedBox(width: 10),
           Expanded(
             child: Text(
@@ -1597,13 +1710,27 @@ class _HomeShellState extends State<HomeShell> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(context.t.appTitle),
+        title: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.asset(
+                'assets/branding/app_icon_1024.png',
+                width: 32,
+                height: 32,
+              ),
+            ),
+            const SizedBox(width: 10),
+            Text(context.t.appTitle),
+          ],
+        ),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 16),
             child: Center(
               child: Text(
-                '${widget.data.words.length} words',
+                context.t.wordsLabel(widget.data.words.length),
                 style: Theme.of(context).textTheme.labelLarge,
               ),
             ),
@@ -1679,16 +1806,10 @@ class StudyTab extends StatelessWidget {
           return ListView(
             padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
             children: [
-              Text(
-                t.currentCourse,
-                style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.w900,
-                    ),
-              ),
-              const SizedBox(height: 8),
-              _CurrentCourseCard(
+              _StudyHeroPanel(
                 stage: currentStage,
                 stats: currentStats,
+                wordCount: currentWords.length,
                 onTap: currentWords.isEmpty
                     ? null
                     : () => _openWordList(context, currentDeck, currentWords),
@@ -1724,7 +1845,7 @@ class StudyTab extends StatelessWidget {
               Text(
                 t.quizSectionSubtitle,
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: const Color(0xFF59615F),
+                      color: CutePalette.muted,
                     ),
               ),
               const SizedBox(height: 8),
@@ -1980,50 +2101,6 @@ class StudyTab extends StatelessWidget {
   }
 }
 
-class _CurrentCourseCard extends StatelessWidget {
-  const _CurrentCourseCard({
-    required this.stage,
-    required this.stats,
-    required this.onTap,
-  });
-
-  final CourseStage stage;
-  final CourseStageStats stats;
-  final VoidCallback? onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    final t = context.t;
-    final requirement = stats.canAdvance
-        ? t.advanceReady
-        : t.advanceRequirement(
-            stats.remainingAttempts,
-            CourseProgressPolicy.requiredQuizAccuracyPercent,
-          );
-    return Card(
-      child: ListTile(
-        onTap: onTap,
-        leading: const Icon(Icons.flag_outlined),
-        title: Text(
-          stage.title(t),
-          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
-        ),
-        subtitle: Text(
-          '${stage.description(t)}\n'
-          '${t.courseProgress(
-            stats.learningPercent,
-            stats.quizCorrect,
-            stats.quizAttempts,
-            stats.quizAccuracyPercent,
-          )}\n'
-          '$requirement',
-        ),
-        trailing: const Icon(Icons.chevron_right),
-      ),
-    );
-  }
-}
-
 class _PrimaryActionCard extends StatelessWidget {
   const _PrimaryActionCard({
     required this.icon,
@@ -2044,8 +2121,12 @@ class _PrimaryActionCard extends StatelessWidget {
         enabled: onTap != null,
         onTap: onTap,
         contentPadding:
-            const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
-        leading: Icon(icon, size: 34),
+            const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
+        leading: _IconBubble(
+          icon: icon,
+          backgroundColor: CutePalette.softPink,
+          size: 46,
+        ),
         title: Text(
           title,
           style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w900),
@@ -2078,15 +2159,14 @@ class _StageProgressChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = context.t;
-    final borderColor =
-        selected ? const Color(0xFF236860) : const Color(0xFFDDE4E1);
+    final borderColor = selected ? CutePalette.hotPink : CutePalette.border;
     final shape = RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(8),
       side: BorderSide(color: borderColor),
     );
 
     return Material(
-      color: selected ? const Color(0xFFEAF3F0) : Colors.white,
+      color: selected ? CutePalette.softPink : Colors.white,
       shape: shape,
       clipBehavior: Clip.antiAlias,
       child: InkWell(
@@ -2100,17 +2180,14 @@ class _StageProgressChip extends StatelessWidget {
               Icon(
                 enabled ? Icons.flag_outlined : Icons.lock_outline,
                 size: 16,
-                color:
-                    enabled ? const Color(0xFF236860) : const Color(0xFF7A8581),
+                color: enabled ? CutePalette.hotPink : CutePalette.muted,
               ),
               const SizedBox(width: 6),
               Text(
                 '${stage.title(t)} · ${stats.learningPercent}%',
                 style: TextStyle(
                   fontWeight: selected ? FontWeight.w900 : FontWeight.w700,
-                  color: enabled
-                      ? const Color(0xFF2F3835)
-                      : const Color(0xFF7A8581),
+                  color: enabled ? CutePalette.ink : CutePalette.muted,
                 ),
               ),
             ],
@@ -2131,6 +2208,206 @@ class _ReviewCandidate {
   final WordEntry word;
   final int priority;
   final int tieBreaker;
+}
+
+class _StudyHeroPanel extends StatelessWidget {
+  const _StudyHeroPanel({
+    required this.stage,
+    required this.stats,
+    required this.wordCount,
+    required this.onTap,
+  });
+
+  final CourseStage stage;
+  final CourseStageStats stats;
+  final int wordCount;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.t;
+    final requirement = stats.canAdvance
+        ? t.advanceReady
+        : t.advanceRequirement(
+            stats.remainingAttempts,
+            CourseProgressPolicy.requiredQuizAccuracyPercent,
+          );
+    final shape = RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(8),
+      side: const BorderSide(color: CutePalette.border),
+    );
+
+    return Material(
+      color: Colors.transparent,
+      shape: shape,
+      clipBehavior: Clip.antiAlias,
+      child: Ink(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              CutePalette.lavender,
+              CutePalette.softPink,
+              CutePalette.cream,
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+        child: InkWell(
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.all(12),
+            child: Row(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Image.asset(
+                    'assets/branding/app_icon_1024.png',
+                    width: 60,
+                    height: 60,
+                  ),
+                ),
+                const SizedBox(width: 14),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        t.currentCourse,
+                        style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                              color: CutePalette.deepPurple,
+                              fontWeight: FontWeight.w900,
+                            ),
+                      ),
+                      const SizedBox(height: 3),
+                      Text(
+                        stage.title(t),
+                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                              color: CutePalette.ink,
+                              fontWeight: FontWeight.w900,
+                            ),
+                      ),
+                      const SizedBox(height: 6),
+                      Wrap(
+                        spacing: 6,
+                        runSpacing: 6,
+                        children: [
+                          _SoftPill(
+                            icon: Icons.menu_book_outlined,
+                            label: t.wordsLabel(wordCount),
+                          ),
+                          _SoftPill(
+                            icon: Icons.favorite,
+                            label: t.progressRate(stats.learningPercent),
+                          ),
+                          _SoftPill(
+                            icon: Icons.check_circle,
+                            label:
+                                '${stats.quizCorrect}/${stats.quizAttempts} · ${stats.quizAccuracyPercent}%',
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 6),
+                      Text(
+                        t.courseProgress(
+                          stats.learningPercent,
+                          stats.quizCorrect,
+                          stats.quizAttempts,
+                          stats.quizAccuracyPercent,
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                          color: CutePalette.deepPurple,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                      Text(
+                        requirement,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                          color: CutePalette.muted,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _SoftPill extends StatelessWidget {
+  const _SoftPill({
+    required this.icon,
+    required this.label,
+  });
+
+  final IconData icon;
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 6),
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: 0.72),
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: CutePalette.border),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, size: 15, color: CutePalette.hotPink),
+          const SizedBox(width: 4),
+          Text(
+            label,
+            style: const TextStyle(
+              color: CutePalette.deepPurple,
+              fontSize: 12,
+              fontWeight: FontWeight.w900,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _IconBubble extends StatelessWidget {
+  const _IconBubble({
+    required this.icon,
+    required this.backgroundColor,
+    this.iconColor = CutePalette.hotPink,
+    this.size = 44,
+  });
+
+  final IconData icon;
+  final Color backgroundColor;
+  final Color iconColor;
+  final double size;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: size,
+      height: size,
+      decoration: BoxDecoration(
+        color: backgroundColor,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: CutePalette.border),
+      ),
+      child: Icon(icon, color: iconColor),
+    );
+  }
 }
 
 class SettingsScreen extends StatelessWidget {
@@ -2287,7 +2564,7 @@ class _LanguageSettingsCard extends StatelessWidget {
                       const SizedBox(height: 2),
                       Text(
                         text.languageDescription,
-                        style: const TextStyle(color: Color(0xFF59615F)),
+                        style: const TextStyle(color: CutePalette.muted),
                       ),
                     ],
                   ),
@@ -2358,7 +2635,7 @@ class _CourseSettingsCard extends StatelessWidget {
                       const SizedBox(height: 2),
                       Text(
                         text.courseSettingsDescription,
-                        style: const TextStyle(color: Color(0xFF59615F)),
+                        style: const TextStyle(color: CutePalette.muted),
                       ),
                     ],
                   ),
@@ -2376,7 +2653,7 @@ class _CourseSettingsCard extends StatelessWidget {
                       width: double.infinity,
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
-                        color: const Color(0xFFEAF3F0),
+                        color: CutePalette.softPink,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Row(
@@ -2397,7 +2674,7 @@ class _CourseSettingsCard extends StatelessWidget {
                                 Text(
                                   text.courseChangeLockedDescription,
                                   style: const TextStyle(
-                                    color: Color(0xFF59615F),
+                                    color: CutePalette.muted,
                                   ),
                                 ),
                               ],
@@ -2477,7 +2754,7 @@ class QuizTab extends StatelessWidget {
               Text(
                 t.quizIntro,
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: const Color(0xFF59615F),
+                      color: CutePalette.muted,
                     ),
               ),
               const SizedBox(height: 16),
@@ -2570,10 +2847,15 @@ class QuizStartTile extends StatelessWidget {
     final quizWords = _quizWords();
 
     return Card(
-      margin: const EdgeInsets.only(bottom: 8),
+      margin: const EdgeInsets.only(bottom: 6),
       child: ListTile(
         enabled: canStart,
-        leading: Icon(mode.icon),
+        leading: _IconBubble(
+          icon: mode.icon,
+          backgroundColor:
+              canStart ? CutePalette.softPink : const Color(0xFFF4EAF1),
+          iconColor: canStart ? CutePalette.hotPink : CutePalette.muted,
+        ),
         title: Text(
           title,
           style: const TextStyle(fontWeight: FontWeight.w800),
@@ -2730,7 +3012,7 @@ class InfoRow extends StatelessWidget {
           Text(
             label,
             style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                  color: const Color(0xFF59615F),
+                  color: CutePalette.muted,
                 ),
           ),
           const SizedBox(height: 2),
@@ -2767,10 +3049,40 @@ class QuickPracticeTile extends StatelessWidget {
       child: ListTile(
         enabled: onTap != null,
         onTap: onTap,
-        leading: Icon(icon),
+        leading: _IconBubble(
+          icon: icon,
+          backgroundColor: CutePalette.sky,
+        ),
         title: Text(title, style: const TextStyle(fontWeight: FontWeight.w800)),
         subtitle: Text(subtitle),
-        trailing: Text('$count'),
+        trailing: _CountBadge(count: count),
+      ),
+    );
+  }
+}
+
+class _CountBadge extends StatelessWidget {
+  const _CountBadge({required this.count});
+
+  final int count;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      constraints: const BoxConstraints(minWidth: 34),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+      decoration: BoxDecoration(
+        color: CutePalette.cream,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: CutePalette.border),
+      ),
+      child: Text(
+        '$count',
+        textAlign: TextAlign.center,
+        style: const TextStyle(
+          color: CutePalette.deepPurple,
+          fontWeight: FontWeight.w900,
+        ),
       ),
     );
   }
@@ -2871,7 +3183,7 @@ class WordListScreen extends StatelessWidget {
             Text(
               deck.description,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: const Color(0xFF59615F),
+                    color: CutePalette.muted,
                   ),
             ),
             const SizedBox(height: 12),
@@ -3212,7 +3524,7 @@ class _QuizScreenState extends State<QuizScreen> {
                     Text(
                       _promptTitle(t),
                       style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                            color: const Color(0xFF59615F),
+                            color: CutePalette.muted,
                           ),
                     ),
                     if (widget.mode != QuizMode.listeningToThai) ...[
@@ -3230,7 +3542,7 @@ class _QuizScreenState extends State<QuizScreen> {
                         Text(
                           _word.pronunciation,
                           style: const TextStyle(
-                            color: Color(0xFF59615F),
+                            color: CutePalette.muted,
                             fontSize: 18,
                           ),
                         ),
@@ -3269,8 +3581,8 @@ class _QuizScreenState extends State<QuizScreen> {
                 style: TextStyle(
                   fontWeight: FontWeight.w800,
                   color: _selectedThai == _answerFor(_word)
-                      ? const Color(0xFF236860)
-                      : const Color(0xFF9B2C2C),
+                      ? CutePalette.hotPink
+                      : CutePalette.danger,
                 ),
               ),
             const SizedBox(height: 12),
@@ -3350,7 +3662,7 @@ class QuizResultScreen extends StatelessWidget {
                         const Icon(
                           Icons.emoji_events_outlined,
                           size: 64,
-                          color: Color(0xFF236860),
+                          color: CutePalette.hotPink,
                         ),
                         const SizedBox(height: 16),
                         Text(
@@ -3376,7 +3688,7 @@ class QuizResultScreen extends StatelessWidget {
                               ? t.noWrongWords
                               : t.wrongSaved(wrongWords.length),
                           textAlign: TextAlign.center,
-                          style: const TextStyle(color: Color(0xFF59615F)),
+                          style: const TextStyle(color: CutePalette.muted),
                         ),
                       ],
                     ),
@@ -3431,16 +3743,16 @@ class QuizChoiceButton extends StatelessWidget {
       foregroundColor = null;
       icon = null;
     } else if (isCorrect) {
-      backgroundColor = const Color(0xFFE3F3EC);
-      foregroundColor = const Color(0xFF145C48);
+      backgroundColor = CutePalette.successBg;
+      foregroundColor = CutePalette.success;
       icon = Icons.check_circle;
     } else if (isSelected) {
-      backgroundColor = const Color(0xFFF9E4E4);
-      foregroundColor = const Color(0xFF9B2C2C);
+      backgroundColor = CutePalette.dangerBg;
+      foregroundColor = CutePalette.danger;
       icon = Icons.cancel;
     } else {
       backgroundColor = colorScheme.surface;
-      foregroundColor = const Color(0xFF59615F);
+      foregroundColor = CutePalette.muted;
       icon = null;
     }
 
@@ -3453,9 +3765,8 @@ class QuizChoiceButton extends StatelessWidget {
         foregroundColor: foregroundColor,
         disabledForegroundColor: foregroundColor,
         side: BorderSide(
-          color: showResult && isCorrect
-              ? const Color(0xFF8BC7B1)
-              : const Color(0xFFDDE4E1),
+          color:
+              showResult && isCorrect ? CutePalette.pink : CutePalette.border,
         ),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       ),
@@ -3580,7 +3891,7 @@ class _WordCardScreenState extends State<WordCardScreen> {
                               _word.pronunciation,
                               style: const TextStyle(
                                 fontSize: 20,
-                                color: Color(0xFF59615F),
+                                color: CutePalette.muted,
                               ),
                             ),
                             const SizedBox(height: 12),
@@ -3738,7 +4049,7 @@ class _WordMeaningBlock extends StatelessWidget {
         Text(
           word.thaiDefinition,
           textAlign: TextAlign.center,
-          style: const TextStyle(color: Color(0xFF59615F)),
+          style: const TextStyle(color: CutePalette.muted),
         ),
       ],
     );

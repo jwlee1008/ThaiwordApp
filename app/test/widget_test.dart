@@ -277,7 +277,7 @@ void main() {
     expect(find.text('현재 코스'), findsOneWidget);
     expect(find.text('초급 첫걸음'), findsWidgets);
     expect(find.textContaining('학습률 0%'), findsWidgets);
-    expect(find.text('3 words'), findsOneWidget);
+    expect(find.text('3개'), findsOneWidget);
     await scrollToText(tester, '학습 로드맵');
     expect(find.text('학습 로드맵'), findsOneWidget);
     expect(find.textContaining('다음 업데이트에서 열릴 예정'), findsNothing);
