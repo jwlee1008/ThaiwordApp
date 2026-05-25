@@ -381,8 +381,8 @@ class AppText {
   String get courseMap => isThai ? 'เส้นทางการเรียน' : '학습 로드맵';
   String get courseSettings => isThai ? 'คอร์สการเรียน' : '학습 코스';
   String get courseSettingsDescription => isThai
-      ? 'ล็อกไว้ก่อน ระหว่างเตรียมฟีเจอร์พรีเมียม'
-      : '추후 유료 기능 전환 예정으로 잠겨 있습니다';
+      ? 'จะเพิ่มการเปลี่ยนคอร์สในการอัปเดตถัดไป'
+      : '추후 업데이트에서 코스 변경 기능을 제공할 예정입니다';
   String get courseChangeLocked =>
       isThai ? 'การเปลี่ยนคอร์สถูกล็อกไว้' : '학습 코스 변경은 잠겨 있습니다';
   String get courseChangeLockedDescription => isThai
@@ -409,6 +409,37 @@ class AppText {
   String get placementQuestion => isThai ? 'เลือกความหมาย' : '뜻을 골라주세요';
   String get placementResult => isThai ? 'คอร์สเริ่มต้น' : '추천 시작 코스';
   String get placementStart => isThai ? 'เริ่มเรียน' : '학습 시작';
+  String get appGuideTitle =>
+      isThai ? 'วิธีใช้ KorThai Words' : 'KorThai Words 사용법';
+  String get appGuideIntro => isThai
+      ? 'รู้จักปุ่มหลักก่อนเริ่มเรียน จะได้เก็บความคืบหน้าได้ถูกต้อง'
+      : '시작 전에 주요 버튼과 학습 흐름을 간단히 안내할게요';
+  String get appGuideContinueTitle => isThai ? 'เรียนต่อ' : '공부 계속하기';
+  String get appGuideContinueBody => isThai
+      ? 'เปิดการ์ดคำศัพท์ของคอร์สปัจจุบันจากคำที่ยังไม่ได้เรียน แตะการ์ดเพื่อดูความหมาย และเลือกว่าจำได้แค่ไหน'
+      : '현재 코스의 단어카드를 아직 안 본 단어부터 이어서 보여줍니다. 카드를 눌러 뜻을 보고 기억도를 체크하세요';
+  String get appGuideQuizTitle => isThai ? 'ทดสอบ' : '퀴즈 보기';
+  String get appGuideQuizBody => isThai
+      ? 'เลือกแบบทดสอบได้ 3 แบบ คำตอบที่ถูกจะนับเป็นความแม่นยำของคอร์ส เมื่อทำครบจำนวนและผ่านเกณฑ์ จะเปิดระดับถัดไป'
+      : '3가지 퀴즈 방식 중 골라 풀 수 있습니다. 정답은 현재 코스 정답률에 누적되고, 필요한 문제 수와 기준 정답률을 넘으면 다음 단계가 열립니다';
+  String get appGuideReviewTitle => isThai ? 'ทบทวนวันนี้' : '오늘의 복습';
+  String get appGuideReviewBody => isThai
+      ? 'รวมคำที่ตอบผิด คำที่ยังไม่มั่นใจ และคำที่ควรฝึกก่อนในวันนี้'
+      : '틀린 단어, 애매한 단어, 오늘 먼저 볼 단어를 우선순위로 모아줍니다';
+  String get appGuideWrongTitle => isThai ? 'สมุดคำผิด' : '오답노트';
+  String get appGuideWrongBody => isThai
+      ? 'คำที่ตอบผิดจะเข้าไปที่นี่ กดเครื่องหมายถูกเมื่อตรวจแล้วหรือจำได้'
+      : '퀴즈에서 틀린 단어가 모입니다. 다시 확인했거나 외웠다면 체크 버튼으로 지울 수 있어요';
+  String get appGuideRoadmapTitle => isThai ? 'เส้นทางการเรียน' : '학습 로드맵';
+  String get appGuideRoadmapBody => isThai
+      ? 'ดูคอร์สที่เปิดแล้วและเป้าหมายถัดไปได้จากแผนที่การเรียน'
+      : '열린 단계와 다음 목표를 한눈에 확인합니다. 잠긴 단계는 이전 목표 달성 후 열립니다';
+  String get appGuideSettingsTitle => isThai ? 'ตั้งค่า' : '설정';
+  String get appGuideSettingsBody => isThai
+      ? 'เปลี่ยนภาษาอินเทอร์เฟซ ดูวิธีใช้ รีเซ็ตประวัติ และตรวจสอบที่มาของข้อมูลได้'
+      : '인터페이스 언어 변경, 앱 설명 다시 보기, 학습 기록 초기화, 출처 확인을 할 수 있습니다';
+  String get appGuideDone => isThai ? 'เริ่มเลย' : '시작하기';
+  String get showAppGuide => isThai ? 'ดูวิธีใช้แอป' : '앱 설명 보기';
   String get lockedStage =>
       isThai ? 'เรียนคอร์สก่อนหน้าให้ถึงเป้าหมาย' : '이전 단계 목표 달성 후 열림';
   String courseProgress(int learningPercent, int correct, int attempts,
@@ -495,7 +526,6 @@ class AppText {
   String get clearSearch => isThai ? 'ล้างคำค้นหา' : '검색어 지우기';
   String get noSearchResults => isThai ? 'ไม่พบผลการค้นหา' : '검색 결과가 없습니다';
   String get studyStatus => isThai ? 'สถานะการเรียน' : '학습 상태';
-  String get totalWords => isThai ? 'คำทั้งหมด' : '전체 단어';
   String get seenWords => isThai ? 'เรียนแล้ว' : '학습한 단어';
   String get correctWords => isThai ? 'ตอบถูก' : '정답 단어';
   String get resetProgress => isThai ? 'รีเซ็ตประวัติการเรียน' : '학습 기록 초기화';
@@ -518,8 +548,21 @@ class AppText {
   String get thai => isThai ? 'ไทย' : '태국어';
   String get source => isThai ? 'ที่มา' : '출처';
   String get data => isThai ? 'ข้อมูล' : '데이터';
+  String get dictionaryText => isThai ? 'ข้อความพจนานุกรม' : '사전 텍스트';
+  String get dictionaryTextDescription => isThai
+      ? 'คำศัพท์ ความหมาย คำแปล และข้อมูลที่เกี่ยวข้องบางส่วนอ้างอิงจากพจนานุกรมพื้นฐานภาษาเกาหลี'
+      : '단어, 뜻풀이, 번역, 관련 정보 일부는 한국어기초사전 자료를 바탕으로 구성했습니다';
   String get language => isThai ? 'ภาษา' : '언어';
   String get license => isThai ? 'ลิขสิทธิ์' : '라이선스';
+  String get licenseSummary => isThai
+      ? 'ข้อมูลข้อความของพจนานุกรมพื้นฐานภาษาเกาหลีเผยแพร่ภายใต้เงื่อนไข Creative Commons Attribution-Share Alike โดยต้องแสดงที่มา และหากดัดแปลงต้องใช้เงื่อนไขเดียวกัน'
+      : '한국어기초사전의 텍스트 자료는 Creative Commons Attribution-Share Alike 조건에 따라 이용하며, 출처 표시와 변경 자료의 동일조건 배포 조건을 따릅니다';
+  String get multimediaNotice => isThai
+      ? 'แอปนี้ไม่ได้รวมไฟล์เสียง รูปภาพ หรือมัลติมีเดียจากพจนานุกรม เสียงอ่านใช้ TTS ของอุปกรณ์'
+      : '이 앱은 사전의 음성, 이미지 등 멀티미디어 파일을 포함하지 않으며, 발음 듣기는 기기 TTS를 사용합니다';
+  String get appContentNotice => isThai
+      ? 'หน้าจอ แบบทดสอบ การจัดระดับ และข้อมูลความคืบหน้าเป็นการจัดเรียงเพื่อการเรียนในแอปนี้'
+      : '화면 구성, 퀴즈, 단계 분류, 학습 기록 기능은 이 앱에서 학습용으로 재구성한 내용입니다';
   String get officialLinks => isThai ? 'ลิงก์ทางการ' : '공식 링크';
   String get previous => isThai ? 'ก่อนหน้า' : '이전';
   String get next => isThai ? 'ถัดไป' : '다음';
@@ -778,6 +821,7 @@ class StudyState extends ChangeNotifier {
   static const String _memoryRatingKey = 'memory_ratings';
   static const String _courseStageKey = 'course_stage_id';
   static const String _onboardingCompleteKey = 'onboarding_complete';
+  static const String _appGuideSeenKey = 'app_guide_seen';
   static const String _quizAttemptsByStageKey = 'quiz_attempts_by_stage';
   static const String _quizCorrectByStageKey = 'quiz_correct_by_stage';
 
@@ -791,6 +835,7 @@ class StudyState extends ChangeNotifier {
   final Map<String, int> _quizCorrectByStage = <String, int>{};
   CourseStage _courseStage = CourseCatalog.defaultStage;
   bool _onboardingComplete = false;
+  bool _appGuideSeen = false;
   bool _loaded = false;
 
   Set<String> get favoriteIds => Set.unmodifiable(_favoriteIds);
@@ -801,6 +846,7 @@ class StudyState extends ChangeNotifier {
       Map.unmodifiable(_memoryRatings);
   CourseStage get courseStage => _courseStage;
   bool get onboardingComplete => _onboardingComplete;
+  bool get appGuideSeen => _appGuideSeen;
   bool get loaded => _loaded;
 
   Future<void> load() async {
@@ -837,6 +883,8 @@ class StudyState extends ChangeNotifier {
           preferences.getStringList(_quizCorrectByStageKey) ?? const []));
     _courseStage = CourseCatalog.byId(preferences.getString(_courseStageKey));
     _onboardingComplete = preferences.getBool(_onboardingCompleteKey) ?? false;
+    _appGuideSeen =
+        preferences.getBool(_appGuideSeenKey) ?? _onboardingComplete;
     _loaded = true;
     notifyListeners();
   }
@@ -938,6 +986,20 @@ class StudyState extends ChangeNotifier {
     }
     notifyListeners();
     await _saveCourse();
+  }
+
+  Future<void> markAppGuideSeen() async {
+    if (_appGuideSeen) {
+      return;
+    }
+    _appGuideSeen = true;
+    notifyListeners();
+
+    if (!persistenceEnabled) {
+      return;
+    }
+    final preferences = await SharedPreferences.getInstance();
+    await preferences.setBool(_appGuideSeenKey, true);
   }
 
   Future<void> clearWrong(String wordId) async {
@@ -1249,6 +1311,12 @@ class _HomeScreenState extends State<HomeScreen> {
               return PlacementScreen(
                 data: snapshot.data!,
                 studyState: _studyState,
+              );
+            }
+
+            if (!_studyState.appGuideSeen) {
+              return AppGuideScreen(
+                onDone: _studyState.markAppGuideSeen,
               );
             }
 
@@ -1681,6 +1749,191 @@ class _PlacementGuideRow extends StatelessWidget {
   }
 }
 
+class AppGuideScreen extends StatelessWidget {
+  const AppGuideScreen({
+    required this.onDone,
+    super.key,
+  });
+
+  final Future<void> Function() onDone;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = context.t;
+    final items = [
+      _GuideItem(
+        icon: Icons.play_circle_outline,
+        title: t.appGuideContinueTitle,
+        body: t.appGuideContinueBody,
+        color: CutePalette.softPink,
+      ),
+      _GuideItem(
+        icon: Icons.quiz_outlined,
+        title: t.appGuideQuizTitle,
+        body: t.appGuideQuizBody,
+        color: CutePalette.lavender,
+      ),
+      _GuideItem(
+        icon: Icons.today_outlined,
+        title: t.appGuideReviewTitle,
+        body: t.appGuideReviewBody,
+        color: CutePalette.sky,
+      ),
+      _GuideItem(
+        icon: Icons.report_gmailerrorred_outlined,
+        title: t.appGuideWrongTitle,
+        body: t.appGuideWrongBody,
+        color: CutePalette.dangerBg,
+      ),
+      _GuideItem(
+        icon: Icons.route_outlined,
+        title: t.appGuideRoadmapTitle,
+        body: t.appGuideRoadmapBody,
+        color: CutePalette.cream,
+      ),
+      _GuideItem(
+        icon: Icons.settings_outlined,
+        title: t.appGuideSettingsTitle,
+        body: t.appGuideSettingsBody,
+        color: CutePalette.mint,
+      ),
+    ];
+
+    return Scaffold(
+      appBar: AppBar(title: Text(t.appGuideTitle)),
+      body: SafeArea(
+        child: ListView(
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+          children: [
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(18),
+                child: Row(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: Image.asset(
+                        'assets/branding/app_icon_1024.png',
+                        width: 64,
+                        height: 64,
+                      ),
+                    ),
+                    const SizedBox(width: 14),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            t.appGuideTitle,
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleLarge
+                                ?.copyWith(fontWeight: FontWeight.w900),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            t.appGuideIntro,
+                            style: const TextStyle(color: CutePalette.muted),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 12),
+            for (final item in items) ...[
+              _GuideFeatureCard(item: item),
+              const SizedBox(height: 8),
+            ],
+            const SizedBox(height: 6),
+            FilledButton.icon(
+              onPressed: () async => onDone(),
+              icon: const Icon(Icons.arrow_forward),
+              label: Text(t.appGuideDone),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _GuideItem {
+  const _GuideItem({
+    required this.icon,
+    required this.title,
+    required this.body,
+    required this.color,
+  });
+
+  final IconData icon;
+  final String title;
+  final String body;
+  final Color color;
+}
+
+class _GuideFeatureCard extends StatelessWidget {
+  const _GuideFeatureCard({required this.item});
+
+  final _GuideItem item;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: EdgeInsets.zero,
+      child: Padding(
+        padding: const EdgeInsets.all(14),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _IconBubble(
+              icon: item.icon,
+              backgroundColor: item.color,
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.arrow_forward,
+                        size: 16,
+                        color: CutePalette.hotPink,
+                      ),
+                      const SizedBox(width: 4),
+                      Expanded(
+                        child: Text(
+                          item.title,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w900,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    item.body,
+                    style: const TextStyle(
+                      color: CutePalette.muted,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class HomeShell extends StatefulWidget {
   const HomeShell({
     required this.data,
@@ -1704,7 +1957,6 @@ class _HomeShellState extends State<HomeShell> {
       StudyTab(data: widget.data, studyState: widget.studyState),
       SettingsScreen(
         studyState: widget.studyState,
-        wordCount: widget.data.words.length,
       ),
     ];
 
@@ -1725,17 +1977,6 @@ class _HomeShellState extends State<HomeShell> {
             Text(context.t.appTitle),
           ],
         ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 16),
-            child: Center(
-              child: Text(
-                context.t.wordsLabel(widget.data.words.length),
-                style: Theme.of(context).textTheme.labelLarge,
-              ),
-            ),
-          ),
-        ],
       ),
       body: pages[_selectedIndex],
       bottomNavigationBar: NavigationBar(
@@ -2413,12 +2654,10 @@ class _IconBubble extends StatelessWidget {
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({
     required this.studyState,
-    required this.wordCount,
     super.key,
   });
 
   final StudyState studyState;
-  final int wordCount;
 
   Future<void> _confirmReset(BuildContext context) async {
     final t = context.t;
@@ -2483,7 +2722,6 @@ class SettingsScreen extends StatelessWidget {
               return InfoSection(
                 title: t.studyStatus,
                 children: [
-                  InfoRow(label: t.totalWords, value: t.wordsLabel(wordCount)),
                   InfoRow(
                       label: t.seenWords,
                       value: t.wordsLabel(studyState.seenIds.length)),
@@ -2499,6 +2737,26 @@ class SettingsScreen extends StatelessWidget {
                 ],
               );
             },
+          ),
+          const SizedBox(height: 12),
+          Card(
+            child: ListTile(
+              leading: const Icon(Icons.help_outline),
+              title: Text(
+                t.showAppGuide,
+                style: const TextStyle(fontWeight: FontWeight.w800),
+              ),
+              subtitle: Text(t.appGuideIntro),
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (routeContext) => AppGuideScreen(
+                      onDone: () async => Navigator.of(routeContext).pop(),
+                    ),
+                  ),
+                );
+              },
+            ),
           ),
           const SizedBox(height: 12),
           Card(
@@ -2524,7 +2782,7 @@ class SettingsScreen extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute<void>(
-                    builder: (_) => DataAttributionScreen(wordCount: wordCount),
+                    builder: (_) => const DataAttributionScreen(),
                   ),
                 );
               },
@@ -2895,9 +3153,7 @@ class QuizStartTile extends StatelessWidget {
 }
 
 class DataAttributionScreen extends StatelessWidget {
-  const DataAttributionScreen({required this.wordCount, super.key});
-
-  final int wordCount;
+  const DataAttributionScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -2912,7 +3168,9 @@ class DataAttributionScreen extends StatelessWidget {
               title: t.data,
               children: [
                 InfoRow(label: t.source, value: t.krdict),
-                InfoRow(label: t.data, value: t.wordsLabel(wordCount)),
+                InfoRow(
+                    label: t.dictionaryText,
+                    value: t.dictionaryTextDescription),
                 InfoRow(label: t.language, value: '${t.korean} · ${t.thai}'),
               ],
             ),
@@ -2921,20 +3179,14 @@ class DataAttributionScreen extends StatelessWidget {
               title: t.license,
               children: [
                 InfoRow(
-                    label: t.isThai ? 'ข้อความ' : '텍스트',
-                    value: t.isThai
-                        ? 'ต้องตรวจสอบเงื่อนไข CC BY-SA'
-                        : 'CC BY-SA 조건 확인 필요'),
+                    label: t.isThai ? 'CC BY-SA' : 'CC BY-SA',
+                    value: t.licenseSummary),
                 InfoRow(
                     label: t.isThai ? 'การแสดงในแอป' : '앱 표시',
-                    value: t.isThai
-                        ? 'คงที่มาและประกาศลิขสิทธิ์ของต้นฉบับ'
-                        : '원문 출처와 라이선스 고지 유지'),
+                    value: t.appContentNotice),
                 InfoRow(
-                    label: t.isThai ? 'ข้อควรระวัง' : '주의',
-                    value: t.isThai
-                        ? 'เสียง รูปภาพ และมัลติมีเดียต้องตรวจสอบเงื่อนไขแยกต่างหาก'
-                        : '오디오, 이미지 등 멀티미디어는 별도 조건 확인'),
+                    label: t.isThai ? 'มัลติมีเดีย' : '멀티미디어',
+                    value: t.multimediaNotice),
               ],
             ),
             const SizedBox(height: 12),

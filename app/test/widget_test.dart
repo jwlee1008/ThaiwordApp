@@ -23,10 +23,14 @@ Future<void> tapQuizTab(WidgetTester tester) async {
 }
 
 Future<void> scrollToText(WidgetTester tester, String text) async {
+  final visibleScrollables = find.byType(Scrollable).hitTestable();
+  final scrollable = visibleScrollables.evaluate().isNotEmpty
+      ? visibleScrollables.first
+      : find.byType(Scrollable).first;
   await tester.scrollUntilVisible(
     find.text(text),
     120,
-    scrollable: find.byType(Scrollable).first,
+    scrollable: scrollable,
   );
   await tester.pump();
 }
@@ -277,7 +281,7 @@ void main() {
     expect(find.text('현재 코스'), findsOneWidget);
     expect(find.text('초급 첫걸음'), findsWidgets);
     expect(find.textContaining('학습률 0%'), findsWidgets);
-    expect(find.text('3개'), findsOneWidget);
+    expect(find.text('3개'), findsNothing);
     await scrollToText(tester, '학습 로드맵');
     expect(find.text('학습 로드맵'), findsOneWidget);
     expect(find.textContaining('다음 업데이트에서 열릴 예정'), findsNothing);
@@ -334,11 +338,21 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
 
+    expect(find.text('KorThai Words 사용법'), findsWidgets);
+    expect(find.text('공부 계속하기'), findsOneWidget);
+    expect(find.text('퀴즈 보기'), findsOneWidget);
+
+    await scrollToText(tester, '시작하기');
+    await tester.tap(find.text('시작하기'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+
     expect(find.text('현재 코스'), findsOneWidget);
     expect(find.text('초급 첫걸음'), findsWidgets);
 
     final preferences = await SharedPreferences.getInstance();
     expect(preferences.getBool('onboarding_complete'), isTrue);
+    expect(preferences.getBool('app_guide_seen'), isTrue);
     expect(preferences.getString('course_stage_id'), 'beginner_foundation');
   });
 
@@ -650,8 +664,10 @@ void main() {
 
     expect(find.text('출처 및 라이선스'), findsWidgets);
     expect(find.text('국립국어원 한국어기초사전'), findsWidgets);
-    expect(find.text('3개'), findsWidgets);
-    expect(find.textContaining('https://krdict.korean.go.kr'), findsWidgets);
+    expect(find.textContaining('CC BY-SA'), findsWidgets);
+    expect(find.textContaining('기기 TTS'), findsWidgets);
+    expect(find.text('https://krdict.korean.go.kr', skipOffstage: false),
+        findsOneWidget);
   });
 
   testWidgets('does not show standalone level quiz on the study tab',
@@ -783,8 +799,35 @@ void main() {
     await tapSettingsTab(tester);
 
     expect(find.text('학습 코스 변경은 잠겨 있습니다'), findsOneWidget);
+    expect(find.text('추후 업데이트에서 코스 변경 기능을 제공할 예정입니다'), findsOneWidget);
+    expect(find.textContaining('유료'), findsNothing);
     expect(find.byKey(const ValueKey('course_beginner_foundation')),
         findsOneWidget);
+  });
+
+  testWidgets('opens app guide from settings', (WidgetTester tester) async {
+    await tester.pumpWidget(const ThaiKoreanWordApp(initialData: sampleData));
+    await pumpUntilFound(tester, find.text('현재 코스'));
+
+    await tapSettingsTab(tester);
+    await tester.scrollUntilVisible(
+      find.text('앱 설명 보기'),
+      120,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.tap(find.text('앱 설명 보기'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+
+    expect(find.text('KorThai Words 사용법'), findsWidgets);
+    expect(find.text('오늘의 복습'), findsOneWidget);
+
+    await scrollToText(tester, '시작하기');
+    await tester.tap(find.text('시작하기'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+
+    expect(find.text('설정'), findsWidgets);
   });
 
   testWidgets('opens settings and resets study state',
